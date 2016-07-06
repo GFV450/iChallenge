@@ -57,7 +57,7 @@ extension AppDelegate {
         if (user != nil) {
             // if we have a user, set the MainViewController to be the initial view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         } else {
             // Otherwise set the Paged to be the initial view controller
             startViewController = pagedScrollViewController
@@ -81,7 +81,7 @@ extension AppDelegate {
     // MARK: - Helper Methods
     func login() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        startViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         
         window?.rootViewController? = startViewController
         

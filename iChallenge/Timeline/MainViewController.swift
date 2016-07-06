@@ -1,5 +1,5 @@
 //
-//  TimeLineViewController.swift
+//  MainViewController.swift
 //  iChallenge
 //
 //  Created by Jake on 7/2/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     // MARK: - View Lifecycles
     override func viewDidLoad() {
