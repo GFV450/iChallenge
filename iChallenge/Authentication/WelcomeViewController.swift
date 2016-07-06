@@ -35,12 +35,9 @@ class WelcomeViewController : UIViewController {
     }
     
     // MARK:- Actions
-    @IBAction func signUpButtonPressed(sender: AnyObject) {
-        
-    }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
     }
 }
 
