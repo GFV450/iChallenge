@@ -19,43 +19,96 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mdm-KL-kCj">
-                                <rect key="frame" x="16" y="130" width="343" height="537"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E6d-x6-8H2">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="E6d-x6-8H2">
+                                    <size key="itemSize" width="160" height="160"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="35" minY="8" maxX="35" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Yth-4y-RiB">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChallengeCell" id="Yth-4y-RiB" customClass="MainCollectionViewCell" customModule="iChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="107.5" y="122" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headtohead" translatesAutoresizingMaskIntoConstraints="NO" id="Sgq-p3-8KX">
+                                                    <rect key="frame" x="8" y="8" width="144" height="76"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rg5-8T-27r">
+                                                    <rect key="frame" x="17" y="93" width="126" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEj-aP-9Ty">
+                                                    <rect key="frame" x="67" y="127" width="25" height="22"/>
+                                                    <state key="normal" image="check"/>
+                                                    <state key="selected" image="greencheck"/>
+                                                    <connections>
+                                                        <action selector="doneButtonTapped:" destination="Yth-4y-RiB" eventType="touchUpInside" id="jxi-1c-Zge"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Rg5-8T-27r" firstAttribute="top" secondItem="Sgq-p3-8KX" secondAttribute="bottom" constant="9" id="4HE-Jr-WJI"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Sgq-p3-8KX" secondAttribute="trailing" id="Is3-IW-PKO"/>
+                                            <constraint firstItem="Sgq-p3-8KX" firstAttribute="top" secondItem="Yth-4y-RiB" secondAttribute="topMargin" id="Qqa-p7-PTk"/>
+                                            <constraint firstItem="Sgq-p3-8KX" firstAttribute="leading" secondItem="Yth-4y-RiB" secondAttribute="leadingMargin" id="r4P-R3-KC7"/>
+                                            <constraint firstItem="Rg5-8T-27r" firstAttribute="centerX" secondItem="Yth-4y-RiB" secondAttribute="centerX" id="uiO-Bx-pki"/>
+                                        </constraints>
                                         <connections>
+                                            <outlet property="challengeNameLabel" destination="Rg5-8T-27r" id="bqn-to-LtC"/>
+                                            <outlet property="doneButton" destination="JEj-aP-9Ty" id="VuE-NG-3Wx"/>
+                                            <outlet property="userImageView" destination="Sgq-p3-8KX" id="Zjm-8P-L2y"/>
                                             <segue destination="Xbz-0f-FVV" kind="show" id="67J-RZ-33o"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="IOj-Ww-nnN" customClass="MainCollectionReusableView" customModule="iChallenge" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Challenges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-VM-ttz">
+                                            <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="cb6-VM-ttz" secondAttribute="bottom" constant="4" id="Cn6-wL-oKT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="cb6-VM-ttz" secondAttribute="bottom" id="IS5-UL-Bat"/>
+                                        <constraint firstItem="cb6-VM-ttz" firstAttribute="leading" secondItem="IOj-Ww-nnN" secondAttribute="leadingMargin" id="Z9F-HO-JfO"/>
+                                        <constraint firstItem="cb6-VM-ttz" firstAttribute="top" secondItem="IOj-Ww-nnN" secondAttribute="topMargin" id="hfW-qu-YuS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="cb6-VM-ttz" secondAttribute="trailing" id="vOh-Dx-uAf"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Cn6-wL-oKT"/>
+                                        </mask>
+                                    </variation>
+                                    <connections>
+                                        <outlet property="headerLabel" destination="cb6-VM-ttz" id="A10-u3-9Rg"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2V9-jn-Rv6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ceh-hH-uSm"/>
+                                </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Challenges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-VM-ttz">
-                                <rect key="frame" x="108" y="84" width="159.5" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mdm-KL-kCj" secondAttribute="bottom" id="52K-1C-oL4"/>
-                            <constraint firstItem="cb6-VM-ttz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="5xu-qd-sws"/>
-                            <constraint firstItem="cb6-VM-ttz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tua-eC-6ue"/>
-                            <constraint firstItem="Mdm-KL-kCj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="W2h-2g-yBb"/>
-                            <constraint firstItem="Mdm-KL-kCj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fzo-FX-Ib5"/>
-                            <constraint firstItem="Mdm-KL-kCj" firstAttribute="top" secondItem="cb6-VM-ttz" secondAttribute="bottom" constant="20" id="zbI-eL-FZ0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mdm-KL-kCj" secondAttribute="bottom" id="ITq-0w-90t"/>
+                            <constraint firstAttribute="trailing" secondItem="Mdm-KL-kCj" secondAttribute="trailing" id="cdf-EG-LWz"/>
+                            <constraint firstItem="Mdm-KL-kCj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="da2-0h-Ylb"/>
+                            <constraint firstItem="Mdm-KL-kCj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pqK-q6-ztw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KBz-Wn-B5f">
@@ -68,6 +121,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Mdm-KL-kCj" id="wrB-tV-whh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,6 +193,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="25" height="19"/>
+        <image name="greencheck" width="25" height="20"/>
         <image name="hamburger" width="20" height="20"/>
+        <image name="headtohead" width="76" height="76"/>
     </resources>
 </document>

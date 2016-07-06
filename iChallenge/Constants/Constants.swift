@@ -11,12 +11,15 @@ import UIKit
 // MARK: - Parse Helper Constants
 struct ParseHelperConstants {
     // Challenge Relation
-    static let ChallengeClass    = "Follow"
+    static let ChallengeClass    = "Challenge"
     static let ChallengeFromUser = "fromChallenger"
     static let ChallengeToUser   = "toChallengedUser"
+    static let isComplete        = "isComplete"
 }
 
 // MARK: - Identifier Constants
 struct IdentifierConstants {
-    static let FriendSearchCellIdentifier = "UserCell"
+    static let ChallengeCollectionViewCellIdentifier = "ChallengeCell"
+    static let ChallengeCollectionViewHeader         = "HeaderView"
+    static let FriendSearchCellIdentifier            = "UserCell"
 }

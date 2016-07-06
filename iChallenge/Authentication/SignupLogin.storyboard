@@ -28,7 +28,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpButtonPressed:" destination="H6i-ae-aJi" eventType="touchUpInside" id="nKK-Kz-Qsc"/>
                                     <segue destination="eBe-qc-EpY" kind="show" id="THN-bH-MqP"/>
                                 </connections>
                             </button>
