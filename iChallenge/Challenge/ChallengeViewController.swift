@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ChallengeViewController: UIViewController {
 
+    @IBOutlet weak var userImage: UIImageView!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
 
+    func changeImageView()
+    {
+        userImage.layer.cornerRadius = 3;
+        userImage.clipsToBounds = true
+    }
 }

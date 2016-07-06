@@ -201,12 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7E7860F1D2845CE005FB7B3 /* Build configuration list for PBXNativeTarget "iChallenge" */;
 			buildPhases = (
-				872C4752B834AA564A1D86A0 /* 📦 Check Pods Manifest.lock */,
+				872C4752B834AA564A1D86A0 /* [CP] Check Pods Manifest.lock */,
 				E7E785F91D2845CE005FB7B3 /* Sources */,
 				E7E785FA1D2845CE005FB7B3 /* Frameworks */,
 				E7E785FB1D2845CE005FB7B3 /* Resources */,
-				B8AACD57A69C056DED987815 /* 📦 Embed Pods Frameworks */,
-				EDF987C0AE95AECB1387F8EF /* 📦 Copy Pods Resources */,
+				B8AACD57A69C056DED987815 /* [CP] Embed Pods Frameworks */,
+				EDF987C0AE95AECB1387F8EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,14 +267,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		872C4752B834AA564A1D86A0 /* 📦 Check Pods Manifest.lock */ = {
+		872C4752B834AA564A1D86A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,14 +282,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B8AACD57A69C056DED987815 /* 📦 Embed Pods Frameworks */ = {
+		B8AACD57A69C056DED987815 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +297,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDF987C0AE95AECB1387F8EF /* 📦 Copy Pods Resources */ = {
+		EDF987C0AE95AECB1387F8EF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
