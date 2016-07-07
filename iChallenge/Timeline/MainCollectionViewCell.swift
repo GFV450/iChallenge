@@ -13,10 +13,5 @@ class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var challengeNameLabel: UILabel!
-    @IBOutlet weak var doneButton: UIButton!
-    
-    // MARK: - IBActions
-    @IBAction func doneButtonTapped(sender: AnyObject) {
-    }
     
 }

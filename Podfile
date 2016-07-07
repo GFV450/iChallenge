@@ -8,4 +8,6 @@ target 'iChallenge' do
   # Pods for iChallenge
 pod 'Parse'
 pod 'Material'
+pod 'ConvenienceKit'
+pod 'Bond'
 end

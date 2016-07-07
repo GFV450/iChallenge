@@ -32,16 +32,6 @@ class CreateChallengeViewController: UIViewController
 
     @IBAction func createChallengeButtonPressed(sender: AnyObject)
     {
-//        photoTakingHelper = PhotoTakingHelper(viewController: self.tabBarController!, callback: { (image: UIImage?) in
-//            if let image = image {
-//                let imageData = UIImageJPEGRepresentation(image, 0.8)!
-//                let imageFile = PFFile(name: "image.jpg", data: imageData)!
-//                
-//                let post = PFObject(className: "Post")
-//                post["imageFile"] = imageFile
-//                post.saveInBackground()
-//            }
-//        })
         
         let titleString = challengeTitle.text
         let descriptionString = challengeDescription.text
@@ -51,6 +41,7 @@ class CreateChallengeViewController: UIViewController
         object["description"] = descriptionString
         object["title"] = titleString
         object["duration"] = durationString
+        object["isComplete"] = false
         object.saveInBackground()
     }
 }
