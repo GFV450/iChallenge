@@ -26,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareWelcomeViewController()
         prepareWindow()
         
+        // Set up the Parse SDK
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "ichallengeios"
+            $0.server = "https://ichallengeios.herokuapp.com/parse"
+        }
+        Parse.initializeWithConfiguration(configuration)
+        
         return true
     }
     
