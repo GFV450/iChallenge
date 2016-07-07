@@ -246,6 +246,8 @@ public class MaterialView : UIView {
 		didSet {
 			if shadowPathAutoSizeEnabled {
 				layoutShadowPath()
+			} else {
+				shadowPath = nil
 			}
 		}
 	}
@@ -381,7 +383,7 @@ public class MaterialView : UIView {
 	
 	/// A convenience initializer.
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 	}
 	
 	public override func layoutSublayersOfLayer(layer: CALayer) {
@@ -389,12 +391,8 @@ public class MaterialView : UIView {
 		if self.layer == layer {
 			layoutShape()
 			layoutVisualLayer()
+			layoutShadowPath()
 		}
-	}
-	
-	public override func layoutSubviews() {
-		super.layoutSubviews()
-		layoutShadowPath()
 	}
 	
 	/**

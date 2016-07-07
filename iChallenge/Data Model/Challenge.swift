@@ -29,6 +29,10 @@ class Challenge: PFObject, PFSubclassing {
     
     var challengeUploadTask: UIBackgroundTaskIdentifier?
     
+    override class func initialize() {
+        registerSubclass()
+    }
+    
     // MARK: - PFSubclassing Protocol
     static func parseClassName() -> String {
         return "Challenge"
@@ -58,11 +62,11 @@ class Challenge: PFObject, PFSubclassing {
         
         guard PFUser.currentUser() != nil else {return}
         
-        ParseHelper.queryUserChallenges(PFUser.currentUser()!) { (challenges, error) in
+//        ParseHelper.queryUserChallenges(PFUser.currentUser()!) { (challenges, error) in
             // If Challenge isComplete == false populate
             
             
-        }
+//        }
    
         
         

@@ -48,30 +48,31 @@ public extension UIViewController {
 	}
 }
 
-public class SearchBarController : RootController {
+public class SearchBarController : BarViewController {
 	/// Reference to the SearchBar.
 	public private(set) var searchBar: SearchBar!
 	
-	/**
-	To execute in the order of the layout chain, override this
-	method. LayoutSubviews should be called immediately, unless you
-	have a certain need.
-	*/
-	public override func layoutSubviews() {
-		super.layoutSubviews()
-		if let v: SearchBar = searchBar {
-			v.grid.layoutInset.top = .iPhone == MaterialDevice.type && MaterialDevice.isLandscape ? 0 : 20
-			
-			let h: CGFloat = MaterialDevice.height
-			let w: CGFloat = MaterialDevice.width
-			let p: CGFloat = v.intrinsicContentSize().height + v.grid.layoutInset.top + v.grid.layoutInset.bottom
-			
-			v.width = w + v.grid.layoutInset.left + v.grid.layoutInset.right
-			v.height = p
-			
-			rootViewController.view.frame.origin.y = p
-			rootViewController.view.frame.size.height = h - p
+	public override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		layoutSubviews()
+	}
+	
+	/// Layout subviews.
+	public func layoutSubviews() {
+		let w: CGFloat = MaterialDevice.width
+		let h: CGFloat = MaterialDevice.height
+		
+		if .iPhone == MaterialDevice.type && MaterialDevice.isLandscape {
+			searchBar.contentInset.top = 4
+		} else {
+			searchBar.contentInset.top = 24
 		}
+		
+		searchBar.width = w
+		
+		let p: CGFloat = searchBar.intrinsicContentSize().height
+		rootViewController.view.frame.origin.y = p
+		rootViewController.view.frame.size.height = h - p
 	}
 	
 	/**

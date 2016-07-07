@@ -22,8 +22,8 @@ class MainViewController: UIViewController {
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUserChallenges()
-        fetchChallengesToFriends()
+//        fetchUserChallenges()
+//        fetchChallengesToFriends()
     }
     
     func fetchUserChallenges() {

@@ -97,7 +97,7 @@ public class ImageCardView : MaterialPulseView {
 				imageLayer?.hidden = false
 			} else {
 				imageLayer?.contents = nil
-				imageLayer?.frame = CGRect.zero
+				imageLayer?.frame = CGRectZero
 				imageLayer?.hidden = true
 				imageLayer?.removeFromSuperlayer()
 			}
@@ -309,14 +309,14 @@ public class ImageCardView : MaterialPulseView {
 	:name:	init
 	*/
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 	}
 	
 	/**
 	:name:	init
 	*/
 	public convenience init?(image: UIImage? = nil, titleLabel: UILabel? = nil, contentView: UIView? = nil, leftButtons: Array<UIButton>? = nil, rightButtons: Array<UIButton>? = nil) {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 		prepareProperties(image, titleLabel: titleLabel, contentView: contentView, leftButtons: leftButtons, rightButtons: rightButtons)
 	}
 	
@@ -374,17 +374,21 @@ public class ImageCardView : MaterialPulseView {
 		
 		// title
 		if let v: UILabel = titleLabel {
+			addSubview(v)
+			
 			if nil == imageLayer?.contents {
 				verticalFormat += "-[titleLabel]"
 				views["titleLabel"] = v
 			} else {
-				layout(v).top(contentInset.top + titleLabelInset.top)
+				MaterialLayout.alignFromTop(self, child: v, top: contentInset.top + titleLabelInset.top)
 			}
-			layout(v).horizontally(left: contentInset.left + titleLabelInset.left, right: contentInset.right + titleLabelInset.right)
+			MaterialLayout.alignToParentHorizontally(self, child: v, left: contentInset.left + titleLabelInset.left, right: contentInset.right + titleLabelInset.right)
 		}
 		
 		// detail
 		if let v: UIView = contentView {
+			addSubview(v)
+			
 			if nil == imageLayer?.contents && nil != titleLabel {
 				verticalFormat += "-(insetB)"
 				metrics["insetB"] = titleLabelInset.bottom + contentViewInset.top
@@ -395,7 +399,7 @@ public class ImageCardView : MaterialPulseView {
 			verticalFormat += "-[contentView]"
 			views["contentView"] = v
 			
-			layout(v).horizontally(left: contentInset.left + contentViewInset.left, right: contentInset.right + contentViewInset.right)
+			MaterialLayout.alignToParentHorizontally(self, child: v, left: contentInset.left + contentViewInset.left, right: contentInset.right + contentViewInset.right)
 		}
 		
 		// leftButtons
@@ -417,12 +421,13 @@ public class ImageCardView : MaterialPulseView {
 					
 					h += "[\(k)]"
 					
-					layout(b).bottom(contentInset.bottom + leftButtonsInset.bottom)
+					addSubview(b)
+					MaterialLayout.alignFromBottom(self, child: b, bottom: contentInset.bottom + leftButtonsInset.bottom)
 					
 					i += 1
 				}
 				
-				addConstraints(Layout.constraint(h, options: [], metrics: ["left" : contentInset.left + leftButtonsInset.left, "left_right" : leftButtonsInset.left + leftButtonsInset.right], views: d))
+				addConstraints(MaterialLayout.constraint(h, options: [], metrics: ["left" : contentInset.left + leftButtonsInset.left, "left_right" : leftButtonsInset.left + leftButtonsInset.right], views: d))
 			}
 		}
 		
@@ -446,12 +451,13 @@ public class ImageCardView : MaterialPulseView {
 						h += "-(right_left)-"
 					}
 					
-					layout(b).bottom(contentInset.bottom + rightButtonsInset.bottom)
+					addSubview(b)
+					MaterialLayout.alignFromBottom(self, child: b, bottom: contentInset.bottom + rightButtonsInset.bottom)
 					
 					i -= 1
 				}
 				
-				addConstraints(Layout.constraint(h + "|", options: [], metrics: ["right" : contentInset.right + rightButtonsInset.right, "right_left" : rightButtonsInset.right + rightButtonsInset.left], views: d))
+				addConstraints(MaterialLayout.constraint(h + "|", options: [], metrics: ["right" : contentInset.right + rightButtonsInset.right, "right_left" : rightButtonsInset.right + rightButtonsInset.left], views: d))
 			}
 		}
 		
@@ -514,7 +520,7 @@ public class ImageCardView : MaterialPulseView {
 				metrics["insetBottom"] = contentInset.bottom + rightButtonsInset.bottom
 			} else {
 				if translatesAutoresizingMaskIntoConstraints {
-					addConstraints(Layout.constraint("V:[view(height)]", options: [], metrics: ["height": imageLayer!.frame.height], views: ["view": self]))
+					addConstraints(MaterialLayout.constraint("V:[view(height)]", options: [], metrics: ["height": imageLayer!.frame.height], views: ["view": self]))
 				} else {
 					height = imageLayer!.frame.height
 				}
@@ -523,7 +529,7 @@ public class ImageCardView : MaterialPulseView {
 		
 		if 0 < views.count {
 			verticalFormat += "-(insetBottom)-|"
-			addConstraints(Layout.constraint(verticalFormat, options: [], metrics: metrics, views: views))
+			addConstraints(MaterialLayout.constraint(verticalFormat, options: [], metrics: metrics, views: views))
 		}
 	}
 	

@@ -201,7 +201,7 @@ public class MaterialTextLayer : CATextLayer {
 				return v.stringSize(text!, constrainedToWidth: width)
 			}
 		}
-		return CGSize.zero
+		return CGSizeZero
 	}
 	
 	/**

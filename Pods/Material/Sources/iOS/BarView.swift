@@ -31,22 +31,19 @@
 import UIKit
 
 public class BarView : ControlView {
-	/**
-	An initializer that initializes the object with a NSCoder object.
-	- Parameter aDecoder: A NSCoder instance.
-	*/
-	public required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
+	/// Device status bar style.
+	public var statusBarStyle: UIStatusBarStyle {
+		get {
+			return MaterialDevice.statusBarStyle
+		}
+		set(value) {
+			MaterialDevice.statusBarStyle = value
+		}
 	}
 	
-	/**
-	An initializer that initializes the object with a CGRect object.
-	If AutoLayout is used, it is better to initilize the instance
-	using the init() initializer.
-	- Parameter frame: A CGRect instance.
-	*/
-	public override init(frame: CGRect) {
-		super.init(frame: frame)
+	/// A convenience initializer.
+	public convenience init() {
+		self.init(frame: CGRectZero)
 	}
 	
 	/**
@@ -54,8 +51,9 @@ public class BarView : ControlView {
 	- Parameter leftControls: An Array of UIControls that go on the left side.
 	- Parameter rightControls: An Array of UIControls that go on the right side.
 	*/
-	public override init(leftControls: Array<UIControl>? = nil, rightControls: Array<UIControl>? = nil) {
-		super.init(leftControls: leftControls, rightControls: rightControls)
+	public convenience init?(leftControls: Array<UIControl>? = nil, rightControls: Array<UIControl>? = nil) {
+		self.init(frame: CGRectZero)
+		prepareProperties(leftControls, rightControls: rightControls)
 	}
 	
 	/**
@@ -68,5 +66,9 @@ public class BarView : ControlView {
 	public override func prepareView() {
 		super.prepareView()
 		depth = .Depth1
+		spacingPreset = .Spacing1
+		contentInsetPreset = .Square1
+		autoresizingMask = .FlexibleWidth
+		shadowPathAutoSizeEnabled = false
 	}
 }

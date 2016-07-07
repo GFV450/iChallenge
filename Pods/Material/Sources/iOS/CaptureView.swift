@@ -288,7 +288,7 @@ public class CaptureView : MaterialView, UIGestureRecognizerDelegate {
 	:name:	init
 	*/
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 	}
 	
 	/**
@@ -311,7 +311,7 @@ public class CaptureView : MaterialView, UIGestureRecognizerDelegate {
 			v.frame.origin.x = bounds.width - v.bounds.width - contentInset.right
 		}
 		if let v: AVCaptureConnection = (previewView.layer as! AVCaptureVideoPreviewLayer).connection {
-			v.videoOrientation = captureSession.videoOrientation
+			v.videoOrientation = captureSession.currentVideoOrientation
 		}
 	}
 	

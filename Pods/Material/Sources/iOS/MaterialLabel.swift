@@ -116,7 +116,6 @@ public class MaterialLabel : UILabel {
 		wrapped = true
 		contentsScale = MaterialDevice.scale
 		super.init(coder: aDecoder)
-		prepareView()
 	}
 	
 	/**
@@ -133,7 +132,8 @@ public class MaterialLabel : UILabel {
 	:name:	init
 	*/
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
+		prepareView()
 	}
 	
 	/**

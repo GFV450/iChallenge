@@ -33,7 +33,7 @@ import UIKit
 public class ControlView : MaterialView {
 	/// Will render the view.
 	public var willRenderView: Bool {
-		return 0 < width && 0 < height
+		return 0 < width
 	}
 	
 	/// A preset wrapper around contentInset.
@@ -73,16 +73,8 @@ public class ControlView : MaterialView {
 		}
 	}
 	
-	/// Grid cell factor.
-	@IBInspectable public var gridFactor: CGFloat = 24 {
-		didSet {
-			assert(0 < gridFactor, "[Material Error: gridFactor must be greater than 0.]")
-			layoutSubviews()
-		}
-	}
-
 	/// ContentView that holds the any desired subviews.
-	public private(set) var contentView: MaterialView!
+	public private(set) lazy var contentView: MaterialView = MaterialView()
 	
 	/// Left side UIControls.
 	public var leftControls: Array<UIControl>? {
@@ -138,20 +130,13 @@ public class ControlView : MaterialView {
 		super.init(frame: frame)
 	}
 	
-	/// Basic initializer.
-	public init() {
-		super.init(frame: CGRect.zero)
-		frame.size = intrinsicContentSize()
-	}
-	
 	/**
 	A convenience initializer with parameter settings.
 	- Parameter leftControls: An Array of UIControls that go on the left side.
 	- Parameter rightControls: An Array of UIControls that go on the right side.
 	*/
-	public init(leftControls: Array<UIControl>? = nil, rightControls: Array<UIControl>? = nil) {
-		super.init(frame: CGRect.zero)
-		frame.size = intrinsicContentSize()
+	public convenience init?(leftControls: Array<UIControl>? = nil, rightControls: Array<UIControl>? = nil) {
+		self.init(frame: CGRectZero)
 		prepareProperties(leftControls, rightControls: rightControls)
 	}
 	
@@ -159,8 +144,10 @@ public class ControlView : MaterialView {
 		super.layoutSubviews()
 		if willRenderView {
 			layoutIfNeeded()
+			frame.size.height = intrinsicContentSize().height
 			
-			if let g: Int = Int(width / gridFactor) {
+			let factor: CGFloat = 24
+			if let g: Int = Int(width / factor) {
 				let columns: Int = g + 1
 				
 				grid.views = []
@@ -175,7 +162,7 @@ public class ControlView : MaterialView {
 						(c as? UIButton)?.contentEdgeInsets = UIEdgeInsetsZero
 						c.frame.size.height = frame.size.height - contentInset.top - contentInset.bottom
 						
-						let q: Int = Int(w / gridFactor)
+						let q: Int = Int(w / factor)
 						c.grid.columns = q + 1
 						
 						contentView.grid.columns -= c.grid.columns
@@ -195,7 +182,7 @@ public class ControlView : MaterialView {
 						(c as? UIButton)?.contentEdgeInsets = UIEdgeInsetsZero
 						c.frame.size.height = frame.size.height - contentInset.top - contentInset.bottom
 						
-						let q: Int = Int(w / gridFactor)
+						let q: Int = Int(w / factor)
 						c.grid.columns = q + 1
 						
 						contentView.grid.columns -= c.grid.columns
@@ -208,13 +195,12 @@ public class ControlView : MaterialView {
 				grid.contentInset = contentInset
 				grid.spacing = spacing
 				grid.reloadLayout()
-				contentView.grid.reloadLayout()
 			}
 		}
 	}
 	
 	public override func intrinsicContentSize() -> CGSize {
-		return CGSizeMake(width, 44)
+		return CGSizeMake(width, 36 + contentInset.top + contentInset.bottom)
 	}
 	
 	/**
@@ -226,10 +212,6 @@ public class ControlView : MaterialView {
 	*/
 	public override func prepareView() {
 		super.prepareView()
-		spacingPreset = .Spacing1
-		contentInsetPreset = .Square1
-		autoresizingMask = .FlexibleWidth
-		shadowPathAutoSizeEnabled = false
 		prepareContentView()
 	}
 	
@@ -245,7 +227,6 @@ public class ControlView : MaterialView {
 	
 	/// Prepares the contentView.
 	private func prepareContentView() {
-		contentView = MaterialView()
 		contentView.backgroundColor = nil
 		addSubview(contentView)
 	}

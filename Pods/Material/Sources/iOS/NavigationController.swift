@@ -58,10 +58,21 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 		setViewControllers([rootViewController], animated: false)
 	}
 	
+	public override func viewDidLoad() {
+		super.viewDidLoad()
+		prepareView()
+		
+		// This ensures the panning gesture is available when going back between views.
+		if let v: UIGestureRecognizer = interactivePopGestureRecognizer {
+			v.enabled = true
+			v.delegate = self
+		}
+	}
+	
 	public override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		if let v: UIGestureRecognizer = interactivePopGestureRecognizer {
-			if let x: NavigationDrawerController = navigationDrawerController {
+			if let x: SideNavigationController = sideNavigationController {
 				if let l: UIPanGestureRecognizer = x.leftPanGesture {
 					l.requireGestureRecognizerToFail(v)
 				}
@@ -70,11 +81,6 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 				}
 			}
 		}
-	}
-	
-	public override func viewDidLoad() {
-		super.viewDidLoad()
-		prepareView()
 	}
 	
 	public override func viewDidAppear(animated: Bool) {
@@ -89,7 +95,7 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 	
 	/**
 	Detects the gesture recognizer being used. This is necessary when using 
-	NavigationDrawerController. It eliminates the conflict in panning.
+	SideNavigationController. It eliminates the conflict in panning.
 	- Parameter gestureRecognizer: A UIGestureRecognizer to detect.
 	- Parameter touch: The UITouch event.
 	- Returns: A Boolean of whether to continue the gesture or not, true yes, false no.
@@ -122,6 +128,7 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 			}
 			
 			item.backButton = backButton
+			item.hidesBackButton = true
 			v.layoutNavigationItem(item)
 		}
 		return true
@@ -142,11 +149,5 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 	public func prepareView() {
 		view.clipsToBounds = true
 		view.contentScaleFactor = MaterialDevice.scale
-		
-		// This ensures the panning gesture is available when going back between views.
-		if let v: UIGestureRecognizer = interactivePopGestureRecognizer {
-			v.enabled = true
-			v.delegate = self
-		}
 	}
 }

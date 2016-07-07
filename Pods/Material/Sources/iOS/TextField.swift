@@ -49,8 +49,8 @@ public class TextField : UITextField {
 			layer.masksToBounds = value
 		}
 	}
-    
-    /// A property that accesses the backing layer's backgroundColor.
+	
+	/// A property that accesses the backing layer's backgroundColor.
 	@IBInspectable public override var backgroundColor: UIColor? {
 		didSet {
 			layer.backgroundColor = backgroundColor?.CGColor
@@ -176,7 +176,7 @@ public class TextField : UITextField {
 	}
 	
 	/// The placeholder UILabel.
-	@IBInspectable public private(set) lazy var placeholderLabel: UILabel = UILabel(frame: CGRect.zero)
+	@IBInspectable public private(set) lazy var placeholderLabel: UILabel = UILabel(frame: CGRectZero)
 	
 	/// Placeholder textColor.
 	@IBInspectable public var placeholderColor: UIColor = MaterialColor.darkText.others {
@@ -201,11 +201,8 @@ public class TextField : UITextField {
 		}
 	}
 	
-	/// This property adds a padding to placeholder y position animation
-	public var placeholderVerticalOffset: CGFloat = 0
-	
 	/// The detailLabel UILabel that is displayed.
-	@IBInspectable public private(set) lazy var detailLabel: UILabel = UILabel(frame: CGRect.zero)
+	@IBInspectable public private(set) lazy var detailLabel: UILabel = UILabel(frame: CGRectZero)
 	
 	
 	/// The detailLabel text value.
@@ -230,13 +227,6 @@ public class TextField : UITextField {
 			}
 		}
 	}
-    
-	/// Vertical distance for the detailLabel from the divider.
-	@IBInspectable public var detailVerticalOffset: CGFloat = 8 {
-		didSet {
-			layoutDetailLabel()
-		}
-	}
 	
 	/// Handles the textAlignment of the placeholderLabel.
 	public override var textAlignment: NSTextAlignment {
@@ -259,7 +249,7 @@ public class TextField : UITextField {
 			if value {
 				if nil == clearIconButton {
 					let image: UIImage? = MaterialIcon.cm.clear
-					clearIconButton = IconButton(frame: CGRect.zero)
+					clearIconButton = IconButton(frame: CGRectZero)
 					clearIconButton!.contentEdgeInsets = UIEdgeInsetsZero
 					clearIconButton!.pulseAnimation = .Center
 					clearIconButton!.tintColor = placeholderColor
@@ -296,7 +286,7 @@ public class TextField : UITextField {
 			if value {
 				if nil == visibilityIconButton {
 					let image: UIImage? = MaterialIcon.visibility
-					visibilityIconButton = IconButton(frame: CGRect.zero)
+					visibilityIconButton = IconButton(frame: CGRectZero)
 					visibilityIconButton!.contentEdgeInsets = UIEdgeInsetsZero
 					visibilityIconButton!.pulseAnimation = .Center
 					visibilityIconButton!.tintColor = placeholderColor
@@ -354,7 +344,7 @@ public class TextField : UITextField {
 	
 	/// A convenience initializer.
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 	}
 	
 	public override func layoutSubviews() {
@@ -451,10 +441,6 @@ public class TextField : UITextField {
 	/// Handles the visibilityIconButton TouchUpInside event.
 	public func handleVisibilityIconButton() {
 		secureTextEntry = !secureTextEntry
-		if !secureTextEntry {
-			super.font = nil
-			font = placeholderLabel.font
-		}
 		visibilityIconButton?.tintColor = visibilityIconButton?.tintColor.colorWithAlphaComponent(secureTextEntry ? 0.38 : 0.54)
 	}
 	
@@ -527,7 +513,7 @@ public class TextField : UITextField {
 	/// Layout the detailLabel.
 	public func layoutDetailLabel() {
 		let h: CGFloat = nil == detail ? 12 : detailLabel.font.stringSize(detail!, constrainedToWidth: Double(width)).height
-		detailLabel.frame = CGRectMake(0, divider.frame.origin.y + detailVerticalOffset, width, h)
+		detailLabel.frame = CGRectMake(0, divider.frame.origin.y + 8, width, h)
 	}
 	
 	/// Layout the clearIconButton.
@@ -574,7 +560,7 @@ public class TextField : UITextField {
 						v.placeholderLabel.frame.origin.x = v.width - v.placeholderLabel.frame.width
 					default:break
 					}
-					v.placeholderLabel.frame.origin.y = -v.placeholderLabel.frame.size.height + v.placeholderVerticalOffset
+					v.placeholderLabel.frame.origin.y = -v.placeholderLabel.frame.size.height
 					v.placeholderLabel.textColor = v.placeholderActiveColor
 				}
 			}) { [weak self] _ in

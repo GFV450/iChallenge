@@ -54,11 +54,9 @@ public class NavigationBar : UINavigationBar {
 	/// NavigationBarStyle value.
 	public var navigationBarStyle: NavigationBarStyle = .Default
 	
-	internal var animating: Bool = false
-	
 	/// Will render the view.
 	public var willRenderView: Bool {
-		return 0 < width && 0 < height
+		return 0 < width
 	}
 	
 	/// A preset wrapper around contentInset.
@@ -85,14 +83,6 @@ public class NavigationBar : UINavigationBar {
 	/// A wrapper around grid.spacing.
 	@IBInspectable public var spacing: CGFloat = 0 {
 		didSet {
-			layoutSubviews()
-		}
-	}
-	
-	/// Grid cell factor.
-	@IBInspectable public var gridFactor: CGFloat = 24 {
-		didSet {
-			assert(0 < gridFactor, "[Material Error: gridFactor must be greater than 0.]")
 			layoutSubviews()
 		}
 	}
@@ -284,27 +274,26 @@ public class NavigationBar : UINavigationBar {
 	
 	/// A convenience initializer.
 	public convenience init() {
-		self.init(frame: CGRect.zero)
+		self.init(frame: CGRectZero)
 	}
 	
 	public override func intrinsicContentSize() -> CGSize {
 		switch navigationBarStyle {
 		case .Tiny:
-			return CGSize(width: MaterialDevice.width, height: 32)
+			return CGSizeMake(MaterialDevice.width, 32)
 		case .Default:
-			return CGSize(width: MaterialDevice.width, height: 44)
+			return CGSizeMake(MaterialDevice.width, 44)
 		case .Medium:
-			return CGSize(width: MaterialDevice.width, height: 56)
+			return CGSizeMake(MaterialDevice.width, 56)
 		}
 	}
-	
+
 	public override func sizeThatFits(size: CGSize) -> CGSize {
 		return intrinsicContentSize()
 	}
 	
 	public override func layoutSubviews() {
 		super.layoutSubviews()
-		
 		if let v: UINavigationItem = topItem {
 			layoutNavigationItem(v)
 		}
@@ -329,10 +318,11 @@ public class NavigationBar : UINavigationBar {
 			
 			if let titleView: UIView = prepareTitleView(item) {
 				if let contentView: UIView = prepareContentView(item) {
-					if let g: Int = Int(width / gridFactor) {
+					let factor: CGFloat = 24
+					if let g: Int = Int(width / factor) {
 						let columns: Int = g + 1
 						
-						titleView.frame.origin = CGPoint.zero
+						titleView.frame.origin = CGPointZero
 						titleView.frame.size = intrinsicContentSize()
 						titleView.grid.views = []
 						titleView.grid.axis.columns = columns
@@ -346,7 +336,7 @@ public class NavigationBar : UINavigationBar {
 								(c as? UIButton)?.contentEdgeInsets = UIEdgeInsetsZero
 								c.frame.size.height = titleView.frame.size.height - contentInset.top - contentInset.bottom
 								
-								let q: Int = Int(w / gridFactor)
+								let q: Int = Int(w / factor)
 								c.grid.columns = q + 1
 								
 								contentView.grid.columns -= c.grid.columns
@@ -355,7 +345,7 @@ public class NavigationBar : UINavigationBar {
 								titleView.grid.views?.append(c)
 							}
 						}
-						
+	
 						titleView.addSubview(contentView)
 						titleView.grid.views?.append(contentView)
 						
@@ -366,7 +356,7 @@ public class NavigationBar : UINavigationBar {
 								(c as? UIButton)?.contentEdgeInsets = UIEdgeInsetsZero
 								c.frame.size.height = titleView.frame.size.height - contentInset.top - contentInset.bottom
 								
-								let q: Int = Int(w / gridFactor)
+								let q: Int = Int(w / factor)
 								c.grid.columns = q + 1
 								
 								contentView.grid.columns -= c.grid.columns
@@ -375,46 +365,43 @@ public class NavigationBar : UINavigationBar {
 								titleView.grid.views?.append(c)
 							}
 						}
-						
+	
 						titleView.grid.contentInset = contentInset
 						titleView.grid.spacing = spacing
 						titleView.grid.reloadLayout()
 						
 						// contentView alignment.
-						if nil != item.title && "" != item.title {
-							if nil == item.titleLabel.superview {
-								contentView.addSubview(item.titleLabel)
-							}
-							item.titleLabel.frame = contentView.bounds
-						} else {
-							item.titleLabel.removeFromSuperview()
-						}
-						
-						if nil != item.detail && "" != item.detail {
-							if nil == item.detailLabel.superview {
-								contentView.addSubview(item.detailLabel)
-							}
-							
-							if nil == item.titleLabel.superview {
-								item.detailLabel.frame = contentView.bounds
+						if let titleLabel: UILabel = item.titleLabel {
+							if let _: String = titleLabel.text {
+								if nil == titleLabel.superview {
+									contentView.addSubview(titleLabel)
+								}
+								
+								if let detailLabel: UILabel = item.detailLabel {
+									if let _: String = detailLabel.text {
+										if nil == detailLabel.superview {
+											contentView.addSubview(detailLabel)
+										}
+										
+										titleLabel.sizeToFit()
+										detailLabel.sizeToFit()
+										
+										let diff: CGFloat = (contentView.frame.height - titleLabel.frame.height - detailLabel.frame.height) / 2
+										titleLabel.frame.size.height += diff
+										titleLabel.frame.size.width = contentView.frame.width
+										detailLabel.frame.size.height += diff
+										detailLabel.frame.size.width = contentView.frame.width
+										detailLabel.frame.origin.y = titleLabel.frame.height
+									} else {
+										detailLabel.removeFromSuperview()
+										titleLabel.frame = contentView.bounds
+									}
+								}
 							} else {
-								item.titleLabel.sizeToFit()
-								item.detailLabel.sizeToFit()
-								
-								let diff: CGFloat = (contentView.frame.height - item.titleLabel.frame.height - item.detailLabel.frame.height) / 2
-								
-								item.titleLabel.frame.size.height += diff
-								item.titleLabel.frame.size.width = contentView.frame.width
-								
-								item.detailLabel.frame.size.height += diff
-								item.detailLabel.frame.size.width = contentView.frame.width
-								item.detailLabel.frame.origin.y = item.titleLabel.frame.height
+								titleLabel.removeFromSuperview()
+								contentView.grid.reloadLayout()
 							}
-						} else {
-							item.detailLabel.removeFromSuperview()
 						}
-						
-						contentView.grid.reloadLayout()
 					}
 				}
 			}
@@ -429,6 +416,7 @@ public class NavigationBar : UINavigationBar {
 	when subclassing.
 	*/
 	public func prepareView() {
+		barStyle = .Default
 		translucent = false
 		depth = .Depth1
 		spacingPreset = .Spacing1
@@ -438,7 +426,6 @@ public class NavigationBar : UINavigationBar {
 		let image: UIImage? = UIImage.imageWithColor(MaterialColor.clear, size: CGSizeMake(1, 1))
 		shadowImage = image
 		setBackgroundImage(image, forBarMetrics: .Default)
-		backgroundColor = MaterialColor.white
 	}
 	
 	/**
@@ -446,8 +433,7 @@ public class NavigationBar : UINavigationBar {
 	- Parameter item: A UINavigationItem to layout.
 	*/
 	private func prepareItem(item: UINavigationItem) {
-		item.hidesBackButton = false
-		item.setHidesBackButton(true, animated: false)
+		item.title = ""
 	}
 	
 	/**
@@ -457,7 +443,7 @@ public class NavigationBar : UINavigationBar {
 	*/
 	private func prepareTitleView(item: UINavigationItem) -> UIView {
 		if nil == item.titleView {
-			item.titleView = UIView(frame: CGRect.zero)
+			item.titleView = UIView(frame: CGRectZero)
 		}
 		return item.titleView!
 	}
@@ -469,7 +455,7 @@ public class NavigationBar : UINavigationBar {
 	*/
 	private func prepareContentView(item: UINavigationItem) -> UIView {
 		if nil == item.contentView {
-			item.contentView = UIView(frame: CGRect.zero)
+			item.contentView = UIView(frame: CGRectZero)
 		}
 		item.contentView!.grid.axis.direction = .Vertical
 		return item.contentView!
