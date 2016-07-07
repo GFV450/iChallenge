@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C4577D64AF6B2D14C801425 /* Pods_iChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3947EB8FF21EC351C385EC /* Pods_iChallenge.framework */; };
+		E22D72DD1D2ECB70007BF03A /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D72DC1D2ECB70007BF03A /* ParseUser.swift */; };
+		E22D72E01D2ED172007BF03A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D72DF1D2ED172007BF03A /* ParseHelper.swift */; };
 		E242463D1D2D71E200793533 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242463C1D2D71E200793533 /* FriendSearchViewController.swift */; };
 		E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24246401D2D723B00793533 /* ChallengeViewController.swift */; };
 		E24246431D2D724E00793533 /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24246421D2D724E00793533 /* CreateChallengeViewController.swift */; };
@@ -15,6 +17,7 @@
 		E24246491D2D7A7A00793533 /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */; };
 		E242464B1D2D80BD00793533 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */; };
 		E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */; };
+		E24246501D2DB2DE00793533 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464F1D2DB2DE00793533 /* Challenge.swift */; };
 		E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */; };
 		E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE73ED1D2C9C0F00977AAA /* SignupLogin.storyboard */; };
 		E2EE73F31D2C9C0F00977AAA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE73EE1D2C9C0F00977AAA /* SignupViewController.swift */; };
@@ -35,6 +38,8 @@
 		12CEC13157703C61DE677EFC /* Pods-iChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		4F3947EB8FF21EC351C385EC /* Pods_iChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9649029E19146E0053FAFF19 /* Pods-iChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		E22D72DC1D2ECB70007BF03A /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseUser.swift; path = "Data Model/ParseUser.swift"; sourceTree = "<group>"; };
+		E22D72DF1D2ED172007BF03A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseHelper.swift; path = Helpers/ParseHelper.swift; sourceTree = "<group>"; };
 		E242463C1D2D71E200793533 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendSearchViewController.swift; path = "Friend Search/FriendSearchViewController.swift"; sourceTree = "<group>"; };
 		E24246401D2D723B00793533 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = Challenge/ChallengeViewController.swift; sourceTree = "<group>"; };
 		E24246421D2D724E00793533 /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = Challenge/CreateChallengeViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		E24246481D2D7A7A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = "<group>"; };
 		E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = Timeline/MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionReusableView.swift; path = Timeline/MainCollectionReusableView.swift; sourceTree = "<group>"; };
+		E242464F1D2DB2DE00793533 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Challenge.swift; path = "Data Model/Challenge.swift"; sourceTree = "<group>"; };
 		E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Authentication/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E2EE73ED1D2C9C0F00977AAA /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignupLogin.storyboard; path = Authentication/SignupLogin.storyboard; sourceTree = "<group>"; };
 		E2EE73EE1D2C9C0F00977AAA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Authentication/SignupViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +95,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E22D72DE1D2ED159007BF03A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E22D72DF1D2ED172007BF03A /* ParseHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		E242463B1D2D719000793533 /* Friend Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +118,15 @@
 				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
 			);
 			name = Challenge;
+			sourceTree = "<group>";
+		};
+		E242464E1D2DB2C800793533 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				E242464F1D2DB2DE00793533 /* Challenge.swift */,
+				E22D72DC1D2ECB70007BF03A /* ParseUser.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		E2EE73CC1D2C83BF00977AAA /* Authentication */ = {
@@ -193,6 +216,8 @@
 				E2EE74161D2CDB6D00977AAA /* Main */,
 				E242463B1D2D719000793533 /* Friend Search */,
 				E242463E1D2D71F300793533 /* Challenge */,
+				E22D72DE1D2ED159007BF03A /* Helpers */,
+				E242464E1D2DB2C800793533 /* Data Model */,
 				E2EE73F61D2C9D3C00977AAA /* Extensions */,
 				E2EE73F51D2C9D3500977AAA /* Constants */,
 				E2EE740C1D2CDA9A00977AAA /* Supporting Files */,
@@ -330,14 +355,17 @@
 				E2EE73F31D2C9C0F00977AAA /* SignupViewController.swift in Sources */,
 				E2EE74071D2CDA5E00977AAA /* UIView+Extensions.swift in Sources */,
 				E2EE740B1D2CDA7300977AAA /* PagedScrollViewController.swift in Sources */,
+				E22D72E01D2ED172007BF03A /* ParseHelper.swift in Sources */,
 				E242463D1D2D71E200793533 /* FriendSearchViewController.swift in Sources */,
 				E2EE73F41D2C9C0F00977AAA /* WelcomeViewController.swift in Sources */,
 				E242464B1D2D80BD00793533 /* MainCollectionViewCell.swift in Sources */,
+				E22D72DD1D2ECB70007BF03A /* ParseUser.swift in Sources */,
 				E2EE74091D2CDA6800977AAA /* Constants.swift in Sources */,
 				E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */,
 				E2EE74051D2CDA5E00977AAA /* CustomAnimation.swift in Sources */,
 				E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */,
 				E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */,
+				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
 				E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */,
 			);

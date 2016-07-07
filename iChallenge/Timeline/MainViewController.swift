@@ -7,17 +7,40 @@
 //
 
 import UIKit
+import Parse
 
 class MainViewController: UIViewController {
     
+    // MARK: - Properties
+    var challengesToFriends = [PFObject]?()
+    var userChallenges = [PFObject]?()
+    
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        fetchUserChallenges()
+        fetchChallengesToFriends()
+    }
+    
+    func fetchUserChallenges() {
+        ParseHelper.fetchUserChallenges { (challenges, error) in
+            self.userChallenges = challenges
+        }
+    }
+    
+    func fetchChallengesToFriends() {
+        ParseHelper.fetchChallengesToFriends { (challenges, error) in
+            self.challengesToFriends = challenges
+        }
+    }
+
+    // MARK: - IBActions
+    @IBAction func segmentedControlTapped(sender: AnyObject) {
+        collectionView.reloadData()
     }
     
 }
@@ -30,13 +53,21 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        
+        // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Parse
+        let userCount = 4
+        let friendCount = 6
+        
+        let array = [userCount, friendCount]
+        return array[segmentedControl.selectedSegmentIndex]
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.ChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! MainCollectionViewCell
         
+        // Set image to Challenger user image
+        // Set title to Challenge object title
         
         
         return cell
@@ -46,20 +77,13 @@ extension MainViewController: UICollectionViewDataSource {
         
         let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: IdentifierConstants.ChallengeCollectionViewHeader, forIndexPath: indexPath) as! MainCollectionReusableView
         
-        switch indexPath.section {
-        case 0:
-            reusableView.headerLabel.text = "Your Challenges"
-            break
-        case 1:
-            reusableView.headerLabel.text = "Friends Challenges"
-            break
-        default:
-            reusableView.headerLabel.text = "Challenges"
-        }
+        let headerTitles = [MainViewControllerConstants.Ongoing,
+                            MainViewControllerConstants.Completed]
         
-        
+        reusableView.headerLabel.text = headerTitles[indexPath.section]
         
         return reusableView
+        
     }
 }
 
