@@ -120,7 +120,7 @@
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="uk4-zi-cqD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gcU-tv-Ufd">
                             <connections>
-                                <segue destination="cnp-64-908" kind="show" id="eUI-6Y-m7j"/>
+                                <segue destination="Y1h-E4-S7q" kind="show" id="fQH-pO-vCN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -132,32 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1088" y="305"/>
-        </scene>
-        <!--Create Challenge-->
-        <scene sceneID="iH5-I3-W8c">
-            <objects>
-                <viewController id="cnp-64-908" customClass="FriendSearchViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VDU-nR-nTG"/>
-                        <viewControllerLayoutGuide type="bottom" id="n5R-R7-NHn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u5k-YG-TXd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Create Challenge" id="r2n-3E-kg1">
-                        <barButtonItem key="backBarButtonItem" title="Friends" id="rn1-9u-3Kf"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="V2C-rq-Pcq">
-                            <connections>
-                                <segue destination="Y1h-E4-S7q" kind="show" id="r51-jI-J6u"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QM2-vh-D4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1776" y="-275"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H18-dC-6F4">
@@ -191,7 +165,7 @@
                 <viewControllerPlaceholder storyboardName="CreateChallenge" id="Y1h-E4-S7q" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ben-GD-xy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307.5" y="-275"/>
+            <point key="canvasLocation" x="1655.5" y="-73"/>
         </scene>
     </scenes>
     <resources>
