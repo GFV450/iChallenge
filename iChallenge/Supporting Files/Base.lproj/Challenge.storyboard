@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steps" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-LN-iny">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gian" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-LN-iny">
                                 <rect key="frame" x="157" y="114" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="r1x-71-ALb"/>
@@ -53,9 +53,9 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7j-Qh-8SP">
                                 <rect key="frame" x="43" y="589" width="53" height="30"/>
-                                <color key="backgroundColor" red="0.1945037406" green="0.1945037406" blue="0.1945037406" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.1843137255" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -116,7 +116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock" width="150" height="150"/>
-        <image name="steps" width="76" height="76"/>
+        <image name="Gian" width="92" height="93"/>
+        <image name="clock" width="600" height="600"/>
     </resources>
 </document>

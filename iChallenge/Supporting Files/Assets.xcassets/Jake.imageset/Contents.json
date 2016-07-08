@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "clock1-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "clock1-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "clock1.png",
+      "filename" : "Jake.jpg",
       "scale" : "3x"
     }
   ],
