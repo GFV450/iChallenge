@@ -25,13 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareLoginNotificationObserver()
         prepareWelcomeViewController()
         prepareWindow()
-        
-        // Set up the Parse SDK
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "ichallengeios"
-            $0.server = "https://ichallengeios.herokuapp.com/parse"
-        }
-        Parse.initializeWithConfiguration(configuration)
+        prepareParse()
         
         return true
     }
@@ -83,6 +77,18 @@ extension AppDelegate {
     func prepareWelcomeViewController() {
         let storyboard = UIStoryboard(name: "SignupLogin", bundle: nil)
         welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewController") as! WelcomeViewController
+    }
+    
+    func prepareParse() {
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "ichallengeios"
+            $0.server = "https://ichallengeios.herokuapp.com/parse"
+        }
+        Parse.initializeWithConfiguration(configuration)
+        
+        let acl = PFACL()
+        acl.publicReadAccess = true
+        PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
     }
     
     // MARK: - Helper Methods

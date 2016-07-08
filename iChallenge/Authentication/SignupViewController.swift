@@ -68,33 +68,33 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         
-//        let firstName = firstNameTextField.text ?? ""
-//        let lastName = lastNameTextField.text ?? ""
-//        
-//        let username = firstName + lastName
-//        print(username)
-//        
-//        let password = passwordTextField.text ?? ""
-//        let email = emailTextField.text ?? ""
-//        
-//        // if textfields aren't empty and have more than 6 characters
-//        
-//        if firstName.characters.count > 3 && password.characters.count > 3 && email.containsString("@") {
-//            let user = PFUser()
-//            user.username = firstName
-//            user.password = password
-//            user.email = email
-//            
-//            user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
-                // set current user and switch to MainViewController
+        
+        let firstName = firstNameTextField.text ?? ""
+        let lastName = lastNameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        
+        let username = firstName + lastName
+        
+        // If textfields aren't empty and have more than 3 characters
+        
+        if firstName.characters.count > 3 && password.characters.count > 3 && email.containsString("@") {
+            let user = PFUser()
+            user.username = username
+            user.password = password
+            user.email = email
+            
+            user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
+                // set current user and switch to tab controller
+                //                PFUser.currentUser()
                 NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
-//            }
-//    
-//        } else {
-//            firstNameShake.shakeAnimation()
-//            lastNameShake.shakeAnimation()
-//            passwordShake.shakeAnimation()
-//            emailShake.shakeAnimation()
-//        }
+            }
+        } else {
+            firstNameShake.shakeAnimation()
+            lastNameShake.shakeAnimation()
+            passwordShake.shakeAnimation()
+            emailShake.shakeAnimation()
+        }
     }
 }
+
