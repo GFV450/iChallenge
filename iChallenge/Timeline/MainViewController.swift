@@ -58,8 +58,8 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Parse
-        let userCount = 1
-        let friendCount = 1
+        let userCount = 4
+        let friendCount = 4
         
         let array = [userCount, friendCount]
         return array[segmentedControl.selectedSegmentIndex]
