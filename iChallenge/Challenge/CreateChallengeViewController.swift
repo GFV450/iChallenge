@@ -15,6 +15,7 @@ class CreateChallengeViewController: UIViewController
     @IBOutlet weak var challengeDuration: UITextField!
     @IBOutlet weak var challengeDescription: UITextView!
     @IBOutlet weak var challengeTitle: UITextField!
+    @IBOutlet weak var createChallengeCollectionView: UICollectionView!
     
     override func viewDidLoad()
     {
@@ -29,6 +30,26 @@ class CreateChallengeViewController: UIViewController
         userImage.layer.cornerRadius = 8.0
         userImage.clipsToBounds = true
     }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.CreateChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! ChallengeViewCell        
+        
+        cell.nameLabel.text = "Gian"
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 1
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 8
+    }
+
+
 
     @IBAction func createChallengeButtonPressed(sender: AnyObject)
     {

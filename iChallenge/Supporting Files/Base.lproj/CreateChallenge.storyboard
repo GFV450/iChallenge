@@ -15,28 +15,28 @@
                         <viewControllerLayoutGuide type="bottom" id="R1T-QQ-nc7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HDo-m6-A0b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steps" translatesAutoresizingMaskIntoConstraints="NO" id="Vqv-Cb-9FQ">
-                                <rect key="frame" x="129" y="72" width="117" height="117"/>
+                                <rect key="frame" x="148" y="72" width="117" height="117"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="117" id="D5K-Me-Pqy"/>
                                     <constraint firstAttribute="width" constant="117" id="E9V-d2-kIV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're challenging your friend to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZD-Qs-lqj">
-                                <rect key="frame" x="106" y="197" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You're challenging your friend to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZD-Qs-lqj">
+                                <rect key="frame" x="125" y="197" width="162" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="162" id="d8e-7R-Xoj"/>
                                     <constraint firstAttribute="height" constant="21" id="uoS-XW-mxs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ixE-dN-GM7">
-                                <rect key="frame" x="16" y="283" width="343" height="168"/>
+                                <rect key="frame" x="20" y="283" width="374" height="168"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="bpV-Jr-197"/>
@@ -45,14 +45,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="s1z-ey-Q3p">
-                                <rect key="frame" x="16" y="474" width="100" height="100"/>
+                                <rect key="frame" x="20" y="474" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Cwq-dm-K7U"/>
                                     <constraint firstAttribute="height" constant="100" id="ome-EW-ySw"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Challenge title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-fY-ZLr">
-                                <rect key="frame" x="16" y="226" width="343" height="40"/>
+                                <rect key="frame" x="20" y="226" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SlO-Ij-TTf"/>
                                 </constraints>
@@ -60,44 +60,64 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ob4-Na-P3c">
-                                <rect key="frame" x="39.5" y="509" width="53" height="30"/>
+                                <rect key="frame" x="43" y="509" width="53" height="30"/>
                                 <color key="backgroundColor" red="0.19450374063237863" green="0.19450374063237863" blue="0.19450374063237863" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time required to do this challenge (Hours)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwU-xy-Co9">
-                                <rect key="frame" x="124" y="513" width="235" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time required to do this challenge (Hours)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwU-xy-Co9">
+                                <rect key="frame" x="128" y="513" width="266" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jbf-nF-Yna">
-                                <rect key="frame" x="0.0" y="594" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="594" width="414" height="142"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bn4-ZQ-7eH">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="95" height="97.5"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="o2J-4h-Gea">
-                                        <rect key="frame" x="0.0" y="1.5" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CreateChallengeCell" id="o2J-4h-Gea" customClass="ChallengeViewCell" customModule="iChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22.5" width="95" height="97.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="95" height="97.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="GkA-lW-WJt">
+                                                    <rect key="frame" x="16" y="0.0" width="63" height="63"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-dE-D9B">
+                                                    <rect key="frame" x="8" y="68" width="79" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="OeL-dE-D9B" id="j4o-mE-uVy"/>
+                                            <outlet property="profileImageView" destination="GkA-lW-WJt" id="Eak-rP-yBG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="TT9-8H-8p2" id="dYH-9s-KuN"/>
+                                    <outlet property="delegate" destination="TT9-8H-8p2" id="gEc-Ll-jn1"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jbf-nF-Yna" firstAttribute="top" secondItem="s1z-ey-Q3p" secondAttribute="bottom" constant="20" id="1Zt-Ul-tO9"/>
-                            <constraint firstItem="R1T-QQ-nc7" firstAttribute="top" secondItem="jbf-nF-Yna" secondAttribute="bottom" constant="20" id="1al-gq-PJk"/>
+                            <constraint firstItem="R1T-QQ-nc7" firstAttribute="top" secondItem="jbf-nF-Yna" secondAttribute="bottom" id="1al-gq-PJk"/>
                             <constraint firstItem="jbf-nF-Yna" firstAttribute="leading" secondItem="HDo-m6-A0b" secondAttribute="leading" id="3NU-ep-YyY"/>
                             <constraint firstItem="Vqv-Cb-9FQ" firstAttribute="centerX" secondItem="HDo-m6-A0b" secondAttribute="centerX" id="3ur-dY-54n"/>
                             <constraint firstItem="ixE-dN-GM7" firstAttribute="top" secondItem="gbf-fY-ZLr" secondAttribute="bottom" constant="17" id="6Z9-SO-Gpz"/>
@@ -127,17 +147,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="challengeDescription" destination="ixE-dN-GM7" id="XyC-kJ-rMe"/>
                         <outlet property="challengeDuration" destination="Ob4-Na-P3c" id="irg-p6-u5c"/>
                         <outlet property="challengeTitle" destination="gbf-fY-ZLr" id="135-GP-hvF"/>
+                        <outlet property="createChallengeCollectionView" destination="jbf-nF-Yna" id="ZWC-Hc-lZ2"/>
                         <outlet property="userImage" destination="Vqv-Cb-9FQ" id="Inu-Ao-emF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErY-i2-qOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2038.5" y="-188.5"/>
+            <point key="canvasLocation" x="2038" y="-189"/>
         </scene>
     </scenes>
     <resources>

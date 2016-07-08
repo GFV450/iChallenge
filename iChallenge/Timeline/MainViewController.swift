@@ -22,8 +22,10 @@ class MainViewController: UIViewController {
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchUserChallenges()
-//        fetchChallengesToFriends()
+        
+        fetchUserChallenges()
+        fetchChallengesToFriends()
+        
     }
     
     func fetchUserChallenges() {
@@ -36,6 +38,7 @@ class MainViewController: UIViewController {
         ParseHelper.fetchChallengesToFriends { (challenges, error) in
             self.challengesToFriends = challenges
         }
+
     }
 
     // MARK: - IBActions
@@ -55,8 +58,8 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Parse
-        let userCount = 4
-        let friendCount = 6
+        let userCount = 1
+        let friendCount = 1
         
         let array = [userCount, friendCount]
         return array[segmentedControl.selectedSegmentIndex]

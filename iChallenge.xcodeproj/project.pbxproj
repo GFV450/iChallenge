@@ -32,6 +32,7 @@
 		E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE74111D2CDB3A00977AAA /* Main.storyboard */; };
 		E2EE74181D2CDB7B00977AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74171D2CDB7B00977AAA /* MainViewController.swift */; };
 		E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E786001D2845CE005FB7B3 /* AppDelegate.swift */; };
+		E7FAD2D81D302578007438CB /* ChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		E7E785FD1D2845CE005FB7B3 /* iChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E786001D2845CE005FB7B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E7860C1D2845CE005FB7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
 				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
+				E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -232,7 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7E7860F1D2845CE005FB7B3 /* Build configuration list for PBXNativeTarget "iChallenge" */;
 			buildPhases = (
-				C40865DBA6E78B671802B4AD /* 📦 Check Pods Manifest.lock */,
+				C40865DBA6E78B671802B4AD /* [CP] Check Pods Manifest.lock */,
 				872C4752B834AA564A1D86A0 /* [CP] Check Pods Manifest.lock */,
 				E7E785F91D2845CE005FB7B3 /* Sources */,
 				E7E785FA1D2845CE005FB7B3 /* Frameworks */,
@@ -346,14 +349,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C40865DBA6E78B671802B4AD /* 📦 Check Pods Manifest.lock */ = {
+		C40865DBA6E78B671802B4AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +416,7 @@
 				E2EE74051D2CDA5E00977AAA /* CustomAnimation.swift in Sources */,
 				E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */,
 				E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */,
+				E7FAD2D81D302578007438CB /* ChallengeViewCell.swift in Sources */,
 				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
 				E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */,

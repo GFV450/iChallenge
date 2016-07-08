@@ -26,6 +26,7 @@ struct MainViewControllerConstants {
 // MARK: - Identifier Constants
 struct IdentifierConstants {
     static let ChallengeCollectionViewCellIdentifier = "ChallengeCell"
+    static let CreateChallengeCollectionViewCellIdentifier = "CreateChallengeCell"
     static let ChallengeCollectionViewHeader         = "HeaderView"
     static let FriendSearchCellIdentifier            = "UserCell"
 }

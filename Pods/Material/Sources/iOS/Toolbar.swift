@@ -31,8 +31,30 @@
 import UIKit
 
 public class Toolbar : BarView {
+	/// A convenience property to set the titleLabel text.
+	public var title: String? {
+		get {
+			return titleLabel?.text
+		}
+		set(value) {
+			titleLabel?.text = value
+			layoutSubviews()
+		}
+	}
+	
 	/// Title label.
 	public private(set) var titleLabel: UILabel!
+	
+	/// A convenience property to set the detailLabel text.
+	public var detail: String? {
+		get {
+			return detailLabel?.text
+		}
+		set(value) {
+			detailLabel?.text = value
+			layoutSubviews()
+		}
+	}
 	
 	/// Detail label.
 	public private(set) var detailLabel: UILabel!
@@ -40,20 +62,69 @@ public class Toolbar : BarView {
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 		if willRenderView {
-			if let _: String = detailLabel.text {
-				titleLabel.sizeToFit()
-				detailLabel.sizeToFit()
-				
-				let diff: CGFloat = (contentView.frame.height - titleLabel.frame.height - detailLabel.frame.height) / 2
-				titleLabel.frame.size.height += diff
-				titleLabel.frame.size.width = contentView.frame.width
-				detailLabel.frame.size.height += diff
-				detailLabel.frame.size.width = contentView.frame.width
-				detailLabel.frame.origin.y = titleLabel.frame.height
-			} else {
+
+			if nil != title && "" != title {
+				if nil == titleLabel.superview {
+					contentView.addSubview(titleLabel)
+				}
 				titleLabel.frame = contentView.bounds
+			} else {
+				titleLabel.removeFromSuperview()
 			}
+			
+			if nil != detail && "" != detail {
+				if nil == detailLabel.superview {
+					contentView.addSubview(detailLabel)
+				}
+				
+				if nil == titleLabel.superview {
+					detailLabel.frame = contentView.bounds
+				} else {
+					titleLabel.sizeToFit()
+					detailLabel.sizeToFit()
+					
+					let diff: CGFloat = (contentView.frame.height - titleLabel.frame.height - detailLabel.frame.height) / 2
+					
+					titleLabel.frame.size.height += diff
+					titleLabel.frame.size.width = contentView.frame.width
+					
+					detailLabel.frame.size.height += diff
+					detailLabel.frame.size.width = contentView.frame.width
+					detailLabel.frame.origin.y = titleLabel.frame.height
+				}
+			} else {
+				detailLabel.removeFromSuperview()
+			}
+			
+			contentView.grid.reloadLayout()
 		}
+	}
+	
+	/**
+	An initializer that initializes the object with a NSCoder object.
+	- Parameter aDecoder: A NSCoder instance.
+	*/
+	public required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	/**
+	An initializer that initializes the object with a CGRect object.
+	If AutoLayout is used, it is better to initilize the instance
+	using the init() initializer.
+	- Parameter frame: A CGRect instance.
+	*/
+	public override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+	
+	/**
+	A convenience initializer with parameter settings.
+	- Parameter leftControls: An Array of UIControls that go on the left side.
+	- Parameter rightControls: An Array of UIControls that go on the right side.
+	*/
+	public override init(leftControls: Array<UIControl>? = nil, rightControls: Array<UIControl>? = nil) {
+		super.init(leftControls: leftControls, rightControls: rightControls)
 	}
 	
 	/**
@@ -75,7 +146,6 @@ public class Toolbar : BarView {
 		titleLabel.contentScaleFactor = MaterialDevice.scale
 		titleLabel.font = RobotoFont.mediumWithSize(17)
 		titleLabel.textAlignment = .Left
-		contentView.addSubview(titleLabel)
 	}
 	
 	/// Prepares the detailLabel.
@@ -84,6 +154,5 @@ public class Toolbar : BarView {
 		detailLabel.contentScaleFactor = MaterialDevice.scale
 		detailLabel.font = RobotoFont.regularWithSize(12)
 		detailLabel.textAlignment = .Left
-		contentView.addSubview(detailLabel)
 	}
 }
