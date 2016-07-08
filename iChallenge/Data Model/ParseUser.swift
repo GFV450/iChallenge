@@ -14,11 +14,13 @@ import ConvenienceKit
 class ParseUser: PFUser {
     
     // MARK: - Properties
-    @NSManaged var imageFile: PFFile?
+    @NSManaged var profileImage: PFFile?
     
     var image: Observable<UIImage?> = Observable(nil)
     
     static var imageCache: NSCacheSwift<String, UIImage>!
+    
+    var photoUploadTask: UIBackgroundTaskIdentifier?
     
     // MARK: - Initializers
     override class func initialize() {
@@ -32,11 +34,11 @@ class ParseUser: PFUser {
     
     // MARK: - Helper Methods
     func downloadImage() {
-        image.value = ParseUser.imageCache[self.imageFile!.name]
+        image.value = ParseUser.imageCache[self.profileImage!.name]
         
         if (image.value == nil) {
             
-            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) in
+            profileImage?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) in
                 
                 if let error = error {
                     ErrorHandling.defaultErrorHandler(error)
@@ -47,10 +49,31 @@ class ParseUser: PFUser {
                     
                     self.image.value = image
                     
-                    ParseUser.imageCache[self.imageFile!.name] = image
+                    ParseUser.imageCache[self.profileImage!.name] = image
                 }
             }
         }
     }
     
+    func uploadImage() {
+        if let image = image.value {
+            guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
+            guard let profileImage = PFFile(name: "image.jpg", data: imageData) else {return}
+            
+            self.profileImage = profileImage
+            
+            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () in
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            }
+            
+            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
+                
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            }
+            
+        }
+    }
 }

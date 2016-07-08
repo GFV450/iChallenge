@@ -12,15 +12,20 @@ import Parse
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
+    let user = ParseUser()
+    
     var firstNameShake: CustomAnimation!
     var lastNameShake: CustomAnimation!
     var passwordShake: CustomAnimation!
     var emailShake: CustomAnimation!
     
+    var photoTakingHelper: PhotoTakingHelper?
+    
     // MARK: - IBOutlets
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField:    UITextField!
@@ -29,18 +34,19 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareTapGestureRecognizer()
         prepareFirstNameSShake()
         prepareLastNameShake()
         prepareEmailShake()
         preparePasswordShake()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
+    // MARK: - Preparations
+    func prepareTapGestureRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.changeImage))
+        profileImageView.addGestureRecognizer(tap)
     }
     
-    // MARK: - Preparations
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -79,21 +85,33 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         // If textfields aren't empty and have more than 3 characters
         
         if firstName.characters.count > 3 && password.characters.count > 3 && email.containsString("@") {
-            let user = PFUser()
+            
             user.username = username
             user.password = password
             user.email = email
+            user.image.value = self.profileImageView.image
             
             user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
-                // set current user and switch to tab controller
-                //                PFUser.currentUser()
                 NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
+                
+                // Upload Image
+                self.user.uploadImage()
+                
             }
         } else {
             firstNameShake.shakeAnimation()
             lastNameShake.shakeAnimation()
             passwordShake.shakeAnimation()
             emailShake.shakeAnimation()
+        }
+    }
+    
+    // MARK: - Helper Methods
+    func changeImage() {
+        photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
+    
+            self.profileImageView.image = image
+            
         }
     }
 }
