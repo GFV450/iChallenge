@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import Firebase
 
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
@@ -19,12 +19,14 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     var passwordShake: CustomAnimation!
     var emailShake: CustomAnimation!
     
+    var dataRef: FIRDatabaseReference!
+   
     var photoTakingHelper: PhotoTakingHelper?
     
     // MARK: - IBOutlets
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -33,6 +35,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: - View Lifecycles
     override func viewDidLoad() {
+        dataRef = FIRDatabase.database().reference()
         super.viewDidLoad()
         prepareTapGestureRecognizer()
         prepareFirstNameSShake()
@@ -67,43 +70,46 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         emailShake = CustomAnimation(view: emailTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
     }
     
-    // MARK: - IBActions
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func signUpButtonPressed(sender: AnyObject) {
-        
-        
-        let firstName = firstNameTextField.text ?? ""
-        let lastName = lastNameTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        let email = emailTextField.text ?? ""
-        
-        let username = firstName + lastName
-        
-        // If textfields aren't empty and have more than 3 characters
-        
-        if firstName.characters.count > 3 && password.characters.count > 3 && email.containsString("@") {
+    @IBAction func signUpButtonPressed(sender: AnyObject)
+    {
+        // If textfields have more than 3 characters
+        if firstNameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
+        {
+            //Creates the user in the Firebase Authentication Database
+            FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text! , completion: { (user, error) in
+                if error == nil
+                {
+                    let userID = user?.uid
+                    
+                    //Unwrap optionals before pushing to Firebase Database
+                    let email: String = self.emailTextField.text!
+                    let firstName: String = self.firstNameTextField.text!
+                    let lastName: String = self.lastNameTextField.text!
+                    
+                    self.dataRef.child("Users").child(userID!).setValue(["Email": email, "FirstName": firstName, "LastName": lastName])
+                    
+                    print("created successfully!")
+                }
+            })
             
-            user.username = username
-            user.password = password
-            user.email = email
-            user.image.value = self.profileImageView.image
             
+            //Goes to Main Storyboard
             user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
                 NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
                 
-                // Upload Image
-                self.user.uploadImage()
-                
             }
-        } else {
+        }
+        else
+        {
             firstNameShake.shakeAnimation()
             lastNameShake.shakeAnimation()
             passwordShake.shakeAnimation()
             emailShake.shakeAnimation()
         }
+    }
+    
+    @IBAction func cancelButtonTapped(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - Helper Methods

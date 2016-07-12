@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareWelcomeViewController()
         prepareWindow()
         prepareParse()
+        
+        // Use Firebase library to configure APIs
+        FIRApp.configure()
         
         return true
     }
@@ -97,7 +101,6 @@ extension AppDelegate {
         startViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
         
         window?.rootViewController? = startViewController
-        
     }
 }
 

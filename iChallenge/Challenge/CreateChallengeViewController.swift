@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import Firebase
 
 class CreateChallengeViewController: UIViewController
 {
@@ -58,11 +58,8 @@ class CreateChallengeViewController: UIViewController
         let descriptionString = challengeDescription.text
         let durationString = challengeDuration.text
         
-        let object = PFObject(className: "Challenge")
-        object["description"] = descriptionString
-        object["title"] = titleString
-        object["duration"] = durationString
-        object["isComplete"] = false
-        object.saveInBackground()
+        var ref = FIRDatabase.database().reference()
+        
+        
     }
 }

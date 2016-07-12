@@ -6,8 +6,11 @@ target 'iChallenge' do
   use_frameworks!
 
   # Pods for iChallenge
-pod 'Parse'
-pod 'Material'
-pod 'ConvenienceKit'
-pod 'Bond'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Parse'
+  pod 'Bond'
+  pod 'ConvenienceKit'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 end

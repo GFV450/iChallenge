@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import Parse
 import Bond
 import ConvenienceKit
+import Parse
 
 class Challenge: PFObject, PFSubclassing {
     // MARK: - Properties

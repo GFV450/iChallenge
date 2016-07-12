@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class WelcomeViewController : UIViewController {
     
@@ -16,6 +17,8 @@ class WelcomeViewController : UIViewController {
     
     // MARK:- Outlets
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
@@ -35,9 +38,21 @@ class WelcomeViewController : UIViewController {
     }
     
     // MARK:- Actions
+    @IBAction func loginButtonPressed(sender: AnyObject)
+    {
+        FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+            if error == nil
+            {
+                
+                
+                print("login successful!")
+            }
+        })
+
+    }
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
+    @IBAction func unwindToWelcomeViewController(unwindSegue: UIStoryboard){
+        
     }
 }
 

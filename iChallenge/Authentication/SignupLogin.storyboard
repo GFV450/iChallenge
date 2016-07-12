@@ -18,19 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-FF-Syc">
-                                <rect key="frame" x="122" y="625" width="130" height="22"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
-                                <state key="normal" title="Create a new user">
-                                    <color key="titleColor" red="0.14117647059999999" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eBe-qc-EpY" kind="show" id="THN-bH-MqP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y53-1X-oIO">
                                 <rect key="frame" x="37" y="350" width="300" height="44"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,7 +32,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="H6i-ae-aJi" eventType="touchUpInside" id="oFl-pg-rDR"/>
+                                    <action selector="loginButtonPressed:" destination="H6i-ae-aJi" eventType="touchUpInside" id="hjZ-7o-fDK"/>
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="headtohead" translatesAutoresizingMaskIntoConstraints="NO" id="22P-Up-JGe">
@@ -63,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MdJ-lo-fUy" kind="show" id="f30-UG-aPA"/>
+                                    <segue destination="MdJ-lo-fUy" kind="showDetail" action="showViewController:sender:" id="f30-UG-aPA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSf-7S-fsf">
@@ -90,6 +77,19 @@
                                     <outlet property="delegate" destination="eBe-qc-EpY" id="BSr-2g-MqU"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-FF-Syc">
+                                <rect key="frame" x="122" y="625" width="130" height="22"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                                <state key="normal" title="Create a new user">
+                                    <color key="titleColor" red="0.14117647059999999" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eBe-qc-EpY" kind="show" id="VVh-2g-bnJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -112,8 +112,10 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emailTextField" destination="MSf-7S-fsf" id="SGv-RG-HPf"/>
                         <outlet property="imageView" destination="22P-Up-JGe" id="FR4-G3-jau"/>
-                        <outlet property="loginButton" destination="y53-1X-oIO" id="7L4-lc-wYp"/>
+                        <outlet property="loginButton" destination="y53-1X-oIO" id="xx2-am-HED"/>
+                        <outlet property="passwordTextField" destination="5Qs-If-nBs" id="5vS-mV-4f7"/>
                         <outlet property="signUpButton" destination="J9s-FF-Syc" id="nBu-hM-HvR"/>
                     </connections>
                 </viewController>
@@ -222,7 +224,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButtonPressed:" destination="eBe-qc-EpY" eventType="touchUpInside" id="cwc-jt-Mw9"/>
+                                    <action selector="cancelButtonTapped:" destination="eBe-qc-EpY" eventType="touchUpInside" id="DTE-K6-d8e"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-h4-afB">
@@ -329,7 +331,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="cancelButton" destination="3vi-bL-z30" id="iWa-fj-Mns"/>
+                        <outlet property="cancelButton" destination="3vi-bL-z30" id="gia-lh-nwJ"/>
                         <outlet property="emailTextField" destination="WRz-A1-tyU" id="seL-Vt-HMV"/>
                         <outlet property="firstNameTextField" destination="L5Z-h4-afB" id="H31-2z-rlG"/>
                         <outlet property="lastNameTextField" destination="3Jd-CI-4Sf" id="TG2-A7-j3I"/>
