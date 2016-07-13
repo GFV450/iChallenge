@@ -124,6 +124,7 @@
 				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
 				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
 				E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */,
+				E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 			children = (
 				E2EE740F1D2CDB3A00977AAA /* LaunchScreen.storyboard */,
 				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
-				E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */,
 				E24246441D2D7A5A00793533 /* Challenge.storyboard */,
 				E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */,
 				E7E7860C1D2845CE005FB7B3 /* Info.plist */,

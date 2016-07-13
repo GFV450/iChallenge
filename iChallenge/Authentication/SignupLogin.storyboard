@@ -6,6 +6,14 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Main-->
+        <scene sceneID="E67-dM-6c6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="kPX-LM-GeB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihs-ua-iNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033.5" y="19"/>
+        </scene>
         <!--Welcome View Controller-->
         <scene sceneID="0hn-zi-uqa">
             <objects>
@@ -33,6 +41,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="H6i-ae-aJi" eventType="touchUpInside" id="hjZ-7o-fDK"/>
+                                    <segue destination="kPX-LM-GeB" kind="showDetail" id="RY9-wA-Xnz"/>
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="headtohead" translatesAutoresizingMaskIntoConstraints="NO" id="22P-Up-JGe">

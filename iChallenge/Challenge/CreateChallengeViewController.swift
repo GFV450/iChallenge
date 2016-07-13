@@ -11,6 +11,8 @@ import Firebase
 
 class CreateChallengeViewController: UIViewController
 {
+    var dataRef: FIRDatabaseReference!
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDuration: UITextField!
     @IBOutlet weak var challengeDescription: UITextView!
@@ -19,6 +21,7 @@ class CreateChallengeViewController: UIViewController
     
     override func viewDidLoad()
     {
+        dataRef = FIRDatabase.database().reference()
         changeImageView()
         super.viewDidLoad()
 
@@ -53,13 +56,22 @@ class CreateChallengeViewController: UIViewController
 
     @IBAction func createChallengeButtonPressed(sender: AnyObject)
     {
-        
-        let titleString = challengeTitle.text
-        let descriptionString = challengeDescription.text
-        let durationString = challengeDuration.text
-        
-        var ref = FIRDatabase.database().reference()
-        
-        
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            let name = user.displayName!
+            print(name)
+            let uid = user.uid
+            
+            //Unwrap optionals before pushing to Firebase Database
+            let title: String = challengeTitle.text!
+            let description: String = challengeDescription.text!
+            let duration: String = challengeDuration.text!
+            
+            dataRef.child("Challenges").child(uid).setValue(["Challenger": name, "Title": title, "Description": description, "Duration": duration])
+        }
+        else
+        {
+            // No user is signed in.
+        }
     }
 }

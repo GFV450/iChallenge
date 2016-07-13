@@ -12,7 +12,7 @@ import Firebase
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
-    let user = ParseUser()
+    let parseOutdated = ParseUser()
     
     var firstNameShake: CustomAnimation!
     var lastNameShake: CustomAnimation!
@@ -79,22 +79,44 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text! , completion: { (user, error) in
                 if error == nil
                 {
-                    let userID = user?.uid
+                    let changeRequest = user!.profileChangeRequest()
                     
                     //Unwrap optionals before pushing to Firebase Database
-                    let email: String = self.emailTextField.text!
                     let firstName: String = self.firstNameTextField.text!
                     let lastName: String = self.lastNameTextField.text!
                     
-                    self.dataRef.child("Users").child(userID!).setValue(["Email": email, "FirstName": firstName, "LastName": lastName])
-                    
+                    changeRequest.displayName = "\(firstName) \(lastName)"
+                    changeRequest.commitChangesWithCompletion { error in
+                        if let error = error {
+                            print("an error happened")
+                        } else {
+                            print("Profile updated")
+                        }
+                }
+
                     print("created successfully!")
                 }
             })
+//            
+//                let changeRequest = user.profileChangeRequest()
+//                
+//                //Unwrap optionals before pushing to Firebase Database
+//                let firstName: String = self.firstNameTextField.text!
+//                let lastName: String = self.lastNameTextField.text!
+//                
+//                changeRequest.displayName = "Chase Wang"
+//                changeRequest.commitChangesWithCompletion { error in
+//                    if let error = error {
+//                        print("an error happened")
+//                    } else {
+//                        print("Profile updated")
+//                    }
+//                }
+//            }
             
             
             //Goes to Main Storyboard
-            user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
+            parseOutdated.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
                 NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
                 
             }
