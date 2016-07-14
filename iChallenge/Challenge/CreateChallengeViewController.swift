@@ -36,7 +36,7 @@ class CreateChallengeViewController: UIViewController
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.CreateChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! ChallengeViewCell        
+        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.CreateChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! CreateChallengeViewCell
         
         cell.nameLabel.text = "Gian"
         
@@ -66,7 +66,7 @@ class CreateChallengeViewController: UIViewController
             let description: String = challengeDescription.text!
             let duration: String = challengeDuration.text!
             
-            dataRef.child(uid).child("Challenges").setValue(["Challenger": name, "Title": title, "Description": description, "Duration": duration])
+            dataRef.child("Users").child(uid).child("Challenges").child(title).setValue(["Challenger": name, "Description": description, "Duration": duration])
         }
         else
         {

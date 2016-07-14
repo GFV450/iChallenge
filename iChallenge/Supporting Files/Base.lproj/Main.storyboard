@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Challenges" id="KBz-Wn-B5f">
                         <barButtonItem key="backBarButtonItem" title="Home" id="y2Y-ji-6GD"/>
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="uk4-zi-cqD"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gcU-tv-Ufd">
+                        <barButtonItem key="rightBarButtonItem" title="Create Challenge" id="gcU-tv-Ufd">
                             <connections>
                                 <segue destination="Y1h-E4-S7q" kind="show" id="fQH-pO-vCN"/>
                             </connections>

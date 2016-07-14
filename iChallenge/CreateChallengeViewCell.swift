@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChallengeViewCell: UICollectionViewCell {
+class CreateChallengeViewCell: UICollectionViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

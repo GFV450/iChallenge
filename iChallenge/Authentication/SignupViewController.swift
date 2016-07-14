@@ -101,20 +101,19 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     func createUser()
     {
         //Unwrap optionals before pushing to Firebase Database
-        let firstName: String = self.firstNameTextField.text!
-        let lastName: String = self.lastNameTextField.text!
+        let name: String = "\(self.firstNameTextField.text!) \(self.lastNameTextField.text!)"
         
-        storeProfileImage(firstName, lastName: lastName)
+        storeProfileImage(name)
     }
     
-    func storeProfileImage(firstName: String, lastName: String)
+    func storeProfileImage(name: String)
     {
         let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image!, 1.0)
         
         // Create a reference to the file you want to upload
-        let profileImageRef = storageRef.child("ProfileImages/\(firstName) \(lastName).jpg")
+        let profileImageRef = storageRef.child("ProfileImages/\(name).jpg")
         
-        // Upload the file to the path "images/rivers.jpg"
+        // Upload the file to the path defined above
         profileImageRef.putData(profileImageData!, metadata: nil) { metadata, error in
             if (error != nil)
             {
@@ -122,27 +121,36 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
             }
             else
             {
-                // Metadata contains file metadata such as size, content-type, and download URL.
+                //Stores the profile image URL and sends it to the next function
                 let downloadURL = metadata!.downloadURL()
-                self.storeUserData(firstName, lastName: lastName, profileImageURL: downloadURL!)
+                self.storeUserData(name, profileImageURL: downloadURL!)
             }
         }
     }
     
-    func storeUserData(firstName: String, lastName: String, profileImageURL: NSURL)
+    func storeUserData(name: String, profileImageURL: NSURL)
     {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
         //Creates the user in the Firebase Authentication Database
-        FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text! , completion: { (user, error) in
+        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
             if error == nil
             {
-                let changeRequest = user!.profileChangeRequest()
-                changeRequest.displayName = "\(firstName) \(lastName)"
-                changeRequest.photoURL = profileImageURL
                 
+                //Stores information in database
+                let uid = user?.uid
+                let profileImageString = profileImageURL.absoluteString
+                self.dataRef.child("Users").child(uid!).setValue(["Name": name, "Email": email, "ProfileImage": profileImageString])
+                
+                //Modifies information in Firebase User Profile of the current authenticated user
+                let changeRequest = user!.profileChangeRequest()
+                changeRequest.displayName = name
+                changeRequest.photoURL = profileImageURL
                 changeRequest.commitChangesWithCompletion { error in
                     if let error = error
                     {
-                        print("an error happened")
+                        print("an error happened: \(error.localizedDescription)")
                     }
                     else
                     {
@@ -159,6 +167,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         })
 
     }
+    
     
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {

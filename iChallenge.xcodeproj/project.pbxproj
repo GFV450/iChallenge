@@ -29,12 +29,12 @@
 		E2EE74091D2CDA6800977AAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74081D2CDA6800977AAA /* Constants.swift */; };
 		E2EE740B1D2CDA7300977AAA /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE740A1D2CDA7300977AAA /* PagedScrollViewController.swift */; };
 		E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */; };
-		E2EE74141D2CDB3A00977AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE740F1D2CDB3A00977AAA /* LaunchScreen.storyboard */; };
 		E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE74111D2CDB3A00977AAA /* Main.storyboard */; };
 		E2EE74181D2CDB7B00977AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74171D2CDB7B00977AAA /* MainViewController.swift */; };
 		E70384011D34244A004C2F31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E70384001D34244A004C2F31 /* GoogleService-Info.plist */; };
+		E79EC15E1D3802EE001B307B /* FriendSearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79EC15D1D3802EE001B307B /* FriendSearchView.storyboard */; };
 		E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E786001D2845CE005FB7B3 /* AppDelegate.swift */; };
-		E7FAD2D81D302578007438CB /* ChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */; };
+		E7FAD2D81D302578007438CB /* CreateChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		E22D72DF1D2ED172007BF03A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseHelper.swift; path = Helpers/ParseHelper.swift; sourceTree = "<group>"; };
 		E242463C1D2D71E200793533 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendSearchViewController.swift; path = "Friend Search/FriendSearchViewController.swift"; sourceTree = "<group>"; };
 		E24246401D2D723B00793533 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = Challenge/ChallengeViewController.swift; sourceTree = "<group>"; };
-		E24246421D2D724E00793533 /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = Challenge/CreateChallengeViewController.swift; sourceTree = "<group>"; };
+		E24246421D2D724E00793533 /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = ../Challenge/CreateChallengeViewController.swift; sourceTree = "<group>"; };
 		E24246451D2D7A5A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/Challenge.storyboard"; sourceTree = "<group>"; };
 		E24246481D2D7A7A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = "<group>"; };
 		E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = Timeline/MainCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -62,14 +62,14 @@
 		E2EE74081D2CDA6800977AAA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constants/Constants.swift; sourceTree = "<group>"; };
 		E2EE740A1D2CDA7300977AAA /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedScrollViewController.swift; path = Onboarding/PagedScrollViewController.swift; sourceTree = "<group>"; };
 		E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supporting Files/Assets.xcassets"; sourceTree = "<group>"; };
-		E2EE74101D2CDB3A00977AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2EE74121D2CDB3A00977AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		E2EE74171D2CDB7B00977AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Timeline/MainViewController.swift; sourceTree = "<group>"; };
 		E70384001D34244A004C2F31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E79EC15D1D3802EE001B307B /* FriendSearchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendSearchView.storyboard; sourceTree = "<group>"; };
 		E7E785FD1D2845CE005FB7B3 /* iChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E786001D2845CE005FB7B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E7860C1D2845CE005FB7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewCell.swift; sourceTree = "<group>"; };
+		E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = ../CreateChallengeViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E242463C1D2D71E200793533 /* FriendSearchViewController.swift */,
+				E79EC15D1D3802EE001B307B /* FriendSearchView.storyboard */,
 			);
 			name = "Friend Search";
 			sourceTree = "<group>";
@@ -122,9 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
-				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
-				E7FAD2D71D302578007438CB /* ChallengeViewCell.swift */,
-				E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */,
+				E24246441D2D7A5A00793533 /* Challenge.storyboard */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -178,9 +177,6 @@
 		E2EE740C1D2CDA9A00977AAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E2EE740F1D2CDB3A00977AAA /* LaunchScreen.storyboard */,
-				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
-				E24246441D2D7A5A00793533 /* Challenge.storyboard */,
 				E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */,
 				E7E7860C1D2845CE005FB7B3 /* Info.plist */,
 			);
@@ -193,8 +189,19 @@
 				E2EE74171D2CDB7B00977AAA /* MainViewController.swift */,
 				E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */,
 				E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */,
+				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		E79EC15A1D37F630001B307B /* Create Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */,
+				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
+				E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */,
+			);
+			path = "Create Challenge";
 			sourceTree = "<group>";
 		};
 		E7E785F41D2845CE005FB7B3 = {
@@ -224,6 +231,7 @@
 				E2EE73CC1D2C83BF00977AAA /* Authentication */,
 				E2EE74161D2CDB6D00977AAA /* Main */,
 				E242463B1D2D719000793533 /* Friend Search */,
+				E79EC15A1D37F630001B307B /* Create Challenge */,
 				E242463E1D2D71F300793533 /* Challenge */,
 				E22D72DE1D2ED159007BF03A /* Helpers */,
 				E242464E1D2DB2C800793533 /* Data Model */,
@@ -297,7 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24246461D2D7A5A00793533 /* Challenge.storyboard in Resources */,
-				E2EE74141D2CDB3A00977AAA /* LaunchScreen.storyboard in Resources */,
+				E79EC15E1D3802EE001B307B /* FriendSearchView.storyboard in Resources */,
 				E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */,
 				E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */,
 				E24246491D2D7A7A00793533 /* CreateChallenge.storyboard in Resources */,
@@ -392,7 +400,7 @@
 				E2EE74051D2CDA5E00977AAA /* CustomAnimation.swift in Sources */,
 				E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */,
 				E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */,
-				E7FAD2D81D302578007438CB /* ChallengeViewCell.swift in Sources */,
+				E7FAD2D81D302578007438CB /* CreateChallengeViewCell.swift in Sources */,
 				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
 				E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */,
@@ -416,15 +424,7 @@
 				E24246481D2D7A7A00793533 /* Base */,
 			);
 			name = CreateChallenge.storyboard;
-			sourceTree = "<group>";
-		};
-		E2EE740F1D2CDB3A00977AAA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2EE74101D2CDB3A00977AAA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = "Supporting Files/Base.lproj";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E2EE74111D2CDB3A00977AAA /* Main.storyboard */ = {
