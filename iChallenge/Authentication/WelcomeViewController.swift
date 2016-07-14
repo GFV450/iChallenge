@@ -43,7 +43,17 @@ class WelcomeViewController : UIViewController {
         FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             if error == nil
             {
-                
+                if let user = FIRAuth.auth()?.currentUser
+                {
+                    print(user.displayName)
+                    print(user.email)
+                    print(user.photoURL)
+                    print(user.uid)
+                }
+                else
+                {
+                    print("No user signed in")
+                }
                 
                 print("login successful!")
             }

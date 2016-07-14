@@ -59,7 +59,6 @@ class CreateChallengeViewController: UIViewController
         if let user = FIRAuth.auth()?.currentUser
         {
             let name = user.displayName!
-            print(name)
             let uid = user.uid
             
             //Unwrap optionals before pushing to Firebase Database
@@ -67,7 +66,7 @@ class CreateChallengeViewController: UIViewController
             let description: String = challengeDescription.text!
             let duration: String = challengeDuration.text!
             
-            dataRef.child("Challenges").child(uid).setValue(["Challenger": name, "Title": title, "Description": description, "Duration": duration])
+            dataRef.child(uid).child("Challenges").setValue(["Challenger": name, "Title": title, "Description": description, "Duration": duration])
         }
         else
         {

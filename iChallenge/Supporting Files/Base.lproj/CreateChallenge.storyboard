@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gian" translatesAutoresizingMaskIntoConstraints="NO" id="Vqv-Cb-9FQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburgerfull" translatesAutoresizingMaskIntoConstraints="NO" id="Vqv-Cb-9FQ">
                                 <rect key="frame" x="148" y="72" width="117" height="117"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="117" id="D5K-Me-Pqy"/>
@@ -90,7 +90,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="95" height="97.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Jake" translatesAutoresizingMaskIntoConstraints="NO" id="GkA-lW-WJt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="steps" translatesAutoresizingMaskIntoConstraints="NO" id="GkA-lW-WJt">
                                                     <rect key="frame" x="16" y="0.0" width="63" height="63"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-dE-D9B">
@@ -162,8 +162,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Gian" width="92" height="93"/>
-        <image name="Jake" width="106" height="106"/>
         <image name="clock" width="600" height="600"/>
+        <image name="hamburgerfull" width="24" height="21"/>
+        <image name="steps" width="76" height="76"/>
     </resources>
 </document>

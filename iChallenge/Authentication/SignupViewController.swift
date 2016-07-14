@@ -20,12 +20,12 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     var emailShake: CustomAnimation!
     
     var dataRef: FIRDatabaseReference!
+    var storageRef: FIRStorageReference!
    
     var photoTakingHelper: PhotoTakingHelper?
     
     // MARK: - IBOutlets
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -34,9 +34,15 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: - View Lifecycles
-    override func viewDidLoad() {
-        dataRef = FIRDatabase.database().reference()
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        //Firebase initializers
+        dataRef = FIRDatabase.database().reference()
+        storageRef = FIRStorage.storage().reference()
+        
+        //Method initializers
         prepareTapGestureRecognizer()
         prepareFirstNameSShake()
         prepareLastNameShake()
@@ -75,45 +81,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         // If textfields have more than 3 characters
         if firstNameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
         {
-            //Creates the user in the Firebase Authentication Database
-            FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text! , completion: { (user, error) in
-                if error == nil
-                {
-                    let changeRequest = user!.profileChangeRequest()
-                    
-                    //Unwrap optionals before pushing to Firebase Database
-                    let firstName: String = self.firstNameTextField.text!
-                    let lastName: String = self.lastNameTextField.text!
-                    
-                    changeRequest.displayName = "\(firstName) \(lastName)"
-                    changeRequest.commitChangesWithCompletion { error in
-                        if let error = error {
-                            print("an error happened")
-                        } else {
-                            print("Profile updated")
-                        }
-                }
-
-                    print("created successfully!")
-                }
-            })
-//            
-//                let changeRequest = user.profileChangeRequest()
-//                
-//                //Unwrap optionals before pushing to Firebase Database
-//                let firstName: String = self.firstNameTextField.text!
-//                let lastName: String = self.lastNameTextField.text!
-//                
-//                changeRequest.displayName = "Chase Wang"
-//                changeRequest.commitChangesWithCompletion { error in
-//                    if let error = error {
-//                        print("an error happened")
-//                    } else {
-//                        print("Profile updated")
-//                    }
-//                }
-//            }
-            
+            createUser()
             
             //Goes to Main Storyboard
             parseOutdated.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
@@ -130,10 +98,72 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func cancelButtonTapped(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    func createUser()
+    {
+        //Unwrap optionals before pushing to Firebase Database
+        let firstName: String = self.firstNameTextField.text!
+        let lastName: String = self.lastNameTextField.text!
+        
+        storeProfileImage(firstName, lastName: lastName)
     }
     
+    func storeProfileImage(firstName: String, lastName: String)
+    {
+        let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image!, 1.0)
+        
+        // Create a reference to the file you want to upload
+        let profileImageRef = storageRef.child("ProfileImages/\(firstName) \(lastName).jpg")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        profileImageRef.putData(profileImageData!, metadata: nil) { metadata, error in
+            if (error != nil)
+            {
+                print("Image not stored")
+            }
+            else
+            {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let downloadURL = metadata!.downloadURL()
+                self.storeUserData(firstName, lastName: lastName, profileImageURL: downloadURL!)
+            }
+        }
+    }
+    
+    func storeUserData(firstName: String, lastName: String, profileImageURL: NSURL)
+    {
+        //Creates the user in the Firebase Authentication Database
+        FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text! , completion: { (user, error) in
+            if error == nil
+            {
+                let changeRequest = user!.profileChangeRequest()
+                changeRequest.displayName = "\(firstName) \(lastName)"
+                changeRequest.photoURL = profileImageURL
+                
+                changeRequest.commitChangesWithCompletion { error in
+                    if let error = error
+                    {
+                        print("an error happened")
+                    }
+                    else
+                    {
+                        print("Profile updated")
+                    }
+                }
+                
+                print("User created successfully!")
+            }
+            else
+            {
+                print("User not created")
+            }
+        })
+
+    }
+    
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     // MARK: - Helper Methods
     func changeImage() {
         photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
