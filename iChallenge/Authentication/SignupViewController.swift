@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
 
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
@@ -111,13 +113,13 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image!, 1.0)
         
         // Create a reference to the file you want to upload
-        let profileImageRef = storageRef.child("ProfileImages/\(name).jpg")
+        let profileImageRef = storageRef.child("ProfileImages/uhbhubhj.jpg")
         
         // Upload the file to the path defined above
         profileImageRef.putData(profileImageData!, metadata: nil) { metadata, error in
             if (error != nil)
             {
-                print("Image not stored")
+                print("Image not stored: ", error?.localizedDescription)
             }
             else
             {
