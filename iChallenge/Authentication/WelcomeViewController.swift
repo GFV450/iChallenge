@@ -50,12 +50,12 @@ class WelcomeViewController : UIViewController {
                     print(user.photoURL)
                     print(user.uid)
                 }
-                else
-                {
-                    print("No user signed in")
-                }
                 
                 print("login successful!")
+            }
+            else
+            {
+                print("No user signed in")
             }
         })
 

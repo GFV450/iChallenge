@@ -29,24 +29,11 @@ class MainViewController: UIViewController {
     }
     
     func fetchUserChallenges() {
-        ParseHelper.fetchUserChallenges { (challenges, error) in
-            self.userChallenges = challenges
         }
     }
     
     func fetchChallengesToFriends() {
-        ParseHelper.fetchChallengesToFriends { (challenges, error) in
-            self.challengesToFriends = challenges
         }
-
-    }
-
-    // MARK: - IBActions
-    @IBAction func segmentedControlTapped(sender: AnyObject) {
-        collectionView.reloadData()
-    }
-    
-}
 
 // MARK: - Collection View Data Source
 extension MainViewController: UICollectionViewDataSource {
@@ -67,26 +54,13 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.ChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! MainCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainCollectionViewCell
         
         // Set image to Challenger user image
         // Set title to Challenge object title
         
         
         return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: IdentifierConstants.ChallengeCollectionViewHeader, forIndexPath: indexPath) as! MainCollectionReusableView
-        
-        let headerTitles = [MainViewControllerConstants.Ongoing,
-                            MainViewControllerConstants.Completed]
-        
-        reusableView.headerLabel.text = headerTitles[indexPath.section]
-        
-        return reusableView
-        
     }
 }
 

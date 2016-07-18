@@ -117,7 +117,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Challenges" id="KBz-Wn-B5f">
                         <barButtonItem key="backBarButtonItem" title="Home" id="y2Y-ji-6GD"/>
-                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="uk4-zi-cqD"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="uk4-zi-cqD">
+                            <connections>
+                                <segue destination="4SV-PM-fdy" kind="showDetail" id="vyw-Rh-VZ7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create Challenge" id="gcU-tv-Ufd">
                             <connections>
                                 <segue destination="Y1h-E4-S7q" kind="show" id="fQH-pO-vCN"/>
@@ -151,6 +155,14 @@
             </objects>
             <point key="canvasLocation" x="439" y="305"/>
         </scene>
+        <!--FriendSearchView-->
+        <scene sceneID="vPd-vO-hBJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendSearchView" id="4SV-PM-fdy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-gh-H04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780.5" y="305"/>
+        </scene>
         <!--Challenge-->
         <scene sceneID="erG-C2-STo">
             <objects>
@@ -169,7 +181,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hamburger" width="20" height="20"/>
         <image name="headtohead" width="76" height="76"/>
     </resources>
 </document>

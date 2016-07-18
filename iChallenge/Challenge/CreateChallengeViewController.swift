@@ -12,6 +12,7 @@ import Firebase
 class CreateChallengeViewController: UIViewController
 {
     var dataRef: FIRDatabaseReference!
+    var infoArray = ["mary", "elisa"]
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDuration: UITextField!
@@ -21,7 +22,7 @@ class CreateChallengeViewController: UIViewController
     
     override func viewDidLoad()
     {
-        dataRef = FIRDatabase.database().reference()
+        dataRef = FIRDatabase.database().reference().child("Users")
         changeImageView()
         super.viewDidLoad()
 
@@ -36,41 +37,40 @@ class CreateChallengeViewController: UIViewController
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier(IdentifierConstants.CreateChallengeCollectionViewCellIdentifier, forIndexPath: indexPath) as! CreateChallengeViewCell
+        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier("CreateChallengeCell", forIndexPath: indexPath) as! CreateChallengeViewCell
         
-        cell.nameLabel.text = "Gian"
+        let info = infoArray[indexPath.row]
+        cell.nameLabel.text = info
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 1
+        return infoArray.count
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 8
+        return 1
     }
-
-
 
     @IBAction func createChallengeButtonPressed(sender: AnyObject)
     {
         if let user = FIRAuth.auth()?.currentUser
         {
-            let name = user.displayName!
-            let uid = user.uid
-            
             //Unwrap optionals before pushing to Firebase Database
+            let name = user.displayName!
+            let userID = user.uid
             let title: String = challengeTitle.text!
             let description: String = challengeDescription.text!
             let duration: String = challengeDuration.text!
             
-            dataRef.child("Users").child(uid).child("Challenges").child(title).setValue(["Challenger": name, "Description": description, "Duration": duration])
+            let challenge = Challenge(name: name, userID: userID, title: title, description: description, duration: duration)
+            challenge.uploadChallenge()
         }
         else
         {
-            // No user is signed in.
+            print("Challenge not created")
         }
     }
 }

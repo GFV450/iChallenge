@@ -7,20 +7,16 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
-    let parseOutdated = ParseUser()
     
     var firstNameShake: CustomAnimation!
     var lastNameShake: CustomAnimation!
     var passwordShake: CustomAnimation!
     var emailShake: CustomAnimation!
-    
-    var dataRef: FIRDatabaseReference!
-    var storageRef: FIRStorageReference!
    
     var photoTakingHelper: PhotoTakingHelper?
     
@@ -37,10 +33,6 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        //Firebase initializers
-        dataRef = FIRDatabase.database().reference()
-        storageRef = FIRStorage.storage().reference()
         
         //Method initializers
         prepareTapGestureRecognizer()
@@ -82,12 +74,6 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         if firstNameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
         {
             createUser()
-            
-            //Goes to Main Storyboard
-            parseOutdated.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
-                NSNotificationCenter.defaultCenter().postNotificationName("Login", object: nil)
-                
-            }
         }
         else
         {
@@ -101,74 +87,28 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     func createUser()
     {
         //Unwrap optionals before pushing to Firebase Database
-        let name: String = "\(self.firstNameTextField.text!) \(self.lastNameTextField.text!)"
-        
-        storeProfileImage(name)
-    }
-    
-    func storeProfileImage(name: String)
-    {
-        let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image!, 1.0)
-        
-        // Create a reference to the file you want to upload
-        let profileImageRef = storageRef.child("ProfileImages/\(name).jpg")
-        
-        // Upload the file to the path defined above
-        profileImageRef.putData(profileImageData!, metadata: nil) { metadata, error in
-            if (error != nil)
-            {
-                print("Image not stored")
-            }
-            else
-            {
-                //Stores the profile image URL and sends it to the next function
-                let downloadURL = metadata!.downloadURL()
-                self.storeUserData(name, profileImageURL: downloadURL!)
-            }
-        }
-    }
-    
-    func storeUserData(name: String, profileImageURL: NSURL)
-    {
+        let name = "\(self.firstNameTextField.text!) \(self.lastNameTextField.text!)"
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
-        //Creates the user in the Firebase Authentication Database
-        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
+        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
             if error == nil
             {
+                let userID = (user?.uid)!
+                let userObject = User(userID: userID, name: name, email: email, password: password)
                 
-                //Stores information in database
-                let uid = user?.uid
-                let profileImageString = profileImageURL.absoluteString
-                self.dataRef.child("Users").child(uid!).setValue(["Name": name, "Email": email, "ProfileImage": profileImageString])
-                
-                //Modifies information in Firebase User Profile of the current authenticated user
-                let changeRequest = user!.profileChangeRequest()
-                changeRequest.displayName = name
-                changeRequest.photoURL = profileImageURL
-                changeRequest.commitChangesWithCompletion { error in
-                    if let error = error
-                    {
-                        print("an error happened: \(error.localizedDescription)")
-                    }
-                    else
-                    {
-                        print("Profile updated")
-                    }
-                }
+                userObject.uploadProfileImage(self.profileImageView)
+                userObject.uploadUserData(user!)
                 
                 print("User created successfully!")
             }
             else
             {
                 print("User not created")
+                print(error?.localizedDescription)
             }
-        })
-
+        }
     }
-    
-    
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
@@ -178,7 +118,6 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
     
             self.profileImageView.image = image
-            
         }
     }
 }

@@ -7,97 +7,36 @@
 //
 
 import Foundation
-import Bond
-import ConvenienceKit
-import Parse
+import Firebase
 
-class Challenge: PFObject, PFSubclassing {
-    // MARK: - Properties
+class Challenge
+{
+    let name: String
+    let userID: String
+    let title: String
+    let description: String
+    let duration: String
     
-    // Need current user, challenges associated, and its friends' challenges
-    
-    @NSManaged var challenger: ParseUser?
-    @NSManaged var challengedUser: ParseUser?
-    
-    var title: Observable<String?> = Observable(nil)
-    var challengeDescription: Observable<String?> = Observable(nil)
-    var duration: Observable<String?> = Observable(nil)
-    var isComplete: Observable<Bool?> = Observable(nil)
-    
-    var ongoing = []
-    var completed = []
-    
-    var challengeUploadTask: UIBackgroundTaskIdentifier?
-    
-    override class func initialize() {
-        registerSubclass()
+    init(name: String, userID: String, title: String, description: String, duration: String)
+    {
+        self.name = name
+        self.userID = userID
+        self.title = title
+        self.description = description
+        self.duration = duration
+        
     }
     
-    // MARK: - PFSubclassing Protocol
-    static func parseClassName() -> String {
-        return "Challenge"
+    // MARK: - Methods
+    func uploadChallenge()
+    {
+        let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
+        
+        dataRef.child("Users").child(userID).child("Challenges").child(title).setValue(["Challenger": name, "Description": description, "Duration": duration])
     }
     
-    // MARK: - Helper Methods
-    func uploadChallenge(title: String, description: String) {
+    func fetchChallenges(title: String)
+    {
         
-        challenger = ParseUser.currentUser()
-        self.title = Observable(title)
-        self.challengeDescription = Observable(description)
-        
-        challengeUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () in
-            UIApplication.sharedApplication().endBackgroundTask(self.challengeUploadTask!)
-        }
-        
-        saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-            
-            if let error = error {
-                ErrorHandling.defaultErrorHandler(error)
-            }
-            UIApplication.sharedApplication().endBackgroundTask(self.challengeUploadTask!)
-        }
     }
-    
-    func fetchChallenges(title: String) {
-        
-        guard PFUser.currentUser() != nil else {return}
-        
-//        ParseHelper.queryUserChallenges(PFUser.currentUser()!) { (challenges, error) in
-            // If Challenge isComplete == false populate
-            
-            
-//        }
-   
-        
-        
-        //        ParseHelper.queryUserChallenges(self, completionBlock: { (challenges, error) in
-        //
-        //            let validChallenges = challenges?.filter { challenge in challenge[ParseHelperConstants.LikeFromUser] != nil }
-        //
-        //            // map replaces the objects
-        //            self.likes.value = validLikes?.map { like in
-        //
-        //                let fromUser = like[ParseHelperConstants.LikeFromUser] as! PFUser
-        //
-        //                return fromUser
-        //            }
-        //        })
-    }
-    
 }
-
-// gray background
-// solid dark for buttons and titles
-
-//left avatar challenged by "NAME"
-
-// description should pop more
-
-// timer much smaller
-
-// list of things you'll need, time itll take
-
-//this task on average takes x time clock icon beside
-
-// Create challenge then add friend to send to or do on same screen
-//avatar prepopulate

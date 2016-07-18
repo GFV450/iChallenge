@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FriendSearchViewController: UIViewController {
+class FriendSearchViewController: UIViewController
+{
 
     override func viewDidLoad() {
         super.viewDidLoad()
