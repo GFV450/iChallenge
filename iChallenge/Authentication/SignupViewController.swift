@@ -8,6 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
 
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
@@ -88,6 +91,34 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     {
         //Unwrap optionals before pushing to Firebase Database
         let name = "\(self.firstNameTextField.text!) \(self.lastNameTextField.text!)"
+        
+        storeProfileImage(name)
+    }
+    
+    func storeProfileImage(name: String)
+    {
+        let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image!, 1.0)
+        
+        // Create a reference to the file you want to upload
+        let profileImageRef = storageRef.child("ProfileImages/uhbhubhj.jpg")
+        
+        // Upload the file to the path defined above
+        profileImageRef.putData(profileImageData!, metadata: nil) { metadata, error in
+            if (error != nil)
+            {
+                print("Image not stored: ", error?.localizedDescription)
+            }
+            else
+            {
+                //Stores the profile image URL and sends it to the next function
+                let downloadURL = metadata!.downloadURL()
+                self.storeUserData(name, profileImageURL: downloadURL!)
+            }
+        }
+    }
+    
+    func storeUserData(name: String, profileImageURL: NSURL)
+    {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
