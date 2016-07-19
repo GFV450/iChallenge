@@ -28,7 +28,7 @@
 		E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */; };
 		E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE74111D2CDB3A00977AAA /* Main.storyboard */; };
 		E2EE74181D2CDB7B00977AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74171D2CDB7B00977AAA /* MainViewController.swift */; };
-		E70384011D34244A004C2F31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E70384001D34244A004C2F31 /* GoogleService-Info.plist */; };
+		E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */; };
 		E742E0151D3D5CB8008543F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E0141D3D5CB8008543F9 /* User.swift */; };
 		E79EC15E1D3802EE001B307B /* FriendSearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79EC15D1D3802EE001B307B /* FriendSearchView.storyboard */; };
 		E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E786001D2845CE005FB7B3 /* AppDelegate.swift */; };
@@ -59,7 +59,7 @@
 		E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supporting Files/Assets.xcassets"; sourceTree = "<group>"; };
 		E2EE74121D2CDB3A00977AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		E2EE74171D2CDB7B00977AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Timeline/MainViewController.swift; sourceTree = "<group>"; };
-		E70384001D34244A004C2F31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E742E0141D3D5CB8008543F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E79EC15D1D3802EE001B307B /* FriendSearchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendSearchView.storyboard; sourceTree = "<group>"; };
 		E7E785FD1D2845CE005FB7B3 /* iChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,8 +219,8 @@
 		E7E785FF1D2845CE005FB7B3 /* iChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				E70384001D34244A004C2F31 /* GoogleService-Info.plist */,
 				E7E786001D2845CE005FB7B3 /* AppDelegate.swift */,
+				E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */,
 				E2EE74011D2CDA0600977AAA /* Onboarding */,
 				E2EE73CC1D2C83BF00977AAA /* Authentication */,
 				E2EE74161D2CDB6D00977AAA /* Main */,
@@ -304,7 +304,7 @@
 				E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */,
 				E24246491D2D7A7A00793533 /* CreateChallenge.storyboard in Resources */,
 				E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */,
-				E70384011D34244A004C2F31 /* GoogleService-Info.plist in Resources */,
+				E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
