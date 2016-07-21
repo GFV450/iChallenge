@@ -13,4 +13,5 @@ target 'iChallenge' do
   pod 'ConvenienceKit'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'AlamofireImage', '~> 2.0'
 end

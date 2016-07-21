@@ -13,6 +13,7 @@ class CreateChallengeViewController: UIViewController
 {
     var dataRef: FIRDatabaseReference!
     var infoArray = ["mary", "elisa"]
+    var refHandle: FIRDatabaseHandle!
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDuration: UITextField!

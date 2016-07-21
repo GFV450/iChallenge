@@ -95,10 +95,9 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
             if error == nil
             {
                 let userID = (user?.uid)!
-                let userObject = User(userID: userID, name: name, email: email, password: password)
+                let userObject = User(userID: userID, name: name, email: email, profileImage: "")
                 
-                userObject.uploadProfileImage(self.profileImageView)
-                userObject.uploadUserData(user!)
+                userObject.uploadUserData(user!, profileImage: self.profileImageView)
                 
                 print("User created successfully!")
             }
@@ -121,4 +120,3 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         }
     }
 }
-

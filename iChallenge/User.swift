@@ -10,25 +10,23 @@ import Foundation
 import UIKit
 import Firebase
 
-class User
+class User: NSObject
 {
     // MARK: - Properties
     let userID: String
     let name: String
     let email: String
-    let password: String
-    var profileImage: NSURL
+    var profileImage: String
     
-    init(userID: String, name: String, email: String, password: String)
+    init(userID: String, name: String, email: String, profileImage: String)
     {
         self.userID = userID
         self.name = name
         self.email = email
-        self.password = password
-        self.profileImage = NSURL(string: "http://i.stack.imgur.com/JFf3D.png")!
+        self.profileImage = profileImage
     }
     
-    func uploadProfileImage(profileImage: UIImageView)
+    func uploadUserData(user: FIRUser, profileImage: UIImageView)
     {
         // Create a reference to the path where you want to upload the file
         let storageRef: FIRStorageReference = FIRStorage.storage().reference().child("ProfileImages/\(name).jpg")
@@ -44,22 +42,23 @@ class User
             {
                 //Stores the profile image URL and sends it to the next function
                 let downloadURL = metadata!.downloadURL()
-                self.profileImage = downloadURL!
+                self.uploadProfileData(user, profileImageURL: downloadURL!)
+                
             }
         }
     }
     
-    func uploadUserData(user: FIRUser)
+    func uploadProfileData(user: FIRUser, profileImageURL: NSURL)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
-        let profileImageString = profileImage.absoluteString
+        self.profileImage = profileImageURL.absoluteString
         
-        dataRef.child("Users").child(self.userID).setValue(["Name": self.name, "Email": self.email, "ProfileImage": profileImageString])
+        dataRef.child("Users").child(self.userID).setValue(["name": self.name, "email": self.email, "profileImage": self.profileImage])
         
         //Modifies information in Firebase User Profile of the current authenticated user
         let changeRequest = user.profileChangeRequest()
         changeRequest.displayName = self.name
-        changeRequest.photoURL = self.profileImage
+        changeRequest.photoURL = profileImageURL
         changeRequest.commitChangesWithCompletion { error in
             if let error = error
             {
@@ -70,10 +69,5 @@ class User
                 print("Profile updated")
             }
         }
-    }
-    
-    func retrieveUserData()
-    {
-        
     }
 }

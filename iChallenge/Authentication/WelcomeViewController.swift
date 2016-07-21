@@ -23,7 +23,8 @@ class WelcomeViewController : UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     // MARK:- View Lifecycles
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         prepareNavigationBar()
     }

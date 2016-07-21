@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (3.4.1)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
   - Bolts/Tasks (1.8.1)
   - Bond (4.3.1)
   - ConvenienceKit (0.4.0)
@@ -47,6 +50,7 @@ PODS:
     - Bolts/Tasks (~> 1.6)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 2.0)
   - Bond
   - ConvenienceKit
   - Firebase
@@ -56,6 +60,8 @@ DEPENDENCIES:
   - Parse
 
 SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   Bolts: 89c0c6dd1b9c975a3452a62d57a6be6739e5f433
   Bond: 55903fc67f09e8e49791a657163cabba1d6fb29d
   ConvenienceKit: ba1ad8797897dc0d011676e961a2f3e9b270c841
@@ -72,6 +78,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
 
-PODFILE CHECKSUM: 6e8ed301e6737ae6610659b3a5caafc194892e20
+PODFILE CHECKSUM: 8a5a82e65540a67adad30fe808cd1511d7da80ba
 
 COCOAPODS: 1.0.1
