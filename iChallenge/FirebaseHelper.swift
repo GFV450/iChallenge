@@ -11,9 +11,7 @@ import Firebase
 
 class FirebaseHelper
 {
-//    var userArray = [User]()
-    
-    func retrieveUserData(callback: (User) -> Void)
+    static func retrieveUserData(callback: (User) -> Void)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
@@ -23,7 +21,12 @@ class FirebaseHelper
             
             let user = User(userID: "", name: name, email: "", profileImage: profileImage)
             callback(user)
-//            self.userArray.append(user)
         })
+    }
+    
+    static func addFriend(userID: String)
+    {
+        let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
+        dataRef.child("Users").child(userID).child("Friends").setValue("It worked!")
     }
 }

@@ -8,8 +8,10 @@
 
 import UIKit
 import Firebase
+import AlamofireImage
 
-class FriendSearchViewController: UITableViewController, UISearchResultsUpdating {
+class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
+{
     var userArray = [User]()
     var filteredTableData = [User]()
     var resultSearchController = UISearchController()
@@ -37,10 +39,7 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     
     func retrieveUsers()
     {
-        let object = FirebaseHelper()
-        
-//         1. closure in parameter list
-        object.retrieveUserData({ (user: User) -> Void in
+        FirebaseHelper.retrieveUserData({ (user: User) -> Void in
             self.userArray.append(user)
             self.tableView.reloadData()
         })
@@ -78,16 +77,11 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
         else
         {
             let user = userArray[indexPath.row]
-            // TO DO: Look into af async image loading
-//            let profileImageURL = NSURL(string: user.profileImage)
-//            let userProfileImage = NSData(contentsOfURL: profileImageURL!)
+            let profileImageURL = NSURL(string: user.profileImage)
+            cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+            cell.userID = user.userID
             
-//            if userProfileImage != nil
-//            {
-//                cell.imageView!.image = UIImage(data : userProfileImage!)
-//            }
-            
-            cell.textLabel?.text = user.name
+            cell.nameLabel?.text = user.name
             
             return cell
         }
@@ -103,5 +97,15 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
         
         self.tableView.reloadData()
     }
-
+    @IBAction func addFriendButtonPressed(sender: AnyObject)
+    {
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            FirebaseHelper.addFriend(user.uid)
+        }
+        else
+        {
+            print("No user is logged in")
+        }
+    }
 }

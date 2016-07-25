@@ -10,13 +10,14 @@ import UIKit
 
 class FriendSearchViewCell: UITableViewCell
 {
-    @IBOutlet weak var profileImageview: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+    var userID: String = ""
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addFriendButton: UIButton!
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool)

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class User: NSObject
+class User
 {
     // MARK: - Properties
     let userID: String
