@@ -67,7 +67,8 @@ class CreateChallengeViewController: UIViewController
             let duration: String = challengeDuration.text!
             
             let challenge = Challenge(name: name, userID: userID, title: title, description: description, duration: duration)
-            challenge.uploadChallenge()
+            
+            challenge.uploadChallenge() //Uploads challenge to Database
         }
         else
         {

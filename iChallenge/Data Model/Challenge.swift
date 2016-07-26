@@ -30,8 +30,10 @@ class Challenge
     // MARK: - Methods
     func uploadChallenge()
     {
+        //Creates a reference to the Firebase Database
         let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
         
+        //Creates a new challenge
         dataRef.child("Users").child(userID).child("Challenges").child(title).setValue(["Challenger": name, "Description": description, "Duration": duration])
     }
     
