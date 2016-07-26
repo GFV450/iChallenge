@@ -12,14 +12,17 @@ class FirebaseHelper
 {
     static func retrieveUserData(callback: (User) -> Void)
     {
+        //Creates a reference to the Firebase Database
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
+        //Queries the information needed from the Database
         dataRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
             let name = snapshot.value!["name"] as! String
             let profileImage = snapshot.value!["profileImage"] as! String
-            let userID = snapshot.key as! String
+            let userID = snapshot.key
             
             let user = User(userID: userID, name: name, email: "", profileImage: profileImage)
+            
             callback(user)
         })
     }

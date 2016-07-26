@@ -20,20 +20,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - View Lifecycles
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
-        fetchUserChallenges()
-        fetchChallengesToFriends()
-        
     }
-    
-    func fetchUserChallenges() {
-        }
-    }
-    
-    func fetchChallengesToFriends() {
-        }
+}
 
 // MARK: - Collection View Data Source
 extension MainViewController: UICollectionViewDataSource {
@@ -44,7 +36,7 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Parse
+        // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Firebase
         let userCount = 4
         let friendCount = 4
         

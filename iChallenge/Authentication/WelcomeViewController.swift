@@ -41,17 +41,10 @@ class WelcomeViewController : UIViewController {
     // MARK:- Actions
     @IBAction func loginButtonPressed(sender: AnyObject)
     {
+        //Authenticates user
         FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             if error == nil
             {
-                if let user = FIRAuth.auth()?.currentUser
-                {
-                    print(user.displayName)
-                    print(user.email)
-                    print(user.photoURL)
-                    print(user.uid)
-                }
-                
                 print("login successful!")
             }
             else

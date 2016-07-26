@@ -70,7 +70,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpButtonPressed(sender: AnyObject)
     {
-        // If textfields have more than 3 characters
+        // Condition required to create a new user
         if firstNameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
         {
             createUser()
@@ -91,13 +91,15 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
+        //Creates a user in the app
         FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
             if error == nil
             {
                 let userID = (user?.uid)!
-                let userObject = User(userID: userID, name: name, email: email, profileImage: "")
                 
-                userObject.uploadUserData(user!, profileImage: self.profileImageView)
+                let newUser = User(userID: userID, name: name, email: email, profileImage: "")
+                
+                newUser.uploadUserData(user!, profileImage: self.profileImageView)
                 
                 print("User created successfully!")
             }
@@ -113,7 +115,8 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     // MARK: - Helper Methods
-    func changeImage() {
+    func changeImage()
+    {
         photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
     
             self.profileImageView.image = image

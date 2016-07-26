@@ -10,7 +10,7 @@ import UIKit
 
 class FriendSearchViewCell: UITableViewCell
 {
-    var userID: String = ""
+    var userID: String = "" //Added to retrieve the userID of a user you're trying to add as your friend
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

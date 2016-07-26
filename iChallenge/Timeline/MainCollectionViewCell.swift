@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MainCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell
+{
     
     // MARK: - IBOutlets
     @IBOutlet weak var userImageView: UIImageView!

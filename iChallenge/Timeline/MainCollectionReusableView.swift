@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MainCollectionReusableView: UICollectionReusableView {
+class MainCollectionReusableView: UICollectionReusableView
+{
     
     // MARK: - IBOutlets
     @IBOutlet weak var headerLabel: UILabel!
