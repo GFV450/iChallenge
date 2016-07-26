@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		1099D76F77EE2C252E7D5F35 /* Pods_iChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B4D8287C29A029F36737AD /* Pods_iChallenge.framework */; };
 		E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24246401D2D723B00793533 /* ChallengeViewController.swift */; };
-		E24246431D2D724E00793533 /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24246421D2D724E00793533 /* CreateChallengeViewController.swift */; };
 		E24246461D2D7A5A00793533 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24246441D2D7A5A00793533 /* Challenge.storyboard */; };
-		E24246491D2D7A7A00793533 /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */; };
 		E242464B1D2D80BD00793533 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */; };
 		E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */; };
 		E24246501D2DB2DE00793533 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464F1D2DB2DE00793533 /* Challenge.swift */; };
@@ -30,11 +28,13 @@
 		E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */; };
 		E742E0151D3D5CB8008543F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E0141D3D5CB8008543F9 /* User.swift */; };
 		E7596AC21D3FE6E000FA1884 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */; };
+		E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */; };
+		E75A25B21D47E515008014EB /* CreateChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */; };
+		E75A25B51D47E578008014EB /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75A25B31D47E578008014EB /* CreateChallenge.storyboard */; };
 		E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */; };
 		E782BACE1D3ECA5200B0830C /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */; };
 		E782BAD21D3ECE7D00B0830C /* FriendSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */; };
 		E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E786001D2845CE005FB7B3 /* AppDelegate.swift */; };
-		E7FAD2D81D302578007438CB /* CreateChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,7 @@
 		53B4D8287C29A029F36737AD /* Pods_iChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57100A7A0D4E5825BC4F5D6C /* Pods-iChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		E24246401D2D723B00793533 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = Challenge/ChallengeViewController.swift; sourceTree = "<group>"; };
-		E24246421D2D724E00793533 /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = ../Challenge/CreateChallengeViewController.swift; sourceTree = "<group>"; };
 		E24246451D2D7A5A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/Challenge.storyboard"; sourceTree = "<group>"; };
-		E24246481D2D7A7A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = "<group>"; };
 		E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = Timeline/MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionReusableView.swift; path = Timeline/MainCollectionReusableView.swift; sourceTree = "<group>"; };
 		E242464F1D2DB2DE00793533 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Challenge.swift; path = "Data Model/Challenge.swift"; sourceTree = "<group>"; };
@@ -63,13 +61,15 @@
 		E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E742E0141D3D5CB8008543F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = iChallenge/Challenge/CreateChallengeViewController.swift; sourceTree = SOURCE_ROOT; };
+		E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = iChallenge/CreateChallengeViewCell.swift; sourceTree = SOURCE_ROOT; };
+		E75A25B41D47E578008014EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "iChallenge/Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = SOURCE_ROOT; };
 		E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendSearch.storyboard; sourceTree = "<group>"; };
 		E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewCell.swift; sourceTree = "<group>"; };
 		E7E785FD1D2845CE005FB7B3 /* iChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E786001D2845CE005FB7B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E7860C1D2845CE005FB7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = ../CreateChallengeViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +197,9 @@
 		E79EC15A1D37F630001B307B /* Create Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */,
-				E24246421D2D724E00793533 /* CreateChallengeViewController.swift */,
-				E7FAD2D71D302578007438CB /* CreateChallengeViewCell.swift */,
+				E75A25B31D47E578008014EB /* CreateChallenge.storyboard */,
+				E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */,
+				E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */,
 			);
 			path = "Create Challenge";
 			sourceTree = "<group>";
@@ -304,10 +304,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E75A25B51D47E578008014EB /* CreateChallenge.storyboard in Resources */,
 				E24246461D2D7A5A00793533 /* Challenge.storyboard in Resources */,
 				E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */,
 				E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */,
-				E24246491D2D7A7A00793533 /* CreateChallenge.storyboard in Resources */,
 				E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */,
 				E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */,
 				E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */,
@@ -384,14 +384,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E24246431D2D724E00793533 /* CreateChallengeViewController.swift in Sources */,
 				E2EE74181D2CDB7B00977AAA /* MainViewController.swift in Sources */,
 				E2EE73F31D2C9C0F00977AAA /* SignupViewController.swift in Sources */,
+				E75A25B21D47E515008014EB /* CreateChallengeViewCell.swift in Sources */,
 				E2EE74071D2CDA5E00977AAA /* UIView+Extensions.swift in Sources */,
 				E7596AC21D3FE6E000FA1884 /* FirebaseHelper.swift in Sources */,
 				E2EE740B1D2CDA7300977AAA /* PagedScrollViewController.swift in Sources */,
 				E2EE73F41D2C9C0F00977AAA /* WelcomeViewController.swift in Sources */,
 				E261254E1D30161200BB1274 /* PhotoTakingHelper.swift in Sources */,
+				E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */,
 				E242464B1D2D80BD00793533 /* MainCollectionViewCell.swift in Sources */,
 				E782BAD21D3ECE7D00B0830C /* FriendSearchViewCell.swift in Sources */,
 				E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */,
@@ -399,7 +400,6 @@
 				E782BACE1D3ECA5200B0830C /* FriendSearchViewController.swift in Sources */,
 				E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */,
 				E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */,
-				E7FAD2D81D302578007438CB /* CreateChallengeViewCell.swift in Sources */,
 				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
 				E242464D1D2DA69000793533 /* MainCollectionReusableView.swift in Sources */,
@@ -418,15 +418,6 @@
 			name = Challenge.storyboard;
 			sourceTree = "<group>";
 		};
-		E24246471D2D7A7A00793533 /* CreateChallenge.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E24246481D2D7A7A00793533 /* Base */,
-			);
-			name = CreateChallenge.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		E2EE74111D2CDB3A00977AAA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,6 +425,14 @@
 			);
 			name = Main.storyboard;
 			path = "Supporting Files/Base.lproj";
+			sourceTree = "<group>";
+		};
+		E75A25B31D47E578008014EB /* CreateChallenge.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E75A25B41D47E578008014EB /* Base */,
+			);
+			name = CreateChallenge.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
