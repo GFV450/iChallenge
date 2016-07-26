@@ -78,9 +78,9 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
         {
             let user = userArray[indexPath.row]
             let profileImageURL = NSURL(string: user.profileImage)
+            
             cell.profileImageView!.af_setImageWithURL(profileImageURL!)
             cell.userID = user.userID
-            
             cell.nameLabel?.text = user.name
             
             return cell
@@ -101,7 +101,15 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     {
         if let user = FIRAuth.auth()?.currentUser
         {
-            FirebaseHelper.addFriend(user.uid)
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! FriendSearchViewCell
+            
+            let currentUserID = user.uid
+            let friendName = cell.nameLabel.text!
+            let friendID = cell.userID
+            
+            FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
         }
         else
         {
