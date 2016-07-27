@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CreateChallengeViewCell: UICollectionViewCell {
+class CreateChallengeViewCell: UICollectionViewCell
+{
+    let userID: String = ""
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

@@ -12,18 +12,16 @@ import Firebase
 class Challenge
 {
     let name: String
-    let userID: String
+    let challengerID: String
     let title: String
     let description: String
-    let duration: String
     
-    init(name: String, userID: String, title: String, description: String, duration: String)
+    init(name: String, challengerID: String, title: String, description: String)
     {
         self.name = name
-        self.userID = userID
+        self.challengerID = challengerID
         self.title = title
         self.description = description
-        self.duration = duration
         
     }
     
@@ -34,7 +32,7 @@ class Challenge
         let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
         
         //Creates a new challenge
-        dataRef.child("Users").child(userID).child("Challenges").child(title).setValue(["Challenger": name, "Description": description, "Duration": duration])
+        dataRef.child("Users").child(challengerID).child("Challenges").child(title).setValue(["Challenger": name, "Description": description])
     }
     
     func fetchChallenges(title: String)
