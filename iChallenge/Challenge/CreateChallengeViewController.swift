@@ -11,23 +11,20 @@ import Firebase
 
 class CreateChallengeViewController: UIViewController
 {
-    var dataRef: FIRDatabaseReference!
-    var infoArray = ["mary", "elisa"]
+    var friendArray = [User]()
     var refHandle: FIRDatabaseHandle!
     
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var challengeDuration: UITextField!
     @IBOutlet weak var challengeDescription: UITextView!
     @IBOutlet weak var challengeTitle: UITextField!
     @IBOutlet weak var createChallengeCollectionView: UICollectionView!
     
     override func viewDidLoad()
     {
-        dataRef = FIRDatabase.database().reference().child("Users")
         changeImageView()
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.retrieveFriends()
     }
     
     func changeImageView()
@@ -36,19 +33,36 @@ class CreateChallengeViewController: UIViewController
         userImage.clipsToBounds = true
     }
     
+    func retrieveFriends()
+    {
+        //Pass closure as a parameter to load data being fetched asynchronously in real time
+        FirebaseHelper.retrieveFriendID({ (user: User) -> Void in
+            
+            //Appends the user retrieved from the Database on userArray
+            self.friendArray.append(user)
+            
+            self.createChallengeCollectionView.reloadData()
+        })
+    }
+
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier("CreateChallengeCell", forIndexPath: indexPath) as! CreateChallengeViewCell
         
-        let info = infoArray[indexPath.row]
-        cell.nameLabel.text = info
+        let friend = friendArray[indexPath.row]
+        let profileImageURL = NSURL(string: friend.profileImage)
+        
+        //Sets the information relevant to the cell on CollectionView
+        cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+        cell.nameLabel?.text = friend.name
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return infoArray.count
+        return friendArray.count
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -61,12 +75,10 @@ class CreateChallengeViewController: UIViewController
         {
             //Unwrap optionals before pushing to Firebase Database
             let name = user.displayName!
-            let userID = user.uid
+            let challengerID = user.uid
             let title: String = challengeTitle.text!
-            let description: String = challengeDescription.text!
-            let duration: String = challengeDuration.text!
-            
-            let challenge = Challenge(name: name, userID: userID, title: title, description: description, duration: duration)
+            let description: String = challengeDescription.text!            
+            let challenge = Challenge(name: name, challengerID: challengerID, title: title, description: description)
             
             challenge.uploadChallenge() //Uploads challenge to Database
         }

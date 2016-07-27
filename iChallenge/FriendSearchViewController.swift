@@ -33,21 +33,20 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             
             return controller
         })()
-        
-        // Reload the table
-        self.tableView.reloadData()
     }
     
     func retrieveUsers()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
         FirebaseHelper.retrieveUserData({ (user: User) -> Void in
+            
             //Appends the user retrieved from the Database on userArray
             self.userArray.append(user)
             
             self.tableView.reloadData()
         })
     }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int

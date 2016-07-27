@@ -123,8 +123,8 @@
 		E242463E1D2D71F300793533 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
 				E24246441D2D7A5A00793533 /* Challenge.storyboard */,
+				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -186,10 +186,10 @@
 		E2EE74161D2CDB6D00977AAA /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
 				E2EE74171D2CDB7B00977AAA /* MainViewController.swift */,
 				E242464A1D2D80BD00793533 /* MainCollectionViewCell.swift */,
 				E242464C1D2DA69000793533 /* MainCollectionReusableView.swift */,
-				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
 			);
 			name = Main;
 			sourceTree = "<group>";
