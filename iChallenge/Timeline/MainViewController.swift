@@ -9,15 +9,10 @@
 import UIKit
 import Parse
 
-class MainViewController: UIViewController {
-    
-    // MARK: - Properties
-    var challengesToFriends = [PFObject]?()
-    var userChallenges = [PFObject]?()
-    
+class MainViewController: UIViewController
+{
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - View Lifecycles
     override func viewDidLoad()
@@ -38,10 +33,8 @@ extension MainViewController: UICollectionViewDataSource {
         
         // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Firebase
         let userCount = 4
-        let friendCount = 4
         
-        let array = [userCount, friendCount]
-        return array[segmentedControl.selectedSegmentIndex]
+        return userCount
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

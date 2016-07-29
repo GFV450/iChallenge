@@ -44,30 +44,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="qXD-93-23I">
-                                <rect key="frame" x="20" y="554" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="jfW-8h-60V"/>
-                                    <constraint firstAttribute="width" constant="100" id="nws-9r-3aR"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7j-Qh-8SP">
-                                <rect key="frame" x="43" y="589" width="53" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.1843137255" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time required to do this challenge (Hours)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-pt-r8c">
-                                <rect key="frame" x="128" y="598.5" width="266" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
                                 <rect key="frame" x="20" y="333" width="374" height="153"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -76,22 +54,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AGL-LN-iny" firstAttribute="top" secondItem="iAK-Us-0dr" secondAttribute="bottom" constant="50" id="0x1-1F-WXb"/>
-                            <constraint firstItem="Yfr-pt-r8c" firstAttribute="trailing" secondItem="fGd-C5-TbH" secondAttribute="trailingMargin" id="5oi-a7-3AV"/>
-                            <constraint firstItem="Yfr-pt-r8c" firstAttribute="leading" secondItem="qXD-93-23I" secondAttribute="trailing" constant="8" id="6ET-k4-oFc"/>
-                            <constraint firstItem="qXD-93-23I" firstAttribute="top" secondItem="msI-dc-4O0" secondAttribute="bottom" constant="68" id="Bn9-Ac-zPT"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="top" secondItem="Icm-Zd-Che" secondAttribute="bottom" constant="8" id="EGA-By-cjx"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="K9f-TD-Fe7"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="Kh1-Uw-p1O"/>
-                            <constraint firstItem="R7j-Qh-8SP" firstAttribute="centerX" secondItem="qXD-93-23I" secondAttribute="centerX" id="Mah-rJ-bEE"/>
                             <constraint firstItem="AGL-LN-iny" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="Mrh-9J-W0b"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="top" secondItem="bHR-QA-ZBt" secondAttribute="bottom" constant="43" id="avk-WU-LwW"/>
-                            <constraint firstItem="R7j-Qh-8SP" firstAttribute="centerY" secondItem="qXD-93-23I" secondAttribute="centerY" id="cfe-T2-tZG"/>
-                            <constraint firstItem="qXD-93-23I" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="d0K-W4-HTx"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="trailing" secondItem="fGd-C5-TbH" secondAttribute="trailingMargin" id="ddw-ZO-NcN"/>
                             <constraint firstItem="Icm-Zd-Che" firstAttribute="top" secondItem="AGL-LN-iny" secondAttribute="bottom" constant="8" id="gKo-lZ-GOm"/>
-                            <constraint firstItem="Yfr-pt-r8c" firstAttribute="top" secondItem="msI-dc-4O0" secondAttribute="bottom" constant="112.5" id="hDS-fL-aIY"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="oqw-li-kFp"/>
-                            <constraint firstItem="Upb-Wg-ub6" firstAttribute="top" secondItem="qXD-93-23I" secondAttribute="bottom" constant="82" id="rd7-su-wxb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="msI-dc-4O0" secondAttribute="trailing" id="rdV-od-zZd"/>
                             <constraint firstItem="Icm-Zd-Che" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="yRE-Op-4pI"/>
                         </constraints>
@@ -107,7 +77,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="userImage" destination="AGL-LN-iny" id="hbV-xA-oGb"/>
+                        <outlet property="challengeDescription" destination="msI-dc-4O0" id="tO3-54-fpf"/>
+                        <outlet property="challengeTitle" destination="bHR-QA-ZBt" id="n0L-bZ-v5c"/>
+                        <outlet property="userImageView" destination="AGL-LN-iny" id="U3V-hH-hmt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Vw-uX-xf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +88,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock" width="600" height="600"/>
         <image name="steps" width="76" height="76"/>
     </resources>
 </document>
