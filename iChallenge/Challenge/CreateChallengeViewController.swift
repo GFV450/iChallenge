@@ -9,10 +9,9 @@
 import UIKit
 import Firebase
 
-class CreateChallengeViewController: UIViewController
+class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 {
     var friendArray = [User]()
-    var refHandle: FIRDatabaseHandle!
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDescription: UITextView!
@@ -25,6 +24,9 @@ class CreateChallengeViewController: UIViewController
         super.viewDidLoad()
 
         self.retrieveFriends()
+        
+        createChallengeCollectionView.allowsMultipleSelection = false
+        
     }
     
     func changeImageView()
@@ -56,6 +58,7 @@ class CreateChallengeViewController: UIViewController
         //Sets the information relevant to the cell on CollectionView
         cell.profileImageView!.af_setImageWithURL(profileImageURL!)
         cell.nameLabel?.text = friend.name
+        cell.userID = friend.userID
         
         return cell
     }
@@ -77,14 +80,51 @@ class CreateChallengeViewController: UIViewController
             let name = user.displayName!
             let challengerID = user.uid
             let title: String = challengeTitle.text!
-            let description: String = challengeDescription.text!            
-            let challenge = Challenge(name: name, challengerID: challengerID, title: title, description: description)
+            let description: String = challengeDescription.text!
             
-            challenge.uploadChallenge() //Uploads challenge to Database
+            let foeID = self.retrieveFoeID()
+            
+            let challenge = Challenge(name: name, challengerID: challengerID, foeID: foeID, title: title, description: description)
+            
+            if(foeID != "")
+            {
+                challenge.uploadChallenge() //Uploads challenge to Database
+            }
+            else
+            {
+                print("No friend selected. Challenge not created")
+            }
         }
         else
         {
             print("Challenge not created")
         }
     }
+    
+    func retrieveFoeID() -> String
+    {
+        for cell in createChallengeCollectionView.visibleCells() as! [CreateChallengeViewCell]
+        {
+            if(cell.contentView.backgroundColor == UIColor.greenColor())
+            {
+                let foeID = cell.userID
+                return foeID
+            }
+        }
+        
+        return ""
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
+        
+        cell.contentView.backgroundColor = UIColor.greenColor()
+    }
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
+        
+        cell.contentView.backgroundColor = UIColor.whiteColor()
+    }
 }
+

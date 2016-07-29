@@ -9,24 +9,15 @@
 import UIKit
 import QuartzCore
 
-class ChallengeViewController: UIViewController {
-
-    @IBOutlet weak var userImage: UIImageView!
+class ChallengeViewController: UIViewController
+{
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var challengeTitle: UILabel!
+    @IBOutlet weak var challengeDescription: UILabel!
     
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
-
-    func changeImageView()
+    override func viewDidLoad()
     {
-        userImage.layer.cornerRadius = 3;
-        userImage.clipsToBounds = true
+        super.viewDidLoad()
     }
 }
