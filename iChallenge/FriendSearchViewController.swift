@@ -38,7 +38,7 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     func retrieveUsers()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
-        FirebaseHelper.retrieveUserData({ (user: User) -> Void in
+        FirebaseHelper.queryUserData({ (user: User) -> Void in
             
             //Appends the user retrieved from the Database on userArray
             self.userArray.append(user)

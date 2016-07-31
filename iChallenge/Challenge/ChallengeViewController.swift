@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 class ChallengeViewController: UIViewController
 {
@@ -19,5 +18,10 @@ class ChallengeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    static func fillChallengeScreen(callback:() -> (title: String, description: String, profileImage: UIImage) )
+    {
+        
     }
 }

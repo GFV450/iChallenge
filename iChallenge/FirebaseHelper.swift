@@ -10,7 +10,7 @@ import Firebase
 
 class FirebaseHelper
 {
-    static func retrieveUserData(callback: (User) -> Void)
+    static func queryUserData(callback: (User) -> Void)
     {
         //Creates a reference to the Firebase Database
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
@@ -27,7 +27,7 @@ class FirebaseHelper
         })
     }
     
-    static func retrieveFriendID(callback: (User) -> Void)
+    static func queryFriendID(callback: (User) -> Void)
     {
         if let user = FIRAuth.auth()?.currentUser
         {
@@ -38,7 +38,7 @@ class FirebaseHelper
             friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
                 let userID = snapshot.key
                 
-                retrieveFriendData(userID, callback: callback)
+                queryFriendData(userID, callback: callback)
             })
         }
         else
@@ -47,7 +47,7 @@ class FirebaseHelper
         }
     }
     
-    static func retrieveFriendData(userID: String, callback: (User) -> Void)
+    static func queryFriendData(userID: String, callback: (User) -> Void)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
@@ -63,7 +63,31 @@ class FirebaseHelper
                 callback(user)
             }
         })
-
+    }
+    
+    static func queryChallenges(callback: (Challenge) -> Void)
+    {
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            //Creates a reference to the Firebase Database
+            let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Challenges")
+            
+            //Queries the friends userID from the Database
+            challengeRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+                let challengeName = snapshot.key
+                let challengerImage = snapshot.value!["ChallengerImage"] as! String
+                let challengeDescription = snapshot.value!["Description"] as! String
+                
+                let challenge = Challenge(name: challengeName, challengerID: "", challengerProfileImage: challengerImage, foeID: "", title: challengeName, description: challengeDescription)
+                
+                callback(challenge)
+            })
+        }
+        else
+        {
+            print("No user logged in")
+        }
+    
     }
     
     static func addFriend(userID: String, friendID: String, friendName: String)
