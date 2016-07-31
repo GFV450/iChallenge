@@ -7,45 +7,73 @@
 //
 
 import UIKit
-import Parse
 
 class MainViewController: UIViewController
 {
+    var challengeArray = [Challenge]()
+    
     // MARK: - IBOutlets
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mainCollectionView: UICollectionView!
     
     // MARK: - View Lifecycles
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.retrieveChallenges()
     }
 }
 
 // MARK: - Collection View Data Source
-extension MainViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
+    func retrieveChallenges()
+    {
+        FirebaseHelper.queryChallenges({ (challenge: Challenge) -> Void in
+            //Appends the user retrieved from the Database on userArray
+            self.challengeArray.append(challenge)
+            
+            self.mainCollectionView.reloadData()
+        })
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        // TODO: Return number of challenges depending on Segmented (friends' vs yours) pulling from Firebase
-        let userCount = 4
-        
-        return userCount
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return challengeArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainCollectionViewCell
+        let cell = mainCollectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainCollectionViewCell
         
-        // Set image to Challenger user image
-        // Set title to Challenge object title
+        let challenge = challengeArray[indexPath.row]
         
+        let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
+        cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
+        
+        cell.challengeName.text = challenge.title
+        cell.challengeDescription = challenge.description
         
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    {
+        
+        ChallengeViewController.fillChallengeScreen({ () -> (title: String, description: String, profileImage: UIImage) in
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MainCollectionViewCell
+            
+            let profileImage = cell.challengerImage.image
+            let title = cell.challengeName.text!
+            let description = cell.challengeDescription
+            
+            return (title, description, profileImage)
+        })
+    }
+    
+    
 }
 

@@ -20,7 +20,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad()
     {
-        changeImageView()
+        setImageView()
         super.viewDidLoad()
 
         self.retrieveFriends()
@@ -29,16 +29,24 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
     }
     
-    func changeImageView()
+    func setImageView()
     {
-        userImage.layer.cornerRadius = 8.0
-        userImage.clipsToBounds = true
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            let profileImageURL = user.photoURL
+            
+            userImage.af_setImageWithURL(profileImageURL!)
+        }
+        else
+        {
+            print("No user logged in")
+        }
     }
     
     func retrieveFriends()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
-        FirebaseHelper.retrieveFriendID({ (user: User) -> Void in
+        FirebaseHelper.queryFriendID({ (user: User) -> Void in
             
             //Appends the user retrieved from the Database on userArray
             self.friendArray.append(user)
@@ -47,7 +55,6 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         })
     }
 
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier("CreateChallengeCell", forIndexPath: indexPath) as! CreateChallengeViewCell
@@ -79,12 +86,13 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
             //Unwrap optionals before pushing to Firebase Database
             let name = user.displayName!
             let challengerID = user.uid
+            let challengerProfileImage = (FIRAuth.auth()?.currentUser?.photoURL?.absoluteString)! //Unwrapping value
             let title: String = challengeTitle.text!
             let description: String = challengeDescription.text!
             
             let foeID = self.retrieveFoeID()
             
-            let challenge = Challenge(name: name, challengerID: challengerID, foeID: foeID, title: title, description: description)
+            let challenge = Challenge(name: name, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, title: title, description: description)
             
             if(foeID != "")
             {

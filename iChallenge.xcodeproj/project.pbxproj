@@ -30,6 +30,7 @@
 		E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */; };
 		E75A25B21D47E515008014EB /* CreateChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */; };
 		E75A25B51D47E578008014EB /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75A25B31D47E578008014EB /* CreateChallenge.storyboard */; };
+		E76413BD1D4BE13500D2F036 /* ImageConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */; };
 		E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */; };
 		E782BACE1D3ECA5200B0830C /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */; };
 		E782BAD21D3ECE7D00B0830C /* FriendSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */; };
@@ -62,6 +63,7 @@
 		E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = iChallenge/Challenge/CreateChallengeViewController.swift; sourceTree = SOURCE_ROOT; };
 		E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = iChallenge/CreateChallengeViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E75A25B41D47E578008014EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "iChallenge/Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = SOURCE_ROOT; };
+		E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConversionHelper.swift; sourceTree = "<group>"; };
 		E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendSearch.storyboard; sourceTree = "<group>"; };
 		E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				E261254D1D30161200BB1274 /* PhotoTakingHelper.swift */,
 				E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */,
+				E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
 				E742E0151D3D5CB8008543F9 /* User.swift in Sources */,
+				E76413BD1D4BE13500D2F036 /* ImageConversionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
