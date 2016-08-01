@@ -54,8 +54,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
         
-        cell.challengeName.text = challenge.title
-        cell.challengeDescription = challenge.description
+        cell.challengeName.text = challenge.challengeTitle
+        
+        cell.challenge = challenge
         
         return cell
     }
@@ -67,11 +68,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = sender as! MainCollectionViewCell
             let challengeController = segue.destinationViewController as! ChallengeViewController
             
-            let profileImage = cell.challengerImage.image!
-            let title = cell.challengeName.text!
-            let description = cell.challengeDescription!
-            
-            challengeController.viewInfo = (profileImage, title, description)
+            challengeController.challenge = cell.challenge
         }
     }
 

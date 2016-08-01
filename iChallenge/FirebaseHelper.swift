@@ -72,13 +72,16 @@ class FirebaseHelper
             //Creates a reference to the Firebase Database
             let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Challenges")
             
-            //Queries the friends userID from the Database
+            //Queries the challenges from the Database
             challengeRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-                let challengeName = snapshot.key
-                let challengerImage = snapshot.value!["ChallengerImage"] as! String
-                let challengeDescription = snapshot.value!["Description"] as! String
+                let challengerName = snapshot.value!["challengerName"] as! String
+                let challengerID = snapshot.value!["challengerID"] as! String
+                let challengeTitle = snapshot.key
+                let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
+                let challengeDescription = snapshot.value!["challengeDescription"] as! String
+                let foeID = snapshot.value!["foeID"] as! String
                 
-                let challenge = Challenge(name: challengeName, challengerID: "", challengerProfileImage: challengerImage, foeID: "", title: challengeName, description: challengeDescription)
+                let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
                 
                 callback(challenge)
             })
@@ -87,7 +90,6 @@ class FirebaseHelper
         {
             print("No user logged in")
         }
-    
     }
     
     static func addFriend(userID: String, friendID: String, friendName: String)
