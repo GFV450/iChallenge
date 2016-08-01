@@ -14,6 +14,5 @@ class MainCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var challengerImage: UIImageView!
     @IBOutlet weak var challengeName: UILabel!
     
-    var challengeDescription: String = ""
-    
+    var label = UILabel(frame: CGRectMake(0, 0, 0, 0))
 }

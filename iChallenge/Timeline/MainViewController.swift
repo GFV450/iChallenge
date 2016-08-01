@@ -55,25 +55,27 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
         
         cell.challengeName.text = challenge.title
-        cell.challengeDescription = challenge.description
+        cell.label.text = challenge.description
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        
-        ChallengeViewController.fillChallengeScreen({ () -> (title: String, description: String, profileImage: UIImage) in
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MainCollectionViewCell
-            
-            let profileImage = cell.challengerImage.image
-            let title = cell.challengeName.text!
-            let description = cell.challengeDescription
-            
-            return (title, description, profileImage)
-        })
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MainCollectionViewCell
     }
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ChallengeSegue"
+        {
+            let cell = sender as! MainCollectionViewCell
+            let challengeController = segue.destinationViewController as! ChallengeViewController
+            
+            challengeController.userImageView = cell.challengerImage
+            challengeController.challengeTitle = cell.challengeName
+            challengeController.challengeDescription = cell.label
+        }
+    }
+
 }
 

@@ -19,9 +19,4 @@ class ChallengeViewController: UIViewController
     {
         super.viewDidLoad()
     }
-    
-    static func fillChallengeScreen(callback:() -> (title: String, description: String, profileImage: UIImage) )
-    {
-        
-    }
 }
