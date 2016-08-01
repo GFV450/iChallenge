@@ -11,21 +11,21 @@ import Firebase
 
 class Challenge
 {
-    let name: String
+    let challengerName: String
     let challengerID: String
     let challengerProfileImage: String
     let foeID: String
-    let title: String
-    let description: String
+    let challengeTitle: String
+    let challengeDescription: String
     
-    init(name: String, challengerID: String, challengerProfileImage: String, foeID: String, title: String, description: String)
+    init(challengerName: String, challengerID: String, challengerProfileImage: String, foeID: String, challengeTitle: String, challengeDescription: String)
     {
-        self.name = name
+        self.challengerName = challengerName
         self.challengerID = challengerID
         self.challengerProfileImage = challengerProfileImage
         self.foeID = foeID
-        self.title = title
-        self.description = description
+        self.challengeTitle = challengeTitle
+        self.challengeDescription = challengeDescription
     }
     
     // MARK: - Methods
@@ -35,11 +35,15 @@ class Challenge
         let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
         
         //Creates a new challenge in the foe tree
-        dataRef.child("Users").child(foeID).child("Challenges").child(title).setValue(["Challenger": name, "ChallengerID": challengerID, "ChallengerImage": challengerProfileImage, "Description": description])
+        dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
     }
     
-    func fetchChallenges(title: String)
+    func challengeCompleted()
     {
+        let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
         
+        dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
+        
+        dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "description": challengeDescription])
     }
 }

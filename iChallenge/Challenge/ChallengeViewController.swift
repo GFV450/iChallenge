@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ChallengeViewController: UIViewController
 {
-    var viewInfo: (profileImage: UIImage, title: String, description: String)?
+    var challenge: Challenge?
     
-    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var challengerProfileImage: UIImageView!
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var challengeDescription: UILabel!
-    
+    @IBOutlet weak var challengeCompleteButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -25,8 +26,15 @@ class ChallengeViewController: UIViewController
     
     func setChallengeInfo()
     {
-        userImageView.image = viewInfo?.profileImage
-        challengeTitle.text = viewInfo?.title
-        challengeDescription.text = viewInfo?.description
+        let profileImageURL = NSURL(string: (challenge?.challengerProfileImage)!)
+        
+        challengerProfileImage.af_setImageWithURL(profileImageURL!)
+        challengeTitle.text = challenge?.challengeTitle
+        challengeDescription.text = challenge?.challengeDescription
+    }
+    
+    @IBAction func completeChallengeButtonPressed(sender: AnyObject)
+    {
+        challenge?.challengeCompleted()
     }
 }

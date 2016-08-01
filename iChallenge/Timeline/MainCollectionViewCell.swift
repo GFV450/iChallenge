@@ -15,4 +15,5 @@ class MainCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var challengeName: UILabel!
     
     var challengeDescription: String?
+    var challenge: Challenge?
 }

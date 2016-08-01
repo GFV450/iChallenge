@@ -84,15 +84,15 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         if let user = FIRAuth.auth()?.currentUser
         {
             //Unwrap optionals before pushing to Firebase Database
-            let name = user.displayName!
+            let challengerName = user.displayName!
             let challengerID = user.uid
             let challengerProfileImage = (FIRAuth.auth()?.currentUser?.photoURL?.absoluteString)! //Unwrapping value
-            let title: String = challengeTitle.text!
-            let description: String = challengeDescription.text!
+            let challengeTitle: String = self.challengeTitle.text!
+            let challengeDescription: String = self.challengeDescription.text!
             
             let foeID = self.retrieveFoeID()
             
-            let challenge = Challenge(name: name, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, title: title, description: description)
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
             if(foeID != "")
             {
