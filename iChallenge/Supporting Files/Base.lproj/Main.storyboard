@@ -40,7 +40,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqW-qh-EpZ">
                                                     <rect key="frame" x="17" y="171" width="175" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -49,7 +49,7 @@
                                         <connections>
                                             <outlet property="challengeName" destination="LqW-qh-EpZ" id="9Pb-3P-Whm"/>
                                             <outlet property="challengerImage" destination="yqD-sq-KTa" id="JI9-7b-kzk"/>
-                                            <segue destination="Xbz-0f-FVV" kind="show" id="KZe-tE-ZHP"/>
+                                            <segue destination="Xbz-0f-FVV" kind="show" identifier="ChallengeSegue" id="KZe-tE-ZHP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
