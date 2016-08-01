@@ -44,24 +44,36 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
                                 <rect key="frame" x="20" y="333" width="374" height="153"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNl-Ma-trI">
+                                <rect key="frame" x="67" y="589" width="281" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="uWk-aU-gyf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Challlenge Complete"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AGL-LN-iny" firstAttribute="top" secondItem="iAK-Us-0dr" secondAttribute="bottom" constant="50" id="0x1-1F-WXb"/>
+                            <constraint firstItem="Upb-Wg-ub6" firstAttribute="top" secondItem="WNl-Ma-trI" secondAttribute="bottom" constant="105" id="ATe-kz-8qt"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="top" secondItem="Icm-Zd-Che" secondAttribute="bottom" constant="8" id="EGA-By-cjx"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="K9f-TD-Fe7"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="Kh1-Uw-p1O"/>
                             <constraint firstItem="AGL-LN-iny" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="Mrh-9J-W0b"/>
+                            <constraint firstItem="WNl-Ma-trI" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" constant="47" id="TXn-tg-r4G"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="top" secondItem="bHR-QA-ZBt" secondAttribute="bottom" constant="43" id="avk-WU-LwW"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="trailing" secondItem="fGd-C5-TbH" secondAttribute="trailingMargin" id="ddw-ZO-NcN"/>
                             <constraint firstItem="Icm-Zd-Che" firstAttribute="top" secondItem="AGL-LN-iny" secondAttribute="bottom" constant="8" id="gKo-lZ-GOm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WNl-Ma-trI" secondAttribute="trailing" constant="46" id="kv9-KR-fRO"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="oqw-li-kFp"/>
+                            <constraint firstItem="WNl-Ma-trI" firstAttribute="top" secondItem="msI-dc-4O0" secondAttribute="bottom" constant="103" id="q8B-Se-i71"/>
                             <constraint firstAttribute="trailingMargin" secondItem="msI-dc-4O0" secondAttribute="trailing" id="rdV-od-zZd"/>
                             <constraint firstItem="Icm-Zd-Che" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="yRE-Op-4pI"/>
                         </constraints>

@@ -55,15 +55,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
         
         cell.challengeName.text = challenge.title
-        cell.label.text = challenge.description
+        cell.challengeDescription = challenge.description
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MainCollectionViewCell
-    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "ChallengeSegue"
@@ -71,9 +67,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = sender as! MainCollectionViewCell
             let challengeController = segue.destinationViewController as! ChallengeViewController
             
-            challengeController.userImageView = cell.challengerImage
-            challengeController.challengeTitle = cell.challengeName
-            challengeController.challengeDescription = cell.label
+            let profileImage = cell.challengerImage.image!
+            let title = cell.challengeName.text!
+            let description = cell.challengeDescription!
+            
+            challengeController.viewInfo = (profileImage, title, description)
         }
     }
 

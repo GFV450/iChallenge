@@ -10,6 +10,8 @@ import UIKit
 
 class ChallengeViewController: UIViewController
 {
+    var viewInfo: (profileImage: UIImage, title: String, description: String)?
+    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var challengeDescription: UILabel!
@@ -18,5 +20,13 @@ class ChallengeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.setChallengeInfo()
+    }
+    
+    func setChallengeInfo()
+    {
+        userImageView.image = viewInfo?.profileImage
+        challengeTitle.text = viewInfo?.title
+        challengeDescription.text = viewInfo?.description
     }
 }
