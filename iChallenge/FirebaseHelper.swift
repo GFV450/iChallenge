@@ -16,7 +16,7 @@ class FirebaseHelper
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
         //Queries the information needed from the Database
-        dataRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        dataRef.queryOrderedByChild("name").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             let name = snapshot.value!["name"] as! String
             let profileImage = snapshot.value!["profileImage"] as! String
             let userID = snapshot.key
@@ -51,7 +51,7 @@ class FirebaseHelper
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
-        dataRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        dataRef.queryOrderedByChild("name").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             if(userID == snapshot.key)
             {
                 let name = snapshot.value!["name"] as! String
@@ -73,7 +73,7 @@ class FirebaseHelper
             let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Challenges")
             
             //Queries the challenges from the Database
-            challengeRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            challengeRef.queryOrderedByChild("challengeTitle").observeEventType(.ChildAdded, withBlock: { (snapshot) in
                 let challengerName = snapshot.value!["challengerName"] as! String
                 let challengerID = snapshot.value!["challengerID"] as! String
                 let challengeTitle = snapshot.key

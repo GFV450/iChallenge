@@ -12,6 +12,7 @@ import Firebase
 class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 {
     var friendArray = [User]()
+    var selectedFriendID: String?
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDescription: UITextView!
@@ -67,6 +68,15 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         cell.nameLabel?.text = friend.name
         cell.userID = friend.userID
         
+        if(cell.userID == selectedFriendID)
+        {
+            cell.contentView.backgroundColor = UIColor.greenColor()
+        }
+        else
+        {
+            cell.contentView.backgroundColor = UIColor.whiteColor()
+        }
+        
         return cell
     }
     
@@ -81,55 +91,40 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 
     @IBAction func createChallengeButtonPressed(sender: AnyObject)
     {
-        if let user = FIRAuth.auth()?.currentUser
+        let user = (FIRAuth.auth()?.currentUser)!
+        
+        //Sets all the information in constants to instantiate a Challenge object
+        let challengerName = user.displayName!
+        let challengerID = user.uid
+        let challengerProfileImage = (FIRAuth.auth()?.currentUser?.photoURL?.absoluteString)! //Unwrapping value
+        let challengeTitle: String = self.challengeTitle.text!
+        let challengeDescription: String = self.challengeDescription.text!
+        let foeID: String? = selectedFriendID
+        
+        //Creates challenge
+        let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID!, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+        
+        //Checks that the user has picked a friend to challenge
+        if(foeID != nil)
         {
-            //Unwrap optionals before pushing to Firebase Database
-            let challengerName = user.displayName!
-            let challengerID = user.uid
-            let challengerProfileImage = (FIRAuth.auth()?.currentUser?.photoURL?.absoluteString)! //Unwrapping value
-            let challengeTitle: String = self.challengeTitle.text!
-            let challengeDescription: String = self.challengeDescription.text!
-            
-            let foeID = self.retrieveFoeID()
-            
-            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
-            
-            if(foeID != "")
-            {
-                challenge.uploadChallenge() //Uploads challenge to Database
-            }
-            else
-            {
-                print("No friend selected. Challenge not created")
-            }
+            challenge.uploadChallenge() //Uploads challenge to Database
         }
         else
         {
-            print("Challenge not created")
+            print("Challenge not created: Friend not selected")
         }
     }
     
-    func retrieveFoeID() -> String
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        for cell in createChallengeCollectionView.visibleCells() as! [CreateChallengeViewCell]
-        {
-            if(cell.contentView.backgroundColor == UIColor.greenColor())
-            {
-                let foeID = cell.userID
-                return foeID
-            }
-        }
-        
-        return ""
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
         
+        selectedFriendID = cell.userID
         cell.contentView.backgroundColor = UIColor.greenColor()
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+    {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
         
         cell.contentView.backgroundColor = UIColor.whiteColor()

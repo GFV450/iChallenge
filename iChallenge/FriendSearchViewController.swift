@@ -75,7 +75,11 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
         if (self.resultSearchController.active)
         {
             //Returns the relevant cell in the search bar controller
-            cell.nameLabel?.text = filteredTableData[indexPath.row].name
+            let filteredUser = filteredTableData[indexPath.row]
+            let profileImageNSURL = NSURL(string: filteredUser.profileImage)
+            
+            cell.nameLabel?.text = filteredUser.name
+            cell.profileImageView.af_setImageWithURL(profileImageNSURL!)
             
             return cell
         }
