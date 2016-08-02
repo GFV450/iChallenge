@@ -20,7 +20,6 @@
 		E2EE74051D2CDA5E00977AAA /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74021D2CDA5E00977AAA /* CustomAnimation.swift */; };
 		E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74031D2CDA5E00977AAA /* UIColor+Extras.swift */; };
 		E2EE74071D2CDA5E00977AAA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74041D2CDA5E00977AAA /* UIView+Extensions.swift */; };
-		E2EE740B1D2CDA7300977AAA /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE740A1D2CDA7300977AAA /* PagedScrollViewController.swift */; };
 		E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */; };
 		E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE74111D2CDB3A00977AAA /* Main.storyboard */; };
 		E2EE74181D2CDB7B00977AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74171D2CDB7B00977AAA /* MainViewController.swift */; };
@@ -53,7 +52,6 @@
 		E2EE74021D2CDA5E00977AAA /* CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnimation.swift; path = Extensions/CustomAnimation.swift; sourceTree = "<group>"; };
 		E2EE74031D2CDA5E00977AAA /* UIColor+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extras.swift"; path = "Extensions/UIColor+Extras.swift"; sourceTree = "<group>"; };
 		E2EE74041D2CDA5E00977AAA /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
-		E2EE740A1D2CDA7300977AAA /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedScrollViewController.swift; path = Onboarding/PagedScrollViewController.swift; sourceTree = "<group>"; };
 		E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supporting Files/Assets.xcassets"; sourceTree = "<group>"; };
 		E2EE74121D2CDB3A00977AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		E2EE74171D2CDB7B00977AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Timeline/MainViewController.swift; sourceTree = "<group>"; };
@@ -167,14 +165,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		E2EE74011D2CDA0600977AAA /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				E2EE740A1D2CDA7300977AAA /* PagedScrollViewController.swift */,
-			);
-			name = Onboarding;
-			sourceTree = "<group>";
-		};
 		E2EE740C1D2CDA9A00977AAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +217,6 @@
 			children = (
 				E7E786001D2845CE005FB7B3 /* AppDelegate.swift */,
 				E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */,
-				E2EE74011D2CDA0600977AAA /* Onboarding */,
 				E2EE73CC1D2C83BF00977AAA /* Authentication */,
 				E2EE74161D2CDB6D00977AAA /* Main */,
 				E242463B1D2D719000793533 /* Friend Search */,
@@ -389,7 +378,6 @@
 				E75A25B21D47E515008014EB /* CreateChallengeViewCell.swift in Sources */,
 				E2EE74071D2CDA5E00977AAA /* UIView+Extensions.swift in Sources */,
 				E7596AC21D3FE6E000FA1884 /* FirebaseHelper.swift in Sources */,
-				E2EE740B1D2CDA7300977AAA /* PagedScrollViewController.swift in Sources */,
 				E2EE73F41D2C9C0F00977AAA /* WelcomeViewController.swift in Sources */,
 				E261254E1D30161200BB1274 /* PhotoTakingHelper.swift in Sources */,
 				E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */,
