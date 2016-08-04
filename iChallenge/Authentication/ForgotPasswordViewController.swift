@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ForgotPasswordViewController : UIViewController {
+class ForgotPasswordViewController : UIViewController
+{
     
     // MARK: - IBOutlets
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var sendEmailButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -20,6 +20,11 @@ class ForgotPasswordViewController : UIViewController {
         super.viewDidLoad()
         sendEmailButton.roundCorners()
         sendEmailButton.addShadow()
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        self.navigationController?.navigationBarHidden = false
     }
     
     // MARK: - Preparations
@@ -31,9 +36,4 @@ class ForgotPasswordViewController : UIViewController {
     @IBAction func sendEmailButtonPressed(sender: AnyObject) {
         
     }
-    
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
 }

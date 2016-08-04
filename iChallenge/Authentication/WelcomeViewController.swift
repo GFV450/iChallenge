@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Material
 
 class WelcomeViewController : UIViewController {
     
@@ -26,11 +27,13 @@ class WelcomeViewController : UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        prepareNavigationBar()
+        
+        emailTextField.textColor = MaterialColor.white
+        passwordTextField.textColor = MaterialColor.white
     }
     
-    // MARK:- Preparations
-    func prepareNavigationBar() {
+    override func viewWillAppear(animated: Bool)
+    {
         self.navigationController?.navigationBarHidden = true
     }
     
