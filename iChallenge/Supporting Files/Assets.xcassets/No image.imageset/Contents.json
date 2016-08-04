@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "eJwVzMENwyAMAMBdGABjMClkmQoRBJESjMB9Rd296g1wj_rMS-2qiYy1AxznyjwPvYRnqkVX5nqVNM6lM9-QRFJud-myAIk2R9HFl_EuOvQWLJpgPW7GYwzkAuE_LJ3fo7GwHr2q7w-7KCTR.c1m79_VzsnQpc254Su0jty57yuM.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "eJwVzMENwyAMAMBdGABjMClkmQoRBJESjMB9Rd296g1wj_rMS-2qiYy1AxznyjwPvYRnqkVX5nqVNM6lM9-QRFJud-myAIk2R9HFl_EuOvQWLJpgPW7GYwzkAuE_LJ3fo7GwHr2q7w-7KCTR.c1m79_VzsnQpc254Su0jty57yuM-1.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "eJwVzMENwyAMAMBdGABjMClkmQoRBJESjMB9Rd296g1wj_rMS-2qiYy1AxznyjwPvYRnqkVX5nqVNM6lM9-QRFJud-myAIk2R9HFl_EuOvQWLJpgPW7GYwzkAuE_LJ3fo7GwHr2q7w-7KCTR.c1m79_VzsnQpc254Su0jty57yuM-2.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

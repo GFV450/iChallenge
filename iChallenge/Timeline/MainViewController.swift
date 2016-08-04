@@ -19,6 +19,11 @@ class MainViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        challengeArray.removeAll()
         self.retrieveChallenges()
     }
 }

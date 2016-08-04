@@ -17,6 +17,7 @@ class ChallengeViewController: UIViewController
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var challengeDescription: UILabel!
     @IBOutlet weak var challengeCompleteButton: UIButton!
+    @IBOutlet weak var reportButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -36,5 +37,10 @@ class ChallengeViewController: UIViewController
     @IBAction func completeChallengeButtonPressed(sender: AnyObject)
     {
         challenge?.challengeCompleted()
+    }
+    
+    @IBAction func reportButtonPressed(sender: AnyObject)
+    {
+        challenge?.challengeReported()
     }
 }

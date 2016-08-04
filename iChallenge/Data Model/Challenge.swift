@@ -46,4 +46,13 @@ class Challenge
         
         dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "description": challengeDescription])
     }
+    
+    func challengeReported()
+    {
+        let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
+        
+        dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
+        
+        dataRef.child("flaggedContent").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "description": challengeDescription])
+    }
 }

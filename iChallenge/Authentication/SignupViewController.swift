@@ -22,7 +22,6 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: - IBOutlets
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -40,6 +39,11 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         prepareLastNameShake()
         prepareEmailShake()
         preparePasswordShake()
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        self.navigationController?.navigationBarHidden = false
     }
     
     // MARK: - Preparations
@@ -111,14 +115,9 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    // MARK: - Helper Methods
-    func changeImage()
-    {
+    func changeImage() {
         photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
-    
+            
             self.profileImageView.image = image
         }
     }

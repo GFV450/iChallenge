@@ -14,4 +14,6 @@ target 'iChallenge' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'AlamofireImage', '~> 2.0'
+  pod 'Material', '~> 1.0'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 end

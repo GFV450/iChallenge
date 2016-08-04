@@ -111,23 +111,19 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     
     @IBAction func addFriendButtonPressed(sender: AnyObject)
     {
-        if let user = FIRAuth.auth()?.currentUser
-        {
-            //Creates a reference to the specific cell where the button was pressed
-            let button = sender as! UIButton
-            let view = button.superview!
-            let cell = view.superview as! FriendSearchViewCell
-            
-            //Places the relevant information from the current user and the friend to add in constants
-            let currentUserID = user.uid
-            let friendName = cell.nameLabel.text!
-            let friendID = cell.userID
-            
-            FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
-        }
-        else
-        {
-            print("No user is logged in")
-        }
+        //Retrieved logged-in user
+        let user = (FIRAuth.auth()?.currentUser)!
+        
+        //Creates a reference to the specific cell where the button was pressed
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! FriendSearchViewCell
+        
+        //Places the relevant information from the current user and the friend to add in constants
+        let currentUserID = user.uid
+        let friendName = cell.nameLabel.text!
+        let friendID = cell.userID
+        
+        FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
     }
 }
