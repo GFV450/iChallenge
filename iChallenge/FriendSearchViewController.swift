@@ -13,6 +13,7 @@ import AlamofireImage
 class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
 {
     var userArray = [User]()
+    var friendArray = [String]()
     var filteredTableData = [User]()
     var resultSearchController = UISearchController()
     
@@ -43,7 +44,19 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             //Appends the user retrieved from the Database on userArray
             self.userArray.append(user)
             
+            self.retrieveFriends()
+            
             self.tableView.reloadData()
+        })
+    }
+    
+    func retrieveFriends()
+    {
+        //Pass closure as a parameter to load data being fetched asynchronously in real time
+        FirebaseHelper.queryFriendID({ (userID: String) -> Void in
+            
+            //Appends the user retrieved from the Database on userArray
+            self.friendArray.append(userID)
         })
     }
     
@@ -94,8 +107,28 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             cell.userID = user.userID
             cell.nameLabel?.text = user.name
             
+            let friend = searchFriends(user)
+            
+            if(friend == true)
+            {
+                cell.addFriendButton.selected = true
+            }
+            
             return cell
         }
+    }
+    
+    func searchFriends(user: User) -> Bool
+    {
+        for friend in friendArray 
+        {
+            if(user.userID == friend)
+            {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
@@ -124,6 +157,15 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
         let friendName = cell.nameLabel.text!
         let friendID = cell.userID
         
-        FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
+        if(button.selected == false)
+        {
+            button.selected = true
+            FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
+        }
+        else
+        {
+            button.selected = false
+            FirebaseHelper.removeFriend(currentUserID, friendID: friendID)
+        }
     }
 }

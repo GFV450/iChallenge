@@ -30,6 +30,8 @@ class ChallengeViewController: UIViewController
         let profileImageURL = NSURL(string: (challenge?.challengerProfileImage)!)
         
         challengerProfileImage.af_setImageWithURL(profileImageURL!)
+        challengerProfileImage.image = challengerProfileImage.image?.af_imageRoundedIntoCircle()
+        
         challengeTitle.text = challenge?.challengeTitle
         challengeDescription.text = challenge?.challengeDescription
     }

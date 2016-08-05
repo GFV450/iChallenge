@@ -32,22 +32,18 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     
     func setImageView()
     {
-        if let user = FIRAuth.auth()?.currentUser
-        {
-            let profileImageURL = user.photoURL
-            
-            userImage.af_setImageWithURL(profileImageURL!)
-        }
-        else
-        {
-            print("No user logged in")
-        }
+        let user = FIRAuth.auth()?.currentUser
+        
+        let profileImageURL = user!.photoURL
+        
+        userImage.layer.cornerRadius = 10
+        userImage.af_setImageWithURL(profileImageURL!)
     }
     
     func retrieveFriends()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
-        FirebaseHelper.queryFriendID({ (user: User) -> Void in
+        FirebaseHelper.queryFriendObject({ (user: User) -> Void in
             
             //Appends the user retrieved from the Database on userArray
             self.friendArray.append(user)
@@ -65,6 +61,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         //Sets the information relevant to the cell on CollectionView
         cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+        
         cell.nameLabel?.text = friend.name
         cell.userID = friend.userID
         

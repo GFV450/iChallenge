@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="top" id="VZD-FU-9gH"/>
                         <viewControllerLayoutGuide type="bottom" id="Asc-ea-8v2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LkM-zB-hdy" customClass="MaterialView">
+                    <view key="view" contentMode="scaleToFill" id="LkM-zB-hdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -82,7 +82,7 @@
                                     <constraint firstAttribute="height" constant="30" id="BM7-Bk-red"/>
                                     <constraint firstAttribute="width" constant="124" id="ygq-AF-xSn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,10 +137,10 @@
                                     <outlet property="delegate" destination="eBe-qc-EpY" id="BSr-2g-MqU"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-FF-Syc" customClass="MaterialButton">
-                                <rect key="frame" x="117" y="625" width="140" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-FF-Syc" customClass="MaterialButton">
+                                <rect key="frame" x="115" y="622" width="145.5" height="22"/>
                                 <color key="backgroundColor" red="0.26857832329999998" green="0.49259966890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
                                 <state key="normal" title="New user? Sign up!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="127" y="105" width="122" height="122"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="y53-1X-oIO" firstAttribute="top" secondItem="5Qs-If-nBs" secondAttribute="bottom" constant="20" id="0Fk-4J-0IA"/>
                             <constraint firstItem="5Qs-If-nBs" firstAttribute="top" secondItem="MSf-7S-fsf" secondAttribute="bottom" constant="30" id="1sn-C8-c3f"/>
@@ -168,15 +168,12 @@
                             <constraint firstItem="5Qs-If-nBs" firstAttribute="centerX" secondItem="LkM-zB-hdy" secondAttribute="centerX" id="B4j-zh-ORV"/>
                             <constraint firstItem="J9s-FF-Syc" firstAttribute="centerX" secondItem="LkM-zB-hdy" secondAttribute="centerX" id="HP4-hs-dHa"/>
                             <constraint firstItem="kvP-QY-UgG" firstAttribute="top" secondItem="y53-1X-oIO" secondAttribute="bottom" constant="8" id="Qvn-h7-8vW"/>
-                            <constraint firstItem="Asc-ea-8v2" firstAttribute="top" secondItem="J9s-FF-Syc" secondAttribute="bottom" constant="20" id="jk7-Yl-t9M"/>
+                            <constraint firstItem="Asc-ea-8v2" firstAttribute="top" secondItem="J9s-FF-Syc" secondAttribute="bottom" constant="23" id="jk7-Yl-t9M"/>
                             <constraint firstItem="kvP-QY-UgG" firstAttribute="centerX" secondItem="LkM-zB-hdy" secondAttribute="centerX" id="kIQ-7z-jyO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="contentsScale">
                                 <real key="value" value="0.0"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                <color key="value" red="1" green="0.69226001170677764" blue="0.31232977179299992" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -245,21 +242,21 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We have your back!                              Your password is one click away!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDM-bK-9iQ">
-                                <rect key="frame" x="56" y="195" width="263" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="51" y="195" width="273" height="50"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="uDM-bK-9iQ" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leadingMargin" constant="36" id="6Fn-D4-17e"/>
+                            <constraint firstItem="uDM-bK-9iQ" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leadingMargin" constant="31" id="6Fn-D4-17e"/>
                             <constraint firstItem="N0e-kg-a7x" firstAttribute="top" secondItem="uDM-bK-9iQ" secondAttribute="bottom" constant="17" id="FbW-pz-zGz"/>
                             <constraint firstItem="N0e-kg-a7x" firstAttribute="centerX" secondItem="cVa-WU-UPR" secondAttribute="centerX" id="QdE-f6-hDU"/>
                             <constraint firstItem="afI-x9-PgJ" firstAttribute="top" secondItem="N0e-kg-a7x" secondAttribute="bottom" constant="20" id="qko-2g-NqI"/>
                             <constraint firstItem="afI-x9-PgJ" firstAttribute="centerX" secondItem="cVa-WU-UPR" secondAttribute="centerX" id="r5G-I0-9e3"/>
                             <constraint firstItem="uDM-bK-9iQ" firstAttribute="top" secondItem="FC5-dE-h5B" secondAttribute="bottom" constant="131" id="xCS-eJ-0K9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uDM-bK-9iQ" secondAttribute="trailing" constant="36" id="zau-s7-c0L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uDM-bK-9iQ" secondAttribute="trailing" constant="31" id="zau-s7-c0L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Forgot Password" id="RUd-Vl-aeS">

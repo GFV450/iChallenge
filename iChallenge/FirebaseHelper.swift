@@ -27,24 +27,35 @@ class FirebaseHelper
         })
     }
     
-    static func queryFriendID(callback: (User) -> Void)
+    static func queryFriendID(callback: (String) -> Void)
     {
-        if let user = FIRAuth.auth()?.currentUser
-        {
-            //Creates a reference to the Firebase Database
-            let friendsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Friends")
+        let user = (FIRAuth.auth()?.currentUser)!
+        
+        //Creates a reference to the Firebase Database
+        let friendsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Friends")
+        
+        //Queries the friends userID from the Database
+        friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            let userID = snapshot.key
             
-            //Queries the friends userID from the Database
-            friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-                let userID = snapshot.key
-                
-                queryFriendData(userID, callback: callback)
-            })
-        }
-        else
-        {
-            print("No user logged in")
-        }
+            callback(userID)
+        })
+
+    }
+    
+    static func queryFriendObject(callback: (User) -> Void)
+    {
+        let user = (FIRAuth.auth()?.currentUser)!
+        
+        //Creates a reference to the Firebase Database
+        let friendsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Friends")
+        
+        //Queries the friends userID from the Database
+        friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            let userID = snapshot.key
+            
+            queryFriendData(userID, callback: callback)
+        })
     }
     
     static func queryFriendData(userID: String, callback: (User) -> Void)
@@ -96,5 +107,11 @@ class FirebaseHelper
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
         dataRef.child("Users").child(userID).child("Friends").updateChildValues([friendID: friendName])
+    }
+    
+    static func removeFriend(userID: String, friendID: String)
+    {
+        let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
+        dataRef.child("Users").child(userID).child("Friends").child(friendID).removeValue()
     }
 }
