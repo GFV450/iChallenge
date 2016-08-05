@@ -37,10 +37,6 @@ class WelcomeViewController : UIViewController {
         self.navigationController?.navigationBarHidden = true
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
     // MARK:- Actions
     @IBAction func loginButtonPressed(sender: AnyObject)
     {

@@ -58,6 +58,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
+        cell.challengerImage.image? = (cell.challengerImage.image?.af_imageRoundedIntoCircle())!
         
         cell.challengeName.text = challenge.challengeTitle
         
