@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import AlamofireImage
 
-class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
+class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate
 {
     var userArray = [User]()
     var friendArray = [String]()
     var filteredTableData = [User]()
     var resultSearchController = UISearchController()
+    
+    @IBOutlet weak var friendSearchTableView: UITableView!
     
     override func viewDidLoad()
     {
@@ -29,8 +31,10 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
+            controller.searchBar.layer.borderColor = UIColor.whiteColor().CGColor
             
-            self.tableView.tableHeaderView = controller.searchBar
+            controller.searchBar.
+            friendSearchTableView.tableHeaderView = controller.searchBar
             
             return controller
         })()
@@ -46,7 +50,7 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             
             self.retrieveFriends()
             
-            self.tableView.reloadData()
+            self.friendSearchTableView.reloadData()
         })
     }
     
@@ -62,12 +66,12 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //Returns the number of rows depending if you're filtering users with the resultSearchController
         if (self.resultSearchController.active)
@@ -81,7 +85,7 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! FriendSearchViewCell
         
@@ -139,7 +143,7 @@ class FriendSearchViewController: UITableViewController, UISearchResultsUpdating
             user.name.containsString(searchController.searchBar.text!)
         }
         
-        self.tableView.reloadData()
+        self.friendSearchTableView.reloadData()
     }
     
     @IBAction func addFriendButtonPressed(sender: AnyObject)
