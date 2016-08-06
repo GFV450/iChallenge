@@ -1,19 +1,21 @@
 //
-//  MainViewController.swift
+//  MainChallengesViewController.swift
 //  iChallenge
 //
-//  Created by Jake on 7/2/16.
-//  Copyright © 2016 Jake Zeal. All rights reserved.
+//  Created by Gian Vitola on 8/6/16.
+//  Copyright © 2016 Gian Franco Vitola. All rights reserved.
 //
 
 import UIKit
 
-class MainViewController: UIViewController
+class MainChallengesViewController: UIViewController
 {
     var challengeArray = [Challenge]()
     
     // MARK: - IBOutlets
-    @IBOutlet weak var mainCollectionView: UICollectionView!
+    
+    @IBOutlet weak var mainChallengesCollectionView: UICollectionView!
+    
     
     // MARK: - View Lifecycles
     override func viewDidLoad()
@@ -28,16 +30,15 @@ class MainViewController: UIViewController
     }
 }
 
-// MARK: - Collection View Data Source
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+extension MainChallengesViewController: UICollectionViewDataSource, UICollectionViewDelegate
+{
     func retrieveChallenges()
     {
         FirebaseHelper.queryChallenges({ (challenge: Challenge) -> Void in
             //Appends the user retrieved from the Database on userArray
             self.challengeArray.append(challenge)
             
-            self.mainCollectionView.reloadData()
+            self.mainChallengesCollectionView.reloadData()
         })
     }
     
@@ -52,7 +53,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = mainCollectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainCollectionViewCell
+        let cell = mainChallengesCollectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainChallengesCollectionViewCell
         
         let challenge = challengeArray[indexPath.row]
         
@@ -71,12 +72,10 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     {
         if segue.identifier == "ChallengeSegue"
         {
-            let cell = sender as! MainCollectionViewCell
+            let cell = sender as! MainChallengesCollectionViewCell
             let challengeController = segue.destinationViewController as! ChallengeViewController
             
             challengeController.challenge = cell.challenge
         }
     }
-
 }
-

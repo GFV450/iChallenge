@@ -47,7 +47,7 @@ class WelcomeViewController : UIViewController {
                 print("login successful!")
                 
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = mainStoryboard.instantiateViewControllerWithIdentifier("NavigationController")
+                let controller = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController")
                 self.presentViewController(controller, animated: true, completion: nil)
             }
             else

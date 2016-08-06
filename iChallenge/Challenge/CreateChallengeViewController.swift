@@ -86,7 +86,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         return 1
     }
 
-    @IBAction func createChallengeButtonPressed(sender: AnyObject)
+    @IBAction func doneButtonPressed(sender: AnyObject)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -110,7 +110,15 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         {
             print("Challenge not created: Friend not selected")
         }
+        
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject)
+    {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {

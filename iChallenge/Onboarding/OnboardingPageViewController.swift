@@ -6,7 +6,6 @@
 //  Copyright © 2016 Gian Franco Vitola. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class OnboardingPageViewController: UIPageViewController
