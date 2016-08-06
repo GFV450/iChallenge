@@ -1,16 +1,15 @@
 //
-//  MainCollectionViewCell.swift
+//  MainChallengesCollectionViewCell.swift
 //  iChallenge
 //
-//  Created by Jake on 7/6/16.
+//  Created by Gian Vitola on 8/6/16.
 //  Copyright © 2016 Gian Franco Vitola. All rights reserved.
 //
 
 import UIKit
 
-class MainCollectionViewCell: UICollectionViewCell
+class MainChallengesCollectionViewCell: UICollectionViewCell
 {
-    // MARK: - IBOutlets
     @IBOutlet weak var challengerImage: UIImageView!
     @IBOutlet weak var challengeName: UILabel!
     

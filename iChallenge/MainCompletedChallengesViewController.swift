@@ -1,5 +1,5 @@
 //
-//  PageTwoViewController.swift
+//  MainCompletedChallengesViewController.swift
 //  iChallenge
 //
 //  Created by Gian Vitola on 8/6/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageTwoViewController: UIViewController
+class MainCompletedChallengesViewController: UIViewController
 {
     
 }

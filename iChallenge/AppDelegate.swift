@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gian Franco Vitola. All rights reserved.
 //
 
-import UIKit
-import Parse
 import Firebase
 
 @UIApplicationMain

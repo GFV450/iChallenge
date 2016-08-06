@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C8j-uk-Dyc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--MainStoryboard-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Main Page View Controller-->
+        <scene sceneID="bVr-IP-YGM">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" title="MainStoryboard" id="BYZ-38-t0r" customClass="MainViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="MainPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="nYV-xu-QGA" customClass="MainPageViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8p4-7O-bgm"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WnA-rp-Vc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205" y="1914"/>
+        </scene>
+        <!--FriendSearch-->
+        <scene sceneID="vPd-vO-hBJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendSearch" id="4SV-PM-fdy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-gh-H04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2437.5" y="1399"/>
+        </scene>
+        <!--Challenge-->
+        <scene sceneID="erG-C2-STo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Challenge" id="Xbz-0f-FVV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5nN-Qh-bMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447.5" y="940"/>
+        </scene>
+        <!--CreateChallenge-->
+        <scene sceneID="aE3-rj-jLF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateChallenge" id="Y1h-E4-S7q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ben-GD-xy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2437.5" y="1153"/>
+        </scene>
+        <!--Main Challenges View Controller-->
+        <scene sceneID="Xxh-cX-1Ak">
+            <objects>
+                <viewController storyboardIdentifier="MainChallengesViewController" id="rLS-0d-wHM" customClass="MainChallengesViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="ccS-sd-VLW"/>
+                        <viewControllerLayoutGuide type="bottom" id="7hr-AG-Hit"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="B6e-Gq-DYY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oyf-eX-5tO">
-                                <rect key="frame" x="188" y="680" width="39" height="37"/>
-                            </pageControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="607"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
+                                <rect key="frame" x="0.0" y="65" width="414" height="607"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xX6-Df-9Ej">
                                     <size key="itemSize" width="200" height="200"/>
@@ -30,7 +62,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChallengeCell" id="fZV-Kh-x6Z" customClass="MainCollectionViewCell" customModule="iChallenge" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChallengeCell" id="fZV-Kh-x6Z" customClass="MainChallengesCollectionViewCell" customModule="iChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -51,89 +83,83 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="challengeName" destination="LqW-qh-EpZ" id="9Pb-3P-Whm"/>
-                                            <outlet property="challengerImage" destination="yqD-sq-KTa" id="JI9-7b-kzk"/>
-                                            <segue destination="Xbz-0f-FVV" kind="show" identifier="ChallengeSegue" id="KZe-tE-ZHP"/>
+                                            <outlet property="challengeName" destination="LqW-qh-EpZ" id="Vog-j9-a5K"/>
+                                            <outlet property="challengerImage" destination="yqD-sq-KTa" id="VpC-bU-aBr"/>
+                                            <segue destination="Xbz-0f-FVV" kind="presentation" identifier="ChallengeSegue" id="KZe-tE-ZHP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="sfw-xK-nGB"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Sqj-T6-AEn"/>
+                                    <outlet property="dataSource" destination="rLS-0d-wHM" id="YyF-BB-Ylr"/>
+                                    <outlet property="delegate" destination="rLS-0d-wHM" id="vDm-zQ-IMt"/>
                                 </connections>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-qf-gcH">
+                                <rect key="frame" x="0.0" y="21" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Challenges" id="DHb-Gy-6IN">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="Gez-WU-kh7">
+                                            <connections>
+                                                <segue destination="4SV-PM-fdy" kind="presentation" identifier="" id="ZIA-GG-FHY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="xVP-aH-roZ">
+                                            <connections>
+                                                <segue destination="Y1h-E4-S7q" kind="presentation" id="gUL-bp-IBC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Uiz-9B-VoO" secondAttribute="bottom" constant="65" id="FCU-Ui-03q"/>
-                            <constraint firstItem="Uiz-9B-VoO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="MLi-Cv-ki8"/>
-                            <constraint firstItem="Uiz-9B-VoO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RB2-r2-mUM"/>
-                            <constraint firstAttribute="trailing" secondItem="Uiz-9B-VoO" secondAttribute="trailing" id="cv7-yk-2hr"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Challenges" id="KBz-Wn-B5f">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="y2Y-ji-6GD"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="uk4-zi-cqD">
-                            <connections>
-                                <segue destination="4SV-PM-fdy" kind="show" identifier="FriendSearchSegue" id="aFD-iK-k5W"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="gcU-tv-Ufd">
-                            <connections>
-                                <segue destination="Y1h-E4-S7q" kind="show" identifier="CreateChallengeSegue" id="fQH-pO-vCN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="mainCollectionView" destination="Uiz-9B-VoO" id="mLz-3a-NCX"/>
+                        <outlet property="mainChallengesCollectionView" destination="Uiz-9B-VoO" id="qXU-wJ-5bh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hx1-IN-GNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="305"/>
+            <point key="canvasLocation" x="1900" y="1153"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="H18-dC-6F4">
+        <!--Main Friend Challenges View Controller-->
+        <scene sceneID="lrZ-h2-4Ml">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C8j-uk-Dyc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6k0-7K-qkT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="T0h-CQ-9hX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bbF-ca-SxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="MainFriendChallengesViewController" id="iad-44-afx" customClass="MainFriendChallengesViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZDm-HZ-A8s"/>
+                        <viewControllerLayoutGuide type="bottom" id="tZc-ig-amn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iBk-A4-FIP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJD-qF-pjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="305"/>
+            <point key="canvasLocation" x="1900" y="2676"/>
         </scene>
-        <!--FriendSearch-->
-        <scene sceneID="vPd-vO-hBJ">
+        <!--Main Completed Challenges View Controller-->
+        <scene sceneID="djq-RT-aYO">
             <objects>
-                <viewControllerPlaceholder storyboardName="FriendSearch" id="4SV-PM-fdy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-gh-H04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="MainCompletedChallengesViewController" id="967-a7-oz5" customClass="MainCompletedChallengesViewController" customModule="iChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XvE-GB-FHQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="kgN-wJ-6w1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e4b-8I-0Zd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EcX-A5-xET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780.5" y="305"/>
-        </scene>
-        <!--Challenge-->
-        <scene sceneID="erG-C2-STo">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Challenge" id="Xbz-0f-FVV" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5nN-Qh-bMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1635.5" y="609"/>
-        </scene>
-        <!--CreateChallenge-->
-        <scene sceneID="aE3-rj-jLF">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CreateChallenge" id="Y1h-E4-S7q" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ben-GD-xy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1655.5" y="-49"/>
+            <point key="canvasLocation" x="2437" y="1914"/>
         </scene>
     </scenes>
     <resources>
