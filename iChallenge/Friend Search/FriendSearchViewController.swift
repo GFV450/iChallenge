@@ -32,8 +32,6 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
             controller.searchBar.layer.borderColor = UIColor.whiteColor().CGColor
-            
-            controller.searchBar.
             friendSearchTableView.tableHeaderView = controller.searchBar
             
             return controller
