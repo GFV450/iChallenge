@@ -119,6 +119,29 @@ class FirebaseHelper
             callback(challenge)
         })
     }
+    
+    static func queryFriendChallenges(callback: (Challenge) -> Void)
+    {
+        let user = (FIRAuth.auth()?.currentUser)!
+        
+        //Creates a reference to the Firebase Database
+        let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("friendChallenges")
+        
+        //Queries the completed challenges from the Database
+        challengeRef.queryOrderedByChild("challengeTitle").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            let challengerName = snapshot.value!["challengerName"] as! String
+            let challengerID = snapshot.value!["challengerID"] as! String
+            let challengeTitle = snapshot.key
+            let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
+            let challengeDescription = snapshot.value!["challengeDescription"] as! String
+            let foeID = snapshot.value!["foeID"] as! String
+            
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+            
+            callback(challenge)
+        })
+    }
+
 
     
     static func addFriend(userID: String, friendID: String, friendName: String)
