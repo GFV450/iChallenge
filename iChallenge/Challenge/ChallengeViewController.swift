@@ -39,11 +39,15 @@ class ChallengeViewController: UIViewController
     @IBAction func completeChallengeButtonPressed(sender: AnyObject)
     {
         challenge?.challengeCompleted()
+        
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func reportButtonPressed(sender: AnyObject)
     {
         challenge?.challengeReported()
+        
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func dismissButtonPressed(sender: AnyObject)

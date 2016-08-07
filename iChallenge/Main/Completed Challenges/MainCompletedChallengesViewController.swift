@@ -1,5 +1,5 @@
 //
-//  MainChallengesViewController.swift
+//  MainCompletedChallengesViewController.swift
 //  iChallenge
 //
 //  Created by Gian Vitola on 8/6/16.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class MainChallengesViewController: UIViewController
+class MainCompletedChallengesViewController: UIViewController
 {
-    var challengeArray = [Challenge]()
+    var completedChallengeArray = [Challenge]()
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var mainChallengesCollectionView: UICollectionView!
-    
+    @IBOutlet weak var mainCompletedChallengesCollectionView: UICollectionView!
     
     // MARK: - View Lifecycles
     override func viewDidLoad()
@@ -25,20 +24,20 @@ class MainChallengesViewController: UIViewController
     
     override func viewWillAppear(animated: Bool)
     {
-        challengeArray.removeAll()
-        self.retrieveChallenges()
+        completedChallengeArray.removeAll()
+        self.retrieveCompletedChallenges()
     }
 }
 
-extension MainChallengesViewController: UICollectionViewDataSource, UICollectionViewDelegate
+extension MainCompletedChallengesViewController: UICollectionViewDataSource, UICollectionViewDelegate
 {
-    func retrieveChallenges()
+    func retrieveCompletedChallenges()
     {
-        FirebaseHelper.queryChallenges({ (challenge: Challenge) -> Void in
+        FirebaseHelper.queryCompletedChallenges({ (challenge: Challenge) -> Void in
             //Appends the user retrieved from the Database on userArray
-            self.challengeArray.append(challenge)
+            self.completedChallengeArray.append(challenge)
             
-            self.mainChallengesCollectionView.reloadData()
+            self.mainCompletedChallengesCollectionView.reloadData()
         })
     }
     
@@ -48,14 +47,14 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return challengeArray.count
+        return completedChallengeArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = mainChallengesCollectionView.dequeueReusableCellWithReuseIdentifier("ChallengeCell", forIndexPath: indexPath) as! MainChallengesCollectionViewCell
+        let cell = mainCompletedChallengesCollectionView.dequeueReusableCellWithReuseIdentifier("MainCompletedChallengesViewCell", forIndexPath: indexPath) as! MainCompletedChallengesViewCell
         
-        let challenge = challengeArray[indexPath.row]
+        let challenge = completedChallengeArray[indexPath.row]
         
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
@@ -72,10 +71,11 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
     {
         if segue.identifier == "ChallengeSegue"
         {
-            let cell = sender as! MainChallengesCollectionViewCell
+            let cell = sender as! MainCompletedChallengesViewCell
             let challengeController = segue.destinationViewController as! ChallengeViewController
             
             challengeController.challenge = cell.challenge
         }
     }
+
 }

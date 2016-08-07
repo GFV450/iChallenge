@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1099D76F77EE2C252E7D5F35 /* Pods_iChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B4D8287C29A029F36737AD /* Pods_iChallenge.framework */; };
 		E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24246401D2D723B00793533 /* ChallengeViewController.swift */; };
-		E24246461D2D7A5A00793533 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24246441D2D7A5A00793533 /* Challenge.storyboard */; };
 		E24246501D2DB2DE00793533 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242464F1D2DB2DE00793533 /* Challenge.swift */; };
 		E261254E1D30161200BB1274 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261254D1D30161200BB1274 /* PhotoTakingHelper.swift */; };
 		E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */; };
@@ -20,8 +19,8 @@
 		E2EE74061D2CDA5E00977AAA /* UIColor+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74031D2CDA5E00977AAA /* UIColor+Extras.swift */; };
 		E2EE74071D2CDA5E00977AAA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EE74041D2CDA5E00977AAA /* UIView+Extensions.swift */; };
 		E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */; };
-		E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EE74111D2CDB3A00977AAA /* Main.storyboard */; };
 		E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */; };
+		E733112F1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733112E1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift */; };
 		E742E0151D3D5CB8008543F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E0141D3D5CB8008543F9 /* User.swift */; };
 		E7512D2E1D565BD600324D03 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7512D2D1D565BD600324D03 /* Onboarding.storyboard */; };
 		E7512D301D565C8000324D03 /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7512D2F1D565C8000324D03 /* PageOneViewController.swift */; };
@@ -31,7 +30,6 @@
 		E7596AC21D3FE6E000FA1884 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */; };
 		E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */; };
 		E75A25B21D47E515008014EB /* CreateChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */; };
-		E75A25B51D47E578008014EB /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75A25B31D47E578008014EB /* CreateChallenge.storyboard */; };
 		E76413BD1D4BE13500D2F036 /* ImageConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */; };
 		E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */; };
 		E782BACE1D3ECA5200B0830C /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */; };
@@ -41,6 +39,9 @@
 		E79562B31D567342008C45B5 /* MainCompletedChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79562B21D567342008C45B5 /* MainCompletedChallengesViewController.swift */; };
 		E79562B51D567364008C45B5 /* MainFriendChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79562B41D567364008C45B5 /* MainFriendChallengesViewController.swift */; };
 		E79562B71D5678C0008C45B5 /* MainChallengesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79562B61D5678C0008C45B5 /* MainChallengesCollectionViewCell.swift */; };
+		E79562BF1D56A2EB008C45B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79562BE1D56A2EB008C45B5 /* Main.storyboard */; };
+		E79562C11D56A470008C45B5 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79562C01D56A470008C45B5 /* Challenge.storyboard */; };
+		E79562C31D56A51A008C45B5 /* CreateChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79562C21D56A51A008C45B5 /* CreateChallenge.storyboard */; };
 		E7E786011D2845CE005FB7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E786001D2845CE005FB7B3 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,20 +49,19 @@
 		21B335325C9FE751B0374B27 /* Pods-iChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		53B4D8287C29A029F36737AD /* Pods_iChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57100A7A0D4E5825BC4F5D6C /* Pods-iChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iChallenge/Pods-iChallenge.release.xcconfig"; sourceTree = "<group>"; };
-		E24246401D2D723B00793533 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = Challenge/ChallengeViewController.swift; sourceTree = "<group>"; };
-		E24246451D2D7A5A00793533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supporting Files/Base.lproj/Challenge.storyboard"; sourceTree = "<group>"; };
-		E242464F1D2DB2DE00793533 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Challenge.swift; path = "Data Model/Challenge.swift"; sourceTree = "<group>"; };
+		E24246401D2D723B00793533 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		E242464F1D2DB2DE00793533 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		E261254D1D30161200BB1274 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
-		E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Authentication/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		E2EE73ED1D2C9C0F00977AAA /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignupLogin.storyboard; path = Authentication/SignupLogin.storyboard; sourceTree = "<group>"; };
-		E2EE73EE1D2C9C0F00977AAA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Authentication/SignupViewController.swift; sourceTree = "<group>"; };
-		E2EE73EF1D2C9C0F00977AAA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = Authentication/WelcomeViewController.swift; sourceTree = "<group>"; };
+		E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E2EE73ED1D2C9C0F00977AAA /* SignupLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
+		E2EE73EE1D2C9C0F00977AAA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		E2EE73EF1D2C9C0F00977AAA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E2EE74021D2CDA5E00977AAA /* CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnimation.swift; path = Extensions/CustomAnimation.swift; sourceTree = "<group>"; };
 		E2EE74031D2CDA5E00977AAA /* UIColor+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extras.swift"; path = "Extensions/UIColor+Extras.swift"; sourceTree = "<group>"; };
 		E2EE74041D2CDA5E00977AAA /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		E2EE740D1D2CDB3A00977AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supporting Files/Assets.xcassets"; sourceTree = "<group>"; };
-		E2EE74121D2CDB3A00977AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E733112E1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCompletedChallengesViewCell.swift; sourceTree = "<group>"; };
 		E742E0141D3D5CB8008543F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7512D2D1D565BD600324D03 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		E7512D2F1D565C8000324D03 /* PageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
@@ -69,18 +69,20 @@
 		E7512D331D565CAC00324D03 /* PageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
 		E7512D351D565DF400324D03 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
-		E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = iChallenge/Challenge/CreateChallengeViewController.swift; sourceTree = SOURCE_ROOT; };
-		E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = iChallenge/CreateChallengeViewCell.swift; sourceTree = SOURCE_ROOT; };
-		E75A25B41D47E578008014EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "iChallenge/Supporting Files/Base.lproj/CreateChallenge.storyboard"; sourceTree = SOURCE_ROOT; };
+		E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewController.swift; path = "iChallenge/Create Challenge/CreateChallengeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChallengeViewCell.swift; path = "iChallenge/Create Challenge/CreateChallengeViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConversionHelper.swift; sourceTree = "<group>"; };
 		E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendSearch.storyboard; sourceTree = "<group>"; };
 		E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewCell.swift; sourceTree = "<group>"; };
-		E79562A81D5670EE008C45B5 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		E79562A81D5670EE008C45B5 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPageViewController.swift; path = iChallenge/Main/MainPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		E79562B01D56731D008C45B5 /* MainChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainChallengesViewController.swift; sourceTree = "<group>"; };
 		E79562B21D567342008C45B5 /* MainCompletedChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCompletedChallengesViewController.swift; sourceTree = "<group>"; };
 		E79562B41D567364008C45B5 /* MainFriendChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFriendChallengesViewController.swift; sourceTree = "<group>"; };
 		E79562B61D5678C0008C45B5 /* MainChallengesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainChallengesCollectionViewCell.swift; sourceTree = "<group>"; };
+		E79562BE1D56A2EB008C45B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E79562C01D56A470008C45B5 /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
+		E79562C21D56A51A008C45B5 /* CreateChallenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateChallenge.storyboard; sourceTree = "<group>"; };
 		E7E785FD1D2845CE005FB7B3 /* iChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E786001D2845CE005FB7B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E7860C1D2845CE005FB7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,26 +124,16 @@
 				E7596AC11D3FE6E000FA1884 /* FirebaseHelper.swift */,
 				E76413BC1D4BE13500D2F036 /* ImageConversionHelper.swift */,
 			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
-		E242463B1D2D719000793533 /* Friend Search */ = {
-			isa = PBXGroup;
-			children = (
-				E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */,
-				E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */,
-				E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */,
-			);
-			name = "Friend Search";
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E242463E1D2D71F300793533 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				E24246441D2D7A5A00793533 /* Challenge.storyboard */,
+				E79562C01D56A470008C45B5 /* Challenge.storyboard */,
 				E24246401D2D723B00793533 /* ChallengeViewController.swift */,
 			);
-			name = Challenge;
+			path = Challenge;
 			sourceTree = "<group>";
 		};
 		E242464E1D2DB2C800793533 /* Data Model */ = {
@@ -150,7 +142,7 @@
 				E242464F1D2DB2DE00793533 /* Challenge.swift */,
 				E742E0141D3D5CB8008543F9 /* User.swift */,
 			);
-			name = "Data Model";
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 		E2EE73CC1D2C83BF00977AAA /* Authentication */ = {
@@ -161,14 +153,7 @@
 				E2EE73EE1D2C9C0F00977AAA /* SignupViewController.swift */,
 				E2EE73EB1D2C9C0F00977AAA /* ForgotPasswordViewController.swift */,
 			);
-			name = Authentication;
-			sourceTree = "<group>";
-		};
-		E2EE73F51D2C9D3500977AAA /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Constants;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E2EE73F61D2C9D3C00977AAA /* Extensions */ = {
@@ -190,19 +175,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E2EE74161D2CDB6D00977AAA /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				E2EE74111D2CDB3A00977AAA /* Main.storyboard */,
-				E79562A81D5670EE008C45B5 /* MainPageViewController.swift */,
-				E79562B01D56731D008C45B5 /* MainChallengesViewController.swift */,
-				E79562B61D5678C0008C45B5 /* MainChallengesCollectionViewCell.swift */,
-				E79562B21D567342008C45B5 /* MainCompletedChallengesViewController.swift */,
-				E79562B41D567364008C45B5 /* MainFriendChallengesViewController.swift */,
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
 		E7512D2C1D565B6C00324D03 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,10 +187,58 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		E79562B91D569FDD008C45B5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E79562BE1D56A2EB008C45B5 /* Main.storyboard */,
+				E79562A81D5670EE008C45B5 /* MainPageViewController.swift */,
+				E79562BA1D56A082008C45B5 /* Challenges */,
+				E79562BB1D56A089008C45B5 /* Completed Challenges */,
+				E79562BC1D56A092008C45B5 /* Friend Challenges */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E79562BA1D56A082008C45B5 /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				E79562B01D56731D008C45B5 /* MainChallengesViewController.swift */,
+				E79562B61D5678C0008C45B5 /* MainChallengesCollectionViewCell.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		E79562BB1D56A089008C45B5 /* Completed Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				E79562B21D567342008C45B5 /* MainCompletedChallengesViewController.swift */,
+				E733112E1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift */,
+			);
+			path = "Completed Challenges";
+			sourceTree = "<group>";
+		};
+		E79562BC1D56A092008C45B5 /* Friend Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				E79562B41D567364008C45B5 /* MainFriendChallengesViewController.swift */,
+			);
+			path = "Friend Challenges";
+			sourceTree = "<group>";
+		};
+		E79562BD1D56A20C008C45B5 /* Friend Search */ = {
+			isa = PBXGroup;
+			children = (
+				E782BACB1D3EC57F00B0830C /* FriendSearch.storyboard */,
+				E782BACD1D3ECA5200B0830C /* FriendSearchViewController.swift */,
+				E782BAD11D3ECE7D00B0830C /* FriendSearchViewCell.swift */,
+			);
+			path = "Friend Search";
+			sourceTree = "<group>";
+		};
 		E79EC15A1D37F630001B307B /* Create Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				E75A25B31D47E578008014EB /* CreateChallenge.storyboard */,
+				E79562C21D56A51A008C45B5 /* CreateChallenge.storyboard */,
 				E75A256B1D47E4A0008014EB /* CreateChallengeViewController.swift */,
 				E75A25B11D47E515008014EB /* CreateChallengeViewCell.swift */,
 			);
@@ -250,14 +270,13 @@
 				E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */,
 				E7512D2C1D565B6C00324D03 /* Onboarding */,
 				E2EE73CC1D2C83BF00977AAA /* Authentication */,
-				E2EE74161D2CDB6D00977AAA /* Main */,
-				E242463B1D2D719000793533 /* Friend Search */,
-				E79EC15A1D37F630001B307B /* Create Challenge */,
+				E79562B91D569FDD008C45B5 /* Main */,
 				E242463E1D2D71F300793533 /* Challenge */,
-				E22D72DE1D2ED159007BF03A /* Helpers */,
+				E79EC15A1D37F630001B307B /* Create Challenge */,
+				E79562BD1D56A20C008C45B5 /* Friend Search */,
 				E242464E1D2DB2C800793533 /* Data Model */,
+				E22D72DE1D2ED159007BF03A /* Helpers */,
 				E2EE73F61D2C9D3C00977AAA /* Extensions */,
-				E2EE73F51D2C9D3500977AAA /* Constants */,
 				E2EE740C1D2CDA9A00977AAA /* Supporting Files */,
 			);
 			path = iChallenge;
@@ -325,13 +344,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E75A25B51D47E578008014EB /* CreateChallenge.storyboard in Resources */,
-				E24246461D2D7A5A00793533 /* Challenge.storyboard in Resources */,
+				E79562C31D56A51A008C45B5 /* CreateChallenge.storyboard in Resources */,
 				E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */,
+				E79562BF1D56A2EB008C45B5 /* Main.storyboard in Resources */,
 				E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */,
-				E2EE74151D2CDB3A00977AAA /* Main.storyboard in Resources */,
 				E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */,
 				E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */,
+				E79562C11D56A470008C45B5 /* Challenge.storyboard in Resources */,
 				E7512D2E1D565BD600324D03 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +432,7 @@
 				E7596AC21D3FE6E000FA1884 /* FirebaseHelper.swift in Sources */,
 				E7512D361D565DF400324D03 /* OnboardingPageViewController.swift in Sources */,
 				E79562B31D567342008C45B5 /* MainCompletedChallengesViewController.swift in Sources */,
+				E733112F1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift in Sources */,
 				E2EE73F41D2C9C0F00977AAA /* WelcomeViewController.swift in Sources */,
 				E261254E1D30161200BB1274 /* PhotoTakingHelper.swift in Sources */,
 				E75A256C1D47E4A0008014EB /* CreateChallengeViewController.swift in Sources */,
@@ -436,34 +456,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E24246441D2D7A5A00793533 /* Challenge.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E24246451D2D7A5A00793533 /* Base */,
-			);
-			name = Challenge.storyboard;
-			sourceTree = "<group>";
-		};
-		E2EE74111D2CDB3A00977AAA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2EE74121D2CDB3A00977AAA /* Base */,
-			);
-			name = Main.storyboard;
-			path = "Supporting Files/Base.lproj";
-			sourceTree = "<group>";
-		};
-		E75A25B31D47E578008014EB /* CreateChallenge.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E75A25B41D47E578008014EB /* Base */,
-			);
-			name = CreateChallenge.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E7E7860D1D2845CE005FB7B3 /* Debug */ = {

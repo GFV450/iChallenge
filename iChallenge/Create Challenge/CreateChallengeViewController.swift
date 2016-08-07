@@ -130,9 +130,6 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
     {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
-        
-        cell.contentView.backgroundColor = UIColor.whiteColor()
     }
 }
 

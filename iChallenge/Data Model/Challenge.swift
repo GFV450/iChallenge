@@ -44,7 +44,9 @@ class Challenge
         
         dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
         
-        dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "description": challengeDescription])
+    dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
+        
+        dataRef.child("Users").child(challengerID).child("friendChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
     }
     
     func challengeReported()
@@ -53,6 +55,6 @@ class Challenge
         
         dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
         
-        dataRef.child("flaggedContent").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "description": challengeDescription])
+        dataRef.child("flaggedContent").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
     }
 }
