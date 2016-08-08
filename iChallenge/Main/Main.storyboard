@@ -156,71 +156,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-w8-Zqj">
-                                <rect key="frame" x="0.0" y="65" width="414" height="607"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9ao-8r-FdZ">
-                                    <size key="itemSize" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Main3" translatesAutoresizingMaskIntoConstraints="NO" id="FmX-CZ-wOA">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TF0-WI-7h8">
+                                <rect key="frame" x="0.0" y="148" width="414" height="441"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="RV3-5g-8d6">
+                                    <size key="itemSize" width="150" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="50" minY="0.0" maxX="50" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainFriendChallengesCollectionViewCell" id="EbV-H3-JAR" customClass="MainFriendChallengesCollectionViewCell" customModule="iChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainFriendChallengesCollectionViewCell" id="fRd-qH-fXm" customClass="MainFriendChallengesCollectionViewCell" customModule="iChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="0.0" width="150" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headtohead" translatesAutoresizingMaskIntoConstraints="NO" id="XEC-Bg-Lxz">
-                                                    <rect key="frame" x="12" y="0.0" width="176" height="160"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Gian" translatesAutoresizingMaskIntoConstraints="NO" id="AN7-IZ-zB4">
+                                                    <rect key="frame" x="30" y="25" width="90" height="90"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0om-5s-TWu">
-                                                    <rect key="frame" x="17" y="171" width="175" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZt-f8-Thv">
+                                                    <rect key="frame" x="0.0" y="153" width="150" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmF-KL-jCe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Js-WL-mzw">
+                                                    <rect key="frame" x="66" y="128" width="18" height="18"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="customSize" width="150" height="170"/>
                                         <connections>
-                                            <outlet property="challengeName" destination="0om-5s-TWu" id="j48-jz-KuA"/>
-                                            <outlet property="challengerImage" destination="XEC-Bg-Lxz" id="QVu-Qt-eUM"/>
-                                            <segue destination="Oye-JY-NPE" kind="presentation" identifier="CompletedChallengeSegue" id="Ujq-DG-C9U"/>
+                                            <outlet property="challengeName" destination="YZt-f8-Thv" id="YtO-uY-xFw"/>
+                                            <outlet property="challengerImage" destination="AN7-IZ-zB4" id="BEE-3M-Pl5"/>
+                                            <outlet property="challengerName" destination="xmF-KL-jCe" id="hKt-R2-3qT"/>
+                                            <segue destination="Oye-JY-NPE" kind="presentation" identifier="CompletedChallengeSegue" id="1L0-72-wzG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="iad-44-afx" id="5AH-EZ-h2k"/>
-                                    <outlet property="delegate" destination="iad-44-afx" id="kcP-kE-p73"/>
+                                    <outlet property="dataSource" destination="iad-44-afx" id="oRO-3w-Pty"/>
+                                    <outlet property="delegate" destination="iad-44-afx" id="tPy-nM-Yfd"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv7-Bj-hgw">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-ai-389">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Friends Challenges" id="krs-2G-Lxp">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="ms4-ZQ-eE7">
+                                    <navigationItem title="iChallenge" id="ukM-52-vpu">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="6NC-hI-WRe">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="SsX-kG-5aU" kind="presentation" identifier="FriendSearchSegue" id="ZUf-e5-R6Z"/>
+                                                <segue destination="SsX-kG-5aU" kind="presentation" identifier="FriendSearchSegue" id="WYj-hc-1Ks"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="EzC-9k-C61">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="XiJ-Dw-yL5">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="blx-eA-a1O" kind="presentation" identifier="CreateChallengeSegue" id="zxu-KB-1Kr"/>
+                                                <segue destination="blx-eA-a1O" kind="presentation" identifier="CreateChallengeSegue" id="Jhb-CL-IQ5"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="friendChallengesCollectionView" destination="lZX-w8-Zqj" id="u6r-g1-OYL"/>
+                        <outlet property="friendChallengesCollectionView" destination="TF0-WI-7h8" id="wJ7-Ag-Rrv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJD-qF-pjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,71 +260,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fnr-jJ-Jox">
-                                <rect key="frame" x="0.0" y="65" width="414" height="607"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lDt-Cw-wem">
-                                    <size key="itemSize" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Main2" translatesAutoresizingMaskIntoConstraints="NO" id="d0z-eh-WTi">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Pu-LT-9ce">
+                                <rect key="frame" x="0.0" y="148" width="414" height="441"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="Hiz-P7-ayd">
+                                    <size key="itemSize" width="150" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="50" minY="0.0" maxX="50" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCompletedChallengesViewCell" id="0kF-XX-o7n" customClass="MainCompletedChallengesViewCell" customModule="iChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCompletedChallengesViewCell" id="Gh9-59-Ora" customClass="MainCompletedChallengesViewCell" customModule="iChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="0.0" width="150" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headtohead" translatesAutoresizingMaskIntoConstraints="NO" id="oMD-UN-qmk">
-                                                    <rect key="frame" x="12" y="0.0" width="176" height="160"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Gian" translatesAutoresizingMaskIntoConstraints="NO" id="DTZ-el-bGz">
+                                                    <rect key="frame" x="30" y="25" width="90" height="90"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-CV-ivR">
-                                                    <rect key="frame" x="17" y="171" width="175" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBE-gw-d2P">
+                                                    <rect key="frame" x="0.0" y="153" width="150" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-AJ-gId">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="BUn-lF-rlq">
+                                                    <rect key="frame" x="66" y="128" width="18" height="18"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="customSize" width="150" height="170"/>
                                         <connections>
-                                            <outlet property="challengeName" destination="M8C-CV-ivR" id="MNH-uX-rUm"/>
-                                            <outlet property="challengerImage" destination="oMD-UN-qmk" id="GuN-6n-vNX"/>
-                                            <segue destination="ID5-ot-nQW" kind="presentation" identifier="CompletedChallengeSegue" id="6nr-Rc-Arm"/>
+                                            <outlet property="challengeName" destination="bBE-gw-d2P" id="bnF-3p-mzD"/>
+                                            <outlet property="challengerImage" destination="DTZ-el-bGz" id="BZw-li-sbh"/>
+                                            <outlet property="challengerName" destination="ZZZ-AJ-gId" id="HP1-MC-P4a"/>
+                                            <segue destination="ID5-ot-nQW" kind="presentation" identifier="CompletedChallengeSegue" id="8QL-Fi-cbY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="967-a7-oz5" id="opq-an-ZCp"/>
-                                    <outlet property="delegate" destination="967-a7-oz5" id="k1C-e5-Vss"/>
+                                    <outlet property="dataSource" destination="967-a7-oz5" id="1sb-4c-4ui"/>
+                                    <outlet property="delegate" destination="967-a7-oz5" id="a6H-dU-i6h"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9aQ-RP-i3P">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5y-Or-bHk">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Completed Challenges" id="IAl-We-UGL">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="2wa-Ff-UUa">
+                                    <navigationItem title="iChallenge" id="AfJ-rf-6X1">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="WLV-yh-YcD">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="JyL-qX-mUh" kind="presentation" id="gmI-sP-TtD"/>
+                                                <segue destination="JyL-qX-mUh" kind="presentation" identifier="FriendSearchSegue" id="41l-CN-Toh"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="a9N-ie-lmo">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="sRV-dy-qnD">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="WAM-mp-oEc" kind="presentation" id="j0l-Ja-8Wi"/>
+                                                <segue destination="WAM-mp-oEc" kind="presentation" identifier="CreateChallengeSegue" id="Cde-KG-6jn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="mainCompletedChallengesCollectionView" destination="fnr-jJ-Jox" id="Iv3-8X-h7e"/>
+                        <outlet property="mainCompletedChallengesCollectionView" destination="5Pu-LT-9ce" id="LRg-7D-3As"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcX-A5-xET" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,6 +405,7 @@
         <image name="Gian" width="92" height="93"/>
         <image name="Logo" width="512" height="512"/>
         <image name="Main1" width="750" height="1334"/>
-        <image name="headtohead" width="76" height="76"/>
+        <image name="Main2" width="750" height="1334"/>
+        <image name="Main3" width="750" height="1334"/>
     </resources>
 </document>

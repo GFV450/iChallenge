@@ -58,12 +58,13 @@ extension MainFriendChallengesViewController: UICollectionViewDelegate, UICollec
         
         let challenge = friendChallengeArray[indexPath.row]
         
-        let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
+        let profileImageNSURL = NSURL(string: challenge.foeProfileImage)
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
         cell.challengerImage.image? = (cell.challengerImage.image?.af_imageRoundedIntoCircle())!
         
         cell.challengeName.text = challenge.challengeTitle
         
+        cell.challengerName.text = challenge.challengerName
         cell.challenge = challenge
         
         return cell

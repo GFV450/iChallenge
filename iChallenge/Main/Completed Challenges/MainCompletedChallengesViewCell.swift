@@ -12,6 +12,7 @@ class MainCompletedChallengesViewCell: UICollectionViewCell
 {
     @IBOutlet weak var challengerImage: UIImageView!
     @IBOutlet weak var challengeName: UILabel!
+    @IBOutlet weak var challengerName: UILabel!
     
     var challengeDescription: String?
     var challenge: Challenge?
