@@ -12,6 +12,8 @@ class FirebaseHelper
 {
     static func queryUserData(callback: (User) -> Void)
     {
+        let loggedUser = (FIRAuth.auth()?.currentUser)!
+        
         //Creates a reference to the Firebase Database
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
@@ -23,7 +25,11 @@ class FirebaseHelper
             
             let user = User(userID: userID, name: name, email: "", profileImage: profileImage)
             
-            callback(user)
+            //Avoids displaying the logged in user in the friend search table view
+            if(loggedUser.uid != user.userID)
+            {
+                callback(user)
+            }
         })
     }
     
@@ -91,8 +97,9 @@ class FirebaseHelper
             let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
             let challengeDescription = snapshot.value!["challengeDescription"] as! String
             let foeID = snapshot.value!["foeID"] as! String
+            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
             
-            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
             callback(challenge)
         })
@@ -113,8 +120,9 @@ class FirebaseHelper
             let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
             let challengeDescription = snapshot.value!["challengeDescription"] as! String
             let foeID = snapshot.value!["foeID"] as! String
+            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
             
-            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
             callback(challenge)
         })
@@ -135,8 +143,9 @@ class FirebaseHelper
             let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
             let challengeDescription = snapshot.value!["challengeDescription"] as! String
             let foeID = snapshot.value!["foeID"] as! String
+            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
             
-            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
             callback(challenge)
         })

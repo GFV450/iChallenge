@@ -12,7 +12,7 @@ import Firebase
 class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 {
     var friendArray = [User]()
-    var selectedFriendID: String?
+    var selectedFriend: User?
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var challengeDescription: UITextView!
@@ -63,9 +63,9 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         cell.profileImageView!.af_setImageWithURL(profileImageURL!)
         
         cell.nameLabel?.text = friend.name
-        cell.userID = friend.userID
+        cell.user = friend
         
-        if(cell.userID == selectedFriendID)
+        if(cell.user?.userID == selectedFriend?.userID)
         {
             cell.contentView.backgroundColor = UIColor.greenColor()
         }
@@ -93,13 +93,14 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         //Sets all the information in constants to instantiate a Challenge object
         let challengerName = user.displayName!
         let challengerID = user.uid
-        let challengerProfileImage = (FIRAuth.auth()?.currentUser?.photoURL?.absoluteString)! //Unwrapping value
+        let challengerProfileImage = (user.photoURL?.absoluteString)!
         let challengeTitle: String = self.challengeTitle.text!
         let challengeDescription: String = self.challengeDescription.text!
-        let foeID: String? = selectedFriendID
+        let foeID = selectedFriend?.userID
+        let foeProfileImage = selectedFriend?.profileImage
         
         //Creates challenge
-        let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID!, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+        let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID!, foeProfileImage: foeProfileImage!, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
         
         //Checks that the user has picked a friend to challenge
         if(foeID != nil)
@@ -124,7 +125,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
         
-        selectedFriendID = cell.userID
+        selectedFriend = cell.user
         cell.contentView.backgroundColor = UIColor.greenColor()
     }
     

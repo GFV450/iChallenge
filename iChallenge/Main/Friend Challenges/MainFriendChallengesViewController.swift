@@ -71,10 +71,10 @@ extension MainFriendChallengesViewController: UICollectionViewDelegate, UICollec
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "ChallengeSegue"
+        if segue.identifier == "CompletedChallengeSegue"
         {
             let cell = sender as! MainFriendChallengesCollectionViewCell
-            let challengeController = segue.destinationViewController as! ChallengeViewController
+            let challengeController = segue.destinationViewController as! CompletedChallengeViewController
             
             challengeController.challenge = cell.challenge
         }

@@ -170,4 +170,9 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             FirebaseHelper.removeFriend(currentUserID, friendID: friendID)
         }
     }
+    
+    @IBAction func dismissButtonPressed(sender: AnyObject)
+    {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

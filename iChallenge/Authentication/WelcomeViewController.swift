@@ -28,6 +28,8 @@ class WelcomeViewController : UIViewController {
     {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         emailTextField.textColor = MaterialColor.white
         passwordTextField.textColor = MaterialColor.white
     }
@@ -48,7 +50,7 @@ class WelcomeViewController : UIViewController {
                 
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController")
-                self.presentViewController(controller, animated: true, completion: nil)
+                self.showViewController(controller, sender: nil)
             }
             else
             {
@@ -58,8 +60,13 @@ class WelcomeViewController : UIViewController {
 
     }
     
-    @IBAction func unwindToWelcomeViewController(unwindSegue: UIStoryboard){
-        
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
