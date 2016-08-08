@@ -59,6 +59,7 @@ extension MainCompletedChallengesViewController: UICollectionViewDataSource, UIC
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
         cell.challengerImage.image? = (cell.challengerImage.image?.af_imageRoundedIntoCircle())!
         
+        cell.challengerName.text = challenge.challengerName
         cell.challengeName.text = challenge.challengeTitle
         
         cell.challenge = challenge
