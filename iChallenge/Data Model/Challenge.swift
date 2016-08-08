@@ -15,15 +15,17 @@ class Challenge
     let challengerID: String
     let challengerProfileImage: String
     let foeID: String
+    let foeProfileImage: String
     let challengeTitle: String
     let challengeDescription: String
     
-    init(challengerName: String, challengerID: String, challengerProfileImage: String, foeID: String, challengeTitle: String, challengeDescription: String)
+    init(challengerName: String, challengerID: String, challengerProfileImage: String, foeID: String, foeProfileImage: String, challengeTitle: String, challengeDescription: String)
     {
         self.challengerName = challengerName
         self.challengerID = challengerID
         self.challengerProfileImage = challengerProfileImage
         self.foeID = foeID
+        self.foeProfileImage = foeProfileImage
         self.challengeTitle = challengeTitle
         self.challengeDescription = challengeDescription
     }
@@ -35,7 +37,7 @@ class Challenge
         let dataRef: FIRDatabaseReference! = FIRDatabase.database().reference()
         
         //Creates a new challenge in the foe tree
-        dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
+        dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "foeProfileImage": foeProfileImage, "challengeDescription": challengeDescription])
     }
     
     func challengeCompleted()
@@ -44,9 +46,9 @@ class Challenge
         
         dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
         
-    dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
+    dataRef.child("Users").child(foeID).child("completedChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "foeProfileImage": foeProfileImage, "challengeDescription": challengeDescription])
         
-        dataRef.child("Users").child(challengerID).child("friendChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
+    dataRef.child("Users").child(challengerID).child("friendChallenges").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "foeProfileImage": foeProfileImage, "challengeDescription": challengeDescription])
     }
     
     func challengeReported()
@@ -55,6 +57,6 @@ class Challenge
         
         dataRef.child("Users").child(foeID).child("Challenges").child(challengeTitle).removeValue()
         
-        dataRef.child("flaggedContent").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "challengeDescription": challengeDescription])
+        dataRef.child("flaggedContent").child(challengeTitle).setValue(["challengerName": challengerName, "challengerID": challengerID, "challengerProfileImage": challengerProfileImage, "foeID": foeID, "foeProfileImage": foeProfileImage, "challengeDescription": challengeDescription])
     }
 }

@@ -13,7 +13,6 @@ class MainCompletedChallengesViewController: UIViewController
     var completedChallengeArray = [Challenge]()
     
     // MARK: - IBOutlets
-    
     @IBOutlet weak var mainCompletedChallengesCollectionView: UICollectionView!
     
     // MARK: - View Lifecycles
@@ -69,10 +68,10 @@ extension MainCompletedChallengesViewController: UICollectionViewDataSource, UIC
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "ChallengeSegue"
+        if segue.identifier == "CompletedChallengeSegue"
         {
             let cell = sender as! MainCompletedChallengesViewCell
-            let challengeController = segue.destinationViewController as! ChallengeViewController
+            let challengeController = segue.destinationViewController as! CompletedChallengeViewController
             
             challengeController.challenge = cell.challenge
         }

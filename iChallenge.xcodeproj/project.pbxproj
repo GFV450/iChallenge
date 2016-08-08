@@ -22,6 +22,9 @@
 		E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */; };
 		E733112F1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733112E1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift */; };
 		E73311311D56B9EE008A7BA3 /* MainFriendChallengesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73311301D56B9EE008A7BA3 /* MainFriendChallengesCollectionViewCell.swift */; };
+		E73311341D579F00008A7BA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73311331D579F00008A7BA3 /* Launch Screen.storyboard */; };
+		E73311381D57BA26008A7BA3 /* CompletedChallenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73311371D57BA26008A7BA3 /* CompletedChallenge.storyboard */; };
+		E733113A1D57BA67008A7BA3 /* CompletedChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73311391D57BA67008A7BA3 /* CompletedChallengeViewController.swift */; };
 		E742E0151D3D5CB8008543F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742E0141D3D5CB8008543F9 /* User.swift */; };
 		E7512D2E1D565BD600324D03 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7512D2D1D565BD600324D03 /* Onboarding.storyboard */; };
 		E7512D301D565C8000324D03 /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7512D2F1D565C8000324D03 /* PageOneViewController.swift */; };
@@ -64,6 +67,9 @@
 		E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E733112E1D56A73F008A7BA3 /* MainCompletedChallengesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCompletedChallengesViewCell.swift; sourceTree = "<group>"; };
 		E73311301D56B9EE008A7BA3 /* MainFriendChallengesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFriendChallengesCollectionViewCell.swift; sourceTree = "<group>"; };
+		E73311331D579F00008A7BA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "iChallenge/Launch Screen/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
+		E73311371D57BA26008A7BA3 /* CompletedChallenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CompletedChallenge.storyboard; sourceTree = "<group>"; };
+		E73311391D57BA67008A7BA3 /* CompletedChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedChallengeViewController.swift; sourceTree = "<group>"; };
 		E742E0141D3D5CB8008543F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7512D2D1D565BD600324D03 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		E7512D2F1D565C8000324D03 /* PageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +183,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E73311321D56C2F6008A7BA3 /* Completed Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				E73311371D57BA26008A7BA3 /* CompletedChallenge.storyboard */,
+				E73311391D57BA67008A7BA3 /* CompletedChallengeViewController.swift */,
+			);
+			path = "Completed Challenge";
+			sourceTree = "<group>";
+		};
+		E733113B1D57DC84008A7BA3 /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E73311331D579F00008A7BA3 /* Launch Screen.storyboard */,
+			);
+			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
 		E7512D2C1D565B6C00324D03 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,11 +294,13 @@
 			children = (
 				E7E786001D2845CE005FB7B3 /* AppDelegate.swift */,
 				E71769401D3DEA8E00CA167A /* GoogleService-Info.plist */,
+				E733113B1D57DC84008A7BA3 /* Launch Screen */,
 				E7512D2C1D565B6C00324D03 /* Onboarding */,
 				E2EE73CC1D2C83BF00977AAA /* Authentication */,
 				E79562B91D569FDD008C45B5 /* Main */,
 				E242463E1D2D71F300793533 /* Challenge */,
 				E79EC15A1D37F630001B307B /* Create Challenge */,
+				E73311321D56C2F6008A7BA3 /* Completed Challenge */,
 				E79562BD1D56A20C008C45B5 /* Friend Search */,
 				E242464E1D2DB2C800793533 /* Data Model */,
 				E22D72DE1D2ED159007BF03A /* Helpers */,
@@ -321,6 +346,7 @@
 				TargetAttributes = {
 					E7E785FC1D2845CE005FB7B3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = HK78M4RSH4;
 					};
 				};
 			};
@@ -349,7 +375,9 @@
 			files = (
 				E79562C31D56A51A008C45B5 /* CreateChallenge.storyboard in Resources */,
 				E2EE74131D2CDB3A00977AAA /* Assets.xcassets in Resources */,
+				E73311381D57BA26008A7BA3 /* CompletedChallenge.storyboard in Resources */,
 				E79562BF1D56A2EB008C45B5 /* Main.storyboard in Resources */,
+				E73311341D579F00008A7BA3 /* Launch Screen.storyboard in Resources */,
 				E2EE73F21D2C9C0F00977AAA /* SignupLogin.storyboard in Resources */,
 				E782BACC1D3EC57F00B0830C /* FriendSearch.storyboard in Resources */,
 				E71769411D3DEA8E00CA167A /* GoogleService-Info.plist in Resources */,
@@ -453,6 +481,7 @@
 				E24246411D2D723B00793533 /* ChallengeViewController.swift in Sources */,
 				E24246501D2DB2DE00793533 /* Challenge.swift in Sources */,
 				E2EE73F01D2C9C0F00977AAA /* ForgotPasswordViewController.swift in Sources */,
+				E733113A1D57BA67008A7BA3 /* CompletedChallengeViewController.swift in Sources */,
 				E742E0151D3D5CB8008543F9 /* User.swift in Sources */,
 				E76413BD1D4BE13500D2F036 /* ImageConversionHelper.swift in Sources */,
 				E7512D321D565C9700324D03 /* PageTwoViewController.swift in Sources */,

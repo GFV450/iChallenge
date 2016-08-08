@@ -18,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FIRApp.configure()
         
+        if let user = FIRAuth.auth()?.currentUser
+        {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController")
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
+        else
+        {
+            let loginStoryboard = UIStoryboard(name: "SignupLogin", bundle: nil)
+            let controller = loginStoryboard.instantiateViewControllerWithIdentifier("WelcomeNavigationController")
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 }
