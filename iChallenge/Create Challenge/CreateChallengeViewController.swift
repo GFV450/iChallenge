@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Material
 
 class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 {
@@ -21,8 +22,14 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     
     override func viewDidLoad()
     {
-        setImageView()
         super.viewDidLoad()
+        
+        setImageView()
+        
+        challengeTitle.textAlignment = .Center
+        challengeTitle.font = UIFont.systemFontOfSize(25)
+        challengeTitle.textColor = MaterialColor.white
+        challengeDescription.textColor = MaterialColor.white
 
         self.retrieveFriends()
         
@@ -87,6 +94,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         return 1
     }
 
+    //MUST MAKE CONDITION WHEN NO FRIEND IS SELECTED
     @IBAction func doneButtonPressed(sender: AnyObject)
     {
         let user = (FIRAuth.auth()?.currentUser)!

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 class ForgotPasswordViewController : UIViewController
 {
@@ -16,10 +17,11 @@ class ForgotPasswordViewController : UIViewController
     @IBOutlet weak var emailTextField: UITextField!
     
     // MARK: - View Lifecycles
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        sendEmailButton.roundCorners()
-        sendEmailButton.addShadow()
+        
+        emailTextField.textColor = MaterialColor.white
     }
     
     override func viewWillAppear(animated: Bool)

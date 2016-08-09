@@ -28,6 +28,7 @@ class WelcomeViewController : UIViewController {
     {
         super.viewDidLoad()
         
+        
         emailTextField.textColor = MaterialColor.white
         passwordTextField.textColor = MaterialColor.white
     }
