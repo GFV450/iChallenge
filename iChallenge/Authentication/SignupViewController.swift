@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Material
 
 class SignupViewController : UIViewController, UITextFieldDelegate {
     
@@ -32,6 +33,10 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         
+        emailTextField.textColor = MaterialColor.white
+        passwordTextField.textColor = MaterialColor.white
+        nameTextField.textColor = MaterialColor.white
+        
         //Method initializers
         prepareTapGestureRecognizer()
         prepareFirstNameSShake()
@@ -42,6 +47,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool)
     {
         self.navigationController?.navigationBarHidden = false
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
     }
     
     // MARK: - Preparations

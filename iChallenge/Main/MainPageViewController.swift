@@ -14,6 +14,10 @@ class MainPageViewController: UIPageViewController
     {
         dataSource = self
         setViewControllers([getChallengesView()], direction: .Forward, animated: false, completion: nil)
+        
+        
+        let swiftColor = UIColor(red: 62/255, green: 53/255, blue: 118/255, alpha: 1)
+        self.view.backgroundColor = swiftColor
     }
     
     func getChallengesView() -> MainChallengesViewController {
@@ -64,6 +68,8 @@ extension MainPageViewController: UIPageViewControllerDataSource
             return nil
         }
     }
+    
+    
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 3
