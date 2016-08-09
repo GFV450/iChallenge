@@ -30,7 +30,7 @@ class User
     {
         // Create a reference to the path where you want to upload the file
         let storageRef: FIRStorageReference = FIRStorage.storage().reference().child("ProfileImages/\(name).jpg")
-        let profileImageData = UIImageJPEGRepresentation(profileImage.image!, 1.0)
+        let profileImageData = UIImageJPEGRepresentation(profileImage.image!, 0)
         
         // Upload the file to the path defined above
         storageRef.putData(profileImageData!, metadata: nil) { metadata, error in

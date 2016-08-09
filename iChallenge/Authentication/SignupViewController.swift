@@ -23,10 +23,9 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField:    UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     // MARK: - View Lifecycles
     override func viewDidLoad()
@@ -36,7 +35,6 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         //Method initializers
         prepareTapGestureRecognizer()
         prepareFirstNameSShake()
-        prepareLastNameShake()
         prepareEmailShake()
         preparePasswordShake()
     }
@@ -57,11 +55,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     }
     
     func prepareFirstNameSShake() {
-        firstNameShake = CustomAnimation(view: firstNameTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
-    }
-    
-    func prepareLastNameShake() {
-        lastNameShake = CustomAnimation(view: lastNameTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
+        firstNameShake = CustomAnimation(view: nameTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
     }
     
     func preparePasswordShake() {
@@ -75,7 +69,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     @IBAction func signUpButtonPressed(sender: AnyObject)
     {
         // Condition required to create a new user
-        if firstNameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
+        if nameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
         {
             createUser()
         }
@@ -91,7 +85,7 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
     func createUser()
     {
         //Unwrap optionals before pushing to Firebase Database
-        let name = "\(self.firstNameTextField.text!) \(self.lastNameTextField.text!)"
+        let name = nameTextField.text!
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
@@ -121,4 +115,11 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
             self.profileImageView.image = image
         }
     }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject)
+    {
+        view.endEditing(true)
+
+    }
+    
 }

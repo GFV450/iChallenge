@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Main3" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-kb-Bfi">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BUq-dl-8ts">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="60" id="731-BG-jC0" customClass="FriendSearchViewCell" customModule="iChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
@@ -32,29 +36,32 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d8-iQ-G4Z">
                                                     <rect key="frame" x="67" y="15" width="256" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.22352941176470589" green="0.51372549019607838" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMr-dX-bcO" customClass="SpringImageView" customModule="Spring">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image" translatesAutoresizingMaskIntoConstraints="NO" id="FMr-dX-bcO">
                                                     <rect key="frame" x="8" y="0.0" width="51" height="51.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="51" id="cef-Cj-aKd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQn-2a-4l9" customClass="MaterialButton">
-                                                    <rect key="frame" x="331" y="5" width="40" height="40.5"/>
+                                                    <rect key="frame" x="293" y="5" width="113" height="40.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="uay-L2-5EQ"/>
+                                                        <constraint firstAttribute="width" constant="113" id="uay-L2-5EQ"/>
                                                     </constraints>
-                                                    <state key="normal" image="add_me"/>
-                                                    <state key="selected" image="unfriend_me"/>
+                                                    <state key="normal" title="Add"/>
+                                                    <state key="selected" title="Remove"/>
+                                                    <connections>
+                                                        <action selector="addFriendButtonPressed:" destination="1v8-eA-yoC" eventType="touchUpInside" id="fQW-Lz-8G9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="FMr-dX-bcO" firstAttribute="top" secondItem="pwf-Ya-29y" secondAttribute="top" id="1OD-mq-iD7"/>
-                                                <constraint firstItem="gQn-2a-4l9" firstAttribute="trailing" secondItem="pwf-Ya-29y" secondAttribute="trailingMargin" constant="-35" id="79r-01-wlY"/>
-                                                <constraint firstItem="gQn-2a-4l9" firstAttribute="leading" secondItem="5d8-iQ-G4Z" secondAttribute="trailing" constant="8" id="GqH-Zj-MEq"/>
+                                                <constraint firstItem="gQn-2a-4l9" firstAttribute="trailing" secondItem="pwf-Ya-29y" secondAttribute="trailingMargin" id="79r-01-wlY"/>
+                                                <constraint firstItem="gQn-2a-4l9" firstAttribute="leading" secondItem="5d8-iQ-G4Z" secondAttribute="trailing" constant="-30" id="GqH-Zj-MEq"/>
                                                 <constraint firstItem="gQn-2a-4l9" firstAttribute="top" secondItem="pwf-Ya-29y" secondAttribute="topMargin" constant="-3" id="R14-MQ-utB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="gQn-2a-4l9" secondAttribute="bottom" constant="6" id="UBd-d9-3Z0"/>
                                                 <constraint firstItem="5d8-iQ-G4Z" firstAttribute="top" secondItem="pwf-Ya-29y" secondAttribute="topMargin" constant="7" id="VLw-Lx-hwz"/>
@@ -64,8 +71,9 @@
                                                 <constraint firstItem="5d8-iQ-G4Z" firstAttribute="leading" secondItem="FMr-dX-bcO" secondAttribute="trailing" constant="8" id="nxB-Wz-7DL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="addFriendButton" destination="gQn-2a-4l9" id="cxM-V3-0KD"/>
+                                            <outlet property="addFriendButton" destination="gQn-2a-4l9" id="s6e-vt-Spr"/>
                                             <outlet property="nameLabel" destination="5d8-iQ-G4Z" id="IMP-ua-kLb"/>
                                             <outlet property="profileImageView" destination="FMr-dX-bcO" id="1zG-hf-vUH"/>
                                         </connections>
@@ -78,10 +86,14 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auw-aw-OjW">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="barTintColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem id="Lid-BA-QSm">
+                                    <navigationItem title="iChallenge" id="Lid-BA-QSm">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="NGk-zl-LQb">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="dismissButtonPressed:" destination="1v8-eA-yoC" id="tjR-92-7ed"/>
                                             </connections>
@@ -90,7 +102,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.69226001169999996" blue="0.31232977179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -103,7 +115,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add_me" width="300" height="300"/>
-        <image name="unfriend_me" width="300" height="300"/>
+        <image name="Main3" width="750" height="1334"/>
+        <image name="No image" width="981" height="803"/>
     </resources>
 </document>

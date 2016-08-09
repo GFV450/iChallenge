@@ -36,4 +36,9 @@ class ForgotPasswordViewController : UIViewController
     @IBAction func sendEmailButtonPressed(sender: AnyObject) {
         
     }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject)
+    {
+    }
+    
 }
