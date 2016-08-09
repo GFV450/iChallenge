@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainChallengesViewController: UIViewController
 {
@@ -59,7 +60,8 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
         
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
         cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
-        cell.challengerImage.image? = (cell.challengerImage.image?.af_imageRoundedIntoCircle())!
+        cell.challengerImage.layer.cornerRadius = cell.challengerImage.frame.size.width/2
+        
         
         cell.challengerName.text = challenge.challengerName
         cell.challengeName.text = challenge.challengeTitle
@@ -79,4 +81,10 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
             challengeController.challenge = cell.challenge
         }
     }
+    
+    @IBAction func logoutButtonPressed(sender: AnyObject)
+    {
+        try! FIRAuth.auth()!.signOut()
+    }
+    
 }

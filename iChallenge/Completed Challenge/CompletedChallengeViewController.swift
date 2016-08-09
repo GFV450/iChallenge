@@ -47,7 +47,7 @@ class CompletedChallengeViewController: UIViewController
             challengeLabel.text = "You challenged your friend to"
             
             profileImage.af_setImageWithURL(foeProfileImageURL!)
-            profileImage.image = profileImage.image?.af_imageRoundedIntoCircle()
+            profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         }
     }
     

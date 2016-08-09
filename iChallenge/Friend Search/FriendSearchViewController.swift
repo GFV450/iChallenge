@@ -106,6 +106,7 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             
             //Sets the information relevant to the cell on the TableView
             cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
             cell.userID = user.userID
             cell.nameLabel?.text = user.name
             

@@ -28,8 +28,6 @@ class WelcomeViewController : UIViewController {
     {
         super.viewDidLoad()
         
-        self.hideKeyboardWhenTappedAround()
-        
         emailTextField.textColor = MaterialColor.white
         passwordTextField.textColor = MaterialColor.white
     }
@@ -60,12 +58,9 @@ class WelcomeViewController : UIViewController {
 
     }
     
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
-    }
     
-    func dismissKeyboard() {
+    @IBAction func dismissKeyboard(sender: AnyObject)
+    {
         view.endEditing(true)
     }
 }

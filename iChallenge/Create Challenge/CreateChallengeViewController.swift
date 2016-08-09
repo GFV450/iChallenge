@@ -36,8 +36,8 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         let profileImageURL = user!.photoURL
         
-        userImage.layer.cornerRadius = 10
         userImage.af_setImageWithURL(profileImageURL!)
+        userImage.layer.cornerRadius = userImage.frame.size.width/2
     }
     
     func retrieveFriends()
@@ -61,17 +61,18 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         //Sets the information relevant to the cell on CollectionView
         cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
         
         cell.nameLabel?.text = friend.name
         cell.user = friend
         
         if(cell.user?.userID == selectedFriend?.userID)
         {
-            cell.contentView.backgroundColor = UIColor.greenColor()
+            cell.nameLabel.textColor = .blueColor()
         }
         else
         {
-            cell.contentView.backgroundColor = UIColor.whiteColor()
+            cell.nameLabel.textColor = .whiteColor()
         }
         
         return cell
@@ -126,11 +127,23 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
         
         selectedFriend = cell.user
-        cell.contentView.backgroundColor = UIColor.greenColor()
+        cell.nameLabel.textColor = .blueColor()
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
     {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CreateChallengeViewCell
+        
+        if let cell = cell
+        {
+            cell.nameLabel.textColor = .whiteColor()
+        }
     }
-}
+    
+    @IBAction func dismissKeyboard(sender: AnyObject)
+    {
+        view.endEditing(true)
 
+    }
+    
+}
