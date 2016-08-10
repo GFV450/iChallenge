@@ -109,11 +109,11 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         let foeProfileImage = selectedFriend?.profileImage
         
         //Creates challenge
-        let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID!, foeProfileImage: foeProfileImage!, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
         
-        //Checks that the user has picked a friend to challenge
         if(foeID != nil)
         {
+            let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID!, foeProfileImage: foeProfileImage!, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
+            
             challenge.uploadChallenge() //Uploads challenge to Database
         }
         else

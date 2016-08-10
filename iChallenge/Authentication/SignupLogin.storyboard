@@ -59,7 +59,7 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.14250707430000001" green="0.15628064780000001" blue="1" alpha="0.75301724140000004" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="point" keyPath="position">
                                         <point key="value" x="0.0" y="0.0"/>
@@ -193,6 +193,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2po-O9-sO7"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="emailTextField" destination="MSf-7S-fsf" id="SGv-RG-HPf"/>
                         <outlet property="imageView" destination="22P-Up-JGe" id="FR4-G3-jau"/>
