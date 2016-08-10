@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Challenge View Controller-->
@@ -17,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="A FRIEND CHALLENGED YOU B" translatesAutoresizingMaskIntoConstraints="NO" id="Qmw-2V-po1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A FRIEND CHALLENGED YOU B" translatesAutoresizingMaskIntoConstraints="NO" id="Qmw-2V-po1">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
-                            <view userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwT-wt-k7L">
+                            <view userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwT-wt-k7L">
                                 <rect key="frame" x="20" y="114" width="374" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="0.25070043103448275" colorSpace="calibratedWhite"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHk-gK-ebc">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHk-gK-ebc">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -41,17 +42,18 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="No image" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-LN-iny">
-                                <rect key="frame" x="132" y="173" width="150" height="150"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EAT SALAD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHR-QA-ZBt">
-                                <rect key="frame" x="20" y="366" width="374" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="EAT SALAD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHR-QA-ZBt">
+                                <rect key="frame" x="0.0" y="324" width="414" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wk-AT-csC" customClass="MaterialButton">
-                                <rect key="frame" x="162" y="601" width="96" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wk-AT-csC" customClass="MaterialButton">
+                                <rect key="frame" x="159" y="559" width="96" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="r6K-gf-FUo"/>
+                                    <constraint firstAttribute="height" constant="35" id="sDc-dR-aOh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="REPORT">
                                     <color key="titleColor" red="0.86654647435897436" green="0.0" blue="0.024330954268014439" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,21 +70,27 @@
                                     <action selector="reportButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="rf9-VK-Wma"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
-                                <rect key="frame" x="20" y="428" width="374" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msI-dc-4O0">
+                                <rect key="frame" x="0.0" y="389" width="414" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="XtA-Ep-xGW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your friend has challenged you to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icm-Zd-Che">
-                                <rect key="frame" x="20" y="131" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Your friend has challenged you to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icm-Zd-Che">
+                                <rect key="frame" x="0.0" y="131" width="414" height="12"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmF-Fw-p5s" customClass="MaterialButton">
-                                <rect key="frame" x="224" y="529" width="146" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmF-Fw-p5s" customClass="MaterialButton">
+                                <rect key="frame" x="224" y="487" width="146" height="52"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="8uW-nQ-U0c"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="DECLINE">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,9 +107,12 @@
                                     <action selector="completeChallengeButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="qhY-Hr-Hgz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNl-Ma-trI" customClass="MaterialButton">
-                                <rect key="frame" x="44" y="529" width="146" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNl-Ma-trI" customClass="MaterialButton">
+                                <rect key="frame" x="44" y="487" width="146" height="52"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="MXl-jI-r40"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="I DID IT!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,8 +129,49 @@
                                     <action selector="completeChallengeButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="7s5-Ko-zOz"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="No image" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-LN-iny">
+                                <rect key="frame" x="132" y="164" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="lsC-ol-U5a"/>
+                                    <constraint firstAttribute="width" constant="150" id="mjK-48-qYU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WHk-gK-ebc" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="0gE-vS-VHu"/>
+                            <constraint firstAttribute="trailing" secondItem="msI-dc-4O0" secondAttribute="trailing" id="5Rk-pR-cuk"/>
+                            <constraint firstItem="AGL-LN-iny" firstAttribute="centerX" secondItem="Qmw-2V-po1" secondAttribute="centerX" id="6uc-SV-XfI"/>
+                            <constraint firstItem="5wk-AT-csC" firstAttribute="top" secondItem="WNl-Ma-trI" secondAttribute="bottom" constant="20" id="DTq-ba-zQB"/>
+                            <constraint firstItem="Upb-Wg-ub6" firstAttribute="top" secondItem="Qmw-2V-po1" secondAttribute="bottom" id="DiT-0P-Se9"/>
+                            <constraint firstItem="bHR-QA-ZBt" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="EU5-tF-TPd"/>
+                            <constraint firstItem="zmF-Fw-p5s" firstAttribute="leading" secondItem="WNl-Ma-trI" secondAttribute="trailing" constant="34" id="JP7-go-7Jc"/>
+                            <constraint firstItem="Icm-Zd-Che" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="JQB-1g-tpC"/>
+                            <constraint firstItem="Qmw-2V-po1" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="QK0-C7-oG5"/>
+                            <constraint firstItem="zmF-Fw-p5s" firstAttribute="top" secondItem="msI-dc-4O0" secondAttribute="bottom" constant="40" id="VHk-p3-aoX"/>
+                            <constraint firstAttribute="trailing" secondItem="Icm-Zd-Che" secondAttribute="trailing" id="YWd-oG-RaH"/>
+                            <constraint firstItem="Upb-Wg-ub6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5wk-AT-csC" secondAttribute="bottom" priority="750" constant="20" id="Yzl-Fk-Eie"/>
+                            <constraint firstItem="AGL-LN-iny" firstAttribute="top" secondItem="Icm-Zd-Che" secondAttribute="bottom" constant="21" id="cau-aJ-n0W"/>
+                            <constraint firstItem="msI-dc-4O0" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="ez9-go-WHn"/>
+                            <constraint firstItem="Icm-Zd-Che" firstAttribute="top" relation="lessThanOrEqual" secondItem="iAK-Us-0dr" secondAttribute="bottom" priority="750" constant="67" id="f08-1H-Ksr"/>
+                            <constraint firstAttribute="trailing" secondItem="WHk-gK-ebc" secondAttribute="trailing" id="frP-3C-36A"/>
+                            <constraint firstAttribute="trailing" secondItem="Qmw-2V-po1" secondAttribute="trailing" id="llV-HY-Qc6"/>
+                            <constraint firstItem="5wk-AT-csC" firstAttribute="centerX" secondItem="Qmw-2V-po1" secondAttribute="centerX" id="qCC-nj-4n4"/>
+                            <constraint firstItem="bHR-QA-ZBt" firstAttribute="top" secondItem="AGL-LN-iny" secondAttribute="bottom" constant="10" id="s7f-4r-B9z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zmF-Fw-p5s" secondAttribute="trailing" constant="24" id="sGY-Bx-7V2"/>
+                            <constraint firstAttribute="trailing" secondItem="bHR-QA-ZBt" secondAttribute="trailing" id="sxj-YF-uBn"/>
+                            <constraint firstItem="WNl-Ma-trI" firstAttribute="top" secondItem="msI-dc-4O0" secondAttribute="bottom" constant="40" id="tXX-00-6Wq"/>
+                            <constraint firstItem="WHk-gK-ebc" firstAttribute="top" secondItem="fGd-C5-TbH" secondAttribute="topMargin" constant="20" id="uRr-p4-BTp"/>
+                            <constraint firstItem="Qmw-2V-po1" firstAttribute="top" secondItem="iAK-Us-0dr" secondAttribute="bottom" id="vFg-V8-tJ2"/>
+                            <constraint firstItem="WNl-Ma-trI" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" constant="24" id="wep-Wr-RVY"/>
+                            <constraint firstItem="msI-dc-4O0" firstAttribute="top" secondItem="bHR-QA-ZBt" secondAttribute="bottom" constant="23" id="xfq-2n-LSK"/>
+                            <constraint firstItem="zmF-Fw-p5s" firstAttribute="width" secondItem="WNl-Ma-trI" secondAttribute="width" id="yg9-2e-mhM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wwT-wt-k7L"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -134,6 +186,150 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Vw-uX-xf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="541"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PcH-xe-bgs">
+            <objects>
+                <viewController id="1xT-uG-SUD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fdi-mD-fQv"/>
+                        <viewControllerLayoutGuide type="bottom" id="rcj-pg-6T1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hX3-Hs-FLY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A FRIEND CHALLENGED YOU B" translatesAutoresizingMaskIntoConstraints="NO" id="5c2-Jy-mc9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-k7-HkM">
+                                <rect key="frame" x="113" y="28" width="374" height="544"/>
+                                <color key="backgroundColor" white="1" alpha="0.250700431" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdy-on-D9O">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="iChallenge" id="Jnx-0Z-5zq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="uJH-mK-Z85">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="dismissButtonPressed:" destination="kGv-ME-tJ0" id="K8J-Qu-92D"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-WK-7Yf">
+                                <rect key="frame" x="0.0" y="96" width="600" height="334"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your friend has challenged you to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1a3-pL-5N2">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="No image" translatesAutoresizingMaskIntoConstraints="NO" id="3Hn-wl-3pQ">
+                                        <rect key="frame" x="225" y="42" width="150" height="150"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EAT SALAD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSp-xX-dbq">
+                                        <rect key="frame" x="0.0" y="207" width="600" height="42"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-Vd-YnJ">
+                                        <rect key="frame" x="0.0" y="257" width="600" height="58"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mH-Ho-l8L">
+                                <rect key="frame" x="0.0" y="464" width="600" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT2-h3-K8O" customClass="MaterialButton">
+                                        <rect key="frame" x="395" y="76" width="146" height="52"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="DECLINE">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.72549019609999998" green="0.82352941180000006" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="completeChallengeButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="sUf-aw-ffJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLW-8O-sU4" customClass="MaterialButton">
+                                        <rect key="frame" x="395" y="65" width="96" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <state key="normal" title="REPORT">
+                                            <color key="titleColor" red="0.86654647439999999" green="0.0" blue="0.02433095427" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.83921568629999999" green="0.85490196080000003" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="reportButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="foe-4d-G3C"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-az-REd" customClass="MaterialButton">
+                                        <rect key="frame" x="360" y="16" width="146" height="52"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="I DID IT!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="completeChallengeButtonPressed:" destination="kGv-ME-tJ0" eventType="touchUpInside" id="ASS-F1-Hf8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5c2-Jy-mc9" firstAttribute="top" secondItem="hX3-Hs-FLY" secondAttribute="top" id="QRE-BA-7Ji"/>
+                            <constraint firstAttribute="bottom" secondItem="5c2-Jy-mc9" secondAttribute="bottom" id="RXG-zN-bJv"/>
+                            <constraint firstAttribute="trailing" secondItem="5c2-Jy-mc9" secondAttribute="trailing" id="V0L-SD-UuD"/>
+                            <constraint firstItem="5c2-Jy-mc9" firstAttribute="leading" secondItem="hX3-Hs-FLY" secondAttribute="leading" id="ruI-m9-QQL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bmg-k7-HkM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9Q-V8-1AK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2163" y="443"/>
         </scene>
     </scenes>
     <resources>
