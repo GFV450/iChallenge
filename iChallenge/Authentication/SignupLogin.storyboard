@@ -338,7 +338,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FADE-LOGIN" translatesAutoresizingMaskIntoConstraints="NO" id="B26-57-KYh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-h4-afB" customClass="TextField" customModule="Material">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-h4-afB" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="40" y="335" width="334" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7Zu-FQ-rfR"/>
