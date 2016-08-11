@@ -63,7 +63,75 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main1" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-D8-Rq1">
                                 <rect key="frame" x="0.0" y="21" width="414" height="715"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-qf-gcH">
+                                <rect key="frame" x="0.0" y="21" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="iChallenge" id="DHb-Gy-6IN">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="Gez-WU-kh7">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="4SV-PM-fdy" kind="presentation" identifier="" id="ZIA-GG-FHY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="xVP-aH-roZ">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="Y1h-E4-S7q" kind="presentation" id="gUL-bp-IBC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR FRIENDS CHALLENGED YOU TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-28-3uQ">
+                                <rect key="frame" x="0.0" y="102" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woA-Dx-v5Z" customClass="MaterialButton">
+                                <rect key="frame" x="182" y="636" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="k1w-eb-M55"/>
+                                    <constraint firstAttribute="height" constant="50" id="vyC-WG-AT8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.14250707430000001" green="0.15628064780000001" blue="1" alpha="0.75301724140000004" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="rLS-0d-wHM" eventType="touchUpInside" id="NSK-5G-1wg"/>
+                                    <segue destination="wXs-B6-ytK" kind="show" id="CoD-0L-I4R"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
                                 <rect key="frame" x="0.0" y="148" width="414" height="473"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="xX6-Df-9Ej">
@@ -116,74 +184,6 @@
                                     <outlet property="delegate" destination="rLS-0d-wHM" id="vDm-zQ-IMt"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-qf-gcH">
-                                <rect key="frame" x="0.0" y="21" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="iChallenge" id="DHb-Gy-6IN">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="Gez-WU-kh7">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="4SV-PM-fdy" kind="presentation" identifier="" id="ZIA-GG-FHY"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="xVP-aH-roZ">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="Y1h-E4-S7q" kind="presentation" id="gUL-bp-IBC"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="YOUR FRIENDS CHALLENGED YOU TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-28-3uQ">
-                                <rect key="frame" x="0.0" y="102" width="414" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woA-Dx-v5Z" customClass="MaterialButton">
-                                <rect key="frame" x="182" y="636" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="k1w-eb-M55"/>
-                                    <constraint firstAttribute="height" constant="50" id="vyC-WG-AT8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
-                                <state key="normal" title="LOG OUT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.14250707430000001" green="0.15628064780000001" blue="1" alpha="0.75301724140000004" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="rLS-0d-wHM" eventType="touchUpInside" id="NSK-5G-1wg"/>
-                                    <segue destination="wXs-B6-ytK" kind="show" id="CoD-0L-I4R"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -191,10 +191,13 @@
                             <constraint firstItem="Uiz-9B-VoO" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="4NJ-g2-9Yt"/>
                             <constraint firstAttribute="trailing" secondItem="Uiz-9B-VoO" secondAttribute="trailing" id="4lk-o8-Cg3"/>
                             <constraint firstItem="woA-Dx-v5Z" firstAttribute="top" secondItem="Uiz-9B-VoO" secondAttribute="bottom" constant="15" id="6UU-em-oFd"/>
+                            <constraint firstAttribute="trailing" secondItem="Wzd-qf-gcH" secondAttribute="trailing" id="71U-Sh-u7T"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-D8-Rq1" secondAttribute="trailing" id="ADA-5f-5el"/>
                             <constraint firstItem="woA-Dx-v5Z" firstAttribute="centerX" secondItem="eR9-D8-Rq1" secondAttribute="centerX" id="EcT-cz-S1V"/>
                             <constraint firstAttribute="trailing" secondItem="6QL-28-3uQ" secondAttribute="trailing" id="PJH-Vv-s7o"/>
+                            <constraint firstItem="Wzd-qf-gcH" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="QeF-4s-TcU"/>
                             <constraint firstItem="Uiz-9B-VoO" firstAttribute="top" secondItem="6QL-28-3uQ" secondAttribute="bottom" constant="25" id="SXl-qC-Tpw"/>
+                            <constraint firstItem="Wzd-qf-gcH" firstAttribute="top" secondItem="ccS-sd-VLW" secondAttribute="bottom" constant="1" id="Sj7-wY-grC"/>
                             <constraint firstItem="6QL-28-3uQ" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="UNP-PU-AeD"/>
                             <constraint firstItem="7hr-AG-Hit" firstAttribute="top" secondItem="woA-Dx-v5Z" secondAttribute="bottom" constant="50" id="Z5N-tA-nNs"/>
                             <constraint firstItem="eR9-D8-Rq1" firstAttribute="top" secondItem="ccS-sd-VLW" secondAttribute="bottom" constant="1" id="cJq-fs-5XB"/>
