@@ -63,7 +63,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main1" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-D8-Rq1">
                                 <rect key="frame" x="0.0" y="21" width="414" height="715"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-9B-VoO">
                                 <rect key="frame" x="0.0" y="148" width="414" height="473"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="xX6-Df-9Ej">
@@ -116,7 +116,7 @@
                                     <outlet property="delegate" destination="rLS-0d-wHM" id="vDm-zQ-IMt"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-qf-gcH">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-qf-gcH">
                                 <rect key="frame" x="0.0" y="21" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,7 +140,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR FRIENDS CHALLENGED YOU TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-28-3uQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="YOUR FRIENDS CHALLENGED YOU TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-28-3uQ">
                                 <rect key="frame" x="0.0" y="102" width="414" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,13 +191,10 @@
                             <constraint firstItem="Uiz-9B-VoO" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="4NJ-g2-9Yt"/>
                             <constraint firstAttribute="trailing" secondItem="Uiz-9B-VoO" secondAttribute="trailing" id="4lk-o8-Cg3"/>
                             <constraint firstItem="woA-Dx-v5Z" firstAttribute="top" secondItem="Uiz-9B-VoO" secondAttribute="bottom" constant="15" id="6UU-em-oFd"/>
-                            <constraint firstAttribute="trailing" secondItem="Wzd-qf-gcH" secondAttribute="trailing" id="71U-Sh-u7T"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-D8-Rq1" secondAttribute="trailing" id="ADA-5f-5el"/>
                             <constraint firstItem="woA-Dx-v5Z" firstAttribute="centerX" secondItem="eR9-D8-Rq1" secondAttribute="centerX" id="EcT-cz-S1V"/>
                             <constraint firstAttribute="trailing" secondItem="6QL-28-3uQ" secondAttribute="trailing" id="PJH-Vv-s7o"/>
-                            <constraint firstItem="Wzd-qf-gcH" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="QeF-4s-TcU"/>
                             <constraint firstItem="Uiz-9B-VoO" firstAttribute="top" secondItem="6QL-28-3uQ" secondAttribute="bottom" constant="25" id="SXl-qC-Tpw"/>
-                            <constraint firstItem="Wzd-qf-gcH" firstAttribute="top" secondItem="ccS-sd-VLW" secondAttribute="bottom" constant="1" id="Sj7-wY-grC"/>
                             <constraint firstItem="6QL-28-3uQ" firstAttribute="leading" secondItem="B6e-Gq-DYY" secondAttribute="leading" id="UNP-PU-AeD"/>
                             <constraint firstItem="7hr-AG-Hit" firstAttribute="top" secondItem="woA-Dx-v5Z" secondAttribute="bottom" constant="50" id="Z5N-tA-nNs"/>
                             <constraint firstItem="eR9-D8-Rq1" firstAttribute="top" secondItem="ccS-sd-VLW" secondAttribute="bottom" constant="1" id="cJq-fs-5XB"/>
