@@ -25,7 +25,7 @@
                                     <outletCollection property="gestureRecognizers" destination="GcH-ic-vEz" appends="YES" id="u2z-uc-tlg"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y53-1X-oIO" customClass="MaterialButton">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y53-1X-oIO" customClass="MaterialButton">
                                 <rect key="frame" x="150" y="381" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="0Jy-mq-O29"/>
@@ -98,7 +98,7 @@
                                     <segue destination="MdJ-lo-fUy" kind="show" id="j2n-kV-k7H"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSf-7S-fsf" customClass="TextField" customModule="Material">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSf-7S-fsf" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="37.5" y="227" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Lny-sc-HM8"/>
@@ -258,7 +258,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-kg-a7x" customClass="TextField" customModule="Material">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-kg-a7x" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="57" y="346" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Rxo-wf-3HD"/>
