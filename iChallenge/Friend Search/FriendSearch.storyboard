@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Main3" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-kb-Bfi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Main3" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-kb-Bfi">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BUq-dl-8ts">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BUq-dl-8ts">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                                     <outlet property="delegate" destination="1v8-eA-yoC" id="3i7-b9-nCW"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auw-aw-OjW">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auw-aw-OjW">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="barTintColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -103,6 +103,19 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BUq-dl-8ts" secondAttribute="trailing" id="3sh-A3-UZi"/>
+                            <constraint firstItem="BUq-dl-8ts" firstAttribute="top" secondItem="Auw-aw-OjW" secondAttribute="bottom" id="5ef-BN-Sid"/>
+                            <constraint firstItem="Ylr-1y-aQi" firstAttribute="top" secondItem="BUq-dl-8ts" secondAttribute="bottom" id="LsO-MO-8ih"/>
+                            <constraint firstItem="BUq-dl-8ts" firstAttribute="leading" secondItem="lM1-Fu-jaG" secondAttribute="leading" id="VkA-y5-m7V"/>
+                            <constraint firstItem="Ylr-1y-aQi" firstAttribute="top" secondItem="hSM-kb-Bfi" secondAttribute="bottom" id="Z9P-jP-BGG"/>
+                            <constraint firstItem="Auw-aw-OjW" firstAttribute="top" secondItem="lM1-Fu-jaG" secondAttribute="top" constant="20" id="aWs-aT-Pgw"/>
+                            <constraint firstItem="Auw-aw-OjW" firstAttribute="leading" secondItem="lM1-Fu-jaG" secondAttribute="leading" id="fQe-Sc-ACr"/>
+                            <constraint firstAttribute="trailing" secondItem="Auw-aw-OjW" secondAttribute="trailing" id="jmh-jc-Ei6"/>
+                            <constraint firstItem="hSM-kb-Bfi" firstAttribute="leading" secondItem="lM1-Fu-jaG" secondAttribute="leading" id="nth-Bg-1KE"/>
+                            <constraint firstAttribute="trailing" secondItem="hSM-kb-Bfi" secondAttribute="trailing" id="qHv-4H-Re6"/>
+                            <constraint firstItem="hSM-kb-Bfi" firstAttribute="top" secondItem="Auw-aw-OjW" secondAttribute="bottom" id="yEG-0b-bg5"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>

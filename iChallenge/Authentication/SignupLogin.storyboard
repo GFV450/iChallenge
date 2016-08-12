@@ -259,7 +259,7 @@
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.41960784309999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-kg-a7x" customClass="TextField" customModule="Material">
-                                <rect key="frame" x="57" y="346" width="300" height="44"/>
+                                <rect key="frame" x="20" y="346" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Rxo-wf-3HD"/>
                                 </constraints>
@@ -322,6 +322,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14250707430000001" green="0.15628064780000001" blue="1" alpha="0.75301724140000004" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="N0e-kg-a7x" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leading" constant="20" id="A93-zo-Xg6"/>
                             <constraint firstItem="afI-x9-PgJ" firstAttribute="centerX" secondItem="cVa-WU-UPR" secondAttribute="centerX" id="HbR-UW-ZeV"/>
                             <constraint firstItem="afI-x9-PgJ" firstAttribute="top" secondItem="N0e-kg-a7x" secondAttribute="bottom" constant="19" id="IOi-5P-BZy"/>
                             <constraint firstItem="N0e-kg-a7x" firstAttribute="centerY" secondItem="cVa-WU-UPR" secondAttribute="centerY" id="LBg-hy-0AL"/>
@@ -329,12 +330,11 @@
                             <constraint firstAttribute="trailing" secondItem="uDM-bK-9iQ" secondAttribute="trailing" id="Uk6-TG-9D7"/>
                             <constraint firstAttribute="trailing" secondItem="ROL-5X-gJc" secondAttribute="trailing" id="XKN-Ra-9CY"/>
                             <constraint firstItem="N0e-kg-a7x" firstAttribute="top" secondItem="uDM-bK-9iQ" secondAttribute="bottom" constant="36" id="Xl0-mc-uyP"/>
-                            <constraint firstItem="dbn-dq-YOz" firstAttribute="top" secondItem="afI-x9-PgJ" secondAttribute="bottom" constant="252" id="aA3-iZ-yP7"/>
+                            <constraint firstAttribute="trailing" secondItem="N0e-kg-a7x" secondAttribute="trailing" constant="20" id="axv-a9-3VY"/>
                             <constraint firstItem="ROL-5X-gJc" firstAttribute="top" secondItem="cVa-WU-UPR" secondAttribute="top" id="hrK-Ig-AIm"/>
                             <constraint firstItem="N0e-kg-a7x" firstAttribute="centerX" secondItem="cVa-WU-UPR" secondAttribute="centerX" id="k5L-Zp-B8A"/>
                             <constraint firstItem="ROL-5X-gJc" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leading" id="pLX-zr-WPb"/>
                             <constraint firstItem="uDM-bK-9iQ" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leading" id="rJD-Ww-qfg"/>
-                            <constraint firstItem="uDM-bK-9iQ" firstAttribute="top" secondItem="FC5-dE-h5B" secondAttribute="bottom" constant="205" id="uh6-6C-Z70"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iChallenge" id="RUd-Vl-aeS">
