@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class MainChallengesViewController: UIViewController
 {
@@ -22,12 +23,13 @@ class MainChallengesViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.retrieveChallenges()
     }
     
     override func viewWillAppear(animated: Bool)
     {
-        challengeArray.removeAll()
-        self.retrieveChallenges()
+        super.viewWillAppear(animated)
     }
 }
 
@@ -59,7 +61,7 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
         let challenge = challengeArray[indexPath.row]
         
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
-        cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
+        cell.challengerImage.sd_setImageWithURL(profileImageNSURL)
         cell.challengerImage.layer.cornerRadius = cell.challengerImage.frame.size.width/2
         
         

@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import AlamofireImage
+import SDWebImage
 
 class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate
 {
@@ -41,14 +41,14 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
     func retrieveUsers()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
-        FirebaseHelper.queryUserData({ (user: User) -> Void in
+        FirebaseHelper.queryUserData({ [weak self] (user: User) -> Void in
             
             //Appends the user retrieved from the Database on userArray
-            self.userArray.append(user)
+            self?.userArray.append(user)
             
-            self.retrieveFriends()
+            self?.retrieveFriends()
             
-            self.friendSearchTableView.reloadData()
+            self?.friendSearchTableView.reloadData()
         })
     }
     
@@ -94,7 +94,7 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             let profileImageNSURL = NSURL(string: filteredUser.profileImage)
             
             cell.nameLabel?.text = filteredUser.name
-            cell.profileImageView.af_setImageWithURL(profileImageNSURL!)
+            cell.profileImageView.sd_setImageWithURL(profileImageNSURL)
             
             return cell
         }
@@ -105,7 +105,7 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             let profileImageURL = NSURL(string: user.profileImage)
             
             //Sets the information relevant to the cell on the TableView
-            cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+            cell.profileImageView!.sd_setImageWithURL(profileImageURL)
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
             cell.userID = user.userID
             cell.nameLabel?.text = user.name

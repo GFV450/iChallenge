@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 import Material
+import SDWebImage
 
 class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 {
     var friendArray = [User]()
+    var profileImageArray = [UIImage]()
     var selectedFriend: User?
     
     @IBOutlet weak var userImage: UIImageView!
@@ -34,7 +36,11 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         self.retrieveFriends()
         
         createChallengeCollectionView.allowsMultipleSelection = false
-        
+    }
+    
+    deinit
+    {
+        print("deinit")
     }
     
     func setImageView()
@@ -43,19 +49,19 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         let profileImageURL = user!.photoURL
         
-        userImage.af_setImageWithURL(profileImageURL!)
+        userImage.sd_setImageWithURL(profileImageURL)
         userImage.layer.cornerRadius = userImage.frame.size.width/2
     }
     
     func retrieveFriends()
     {
         //Pass closure as a parameter to load data being fetched asynchronously in real time
-        FirebaseHelper.queryFriendObject({ (user: User) -> Void in
+        FirebaseHelper.queryFriendObject({ [weak self] (user: User) -> Void in
             
             //Appends the user retrieved from the Database on userArray
-            self.friendArray.append(user)
+            self?.friendArray.append(user)
             
-            self.createChallengeCollectionView.reloadData()
+            self?.createChallengeCollectionView.reloadData()
         })
     }
 
@@ -67,7 +73,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         let profileImageURL = NSURL(string: friend.profileImage)
         
         //Sets the information relevant to the cell on CollectionView
-        cell.profileImageView!.af_setImageWithURL(profileImageURL!)
+        cell.profileImageView!.sd_setImageWithURL(profileImageURL!)
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
         
         cell.nameLabel?.text = friend.name
@@ -151,7 +157,23 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
     @IBAction func dismissKeyboard(sender: AnyObject)
     {
         view.endEditing(true)
+    }
+}
 
+extension CreateChallengeViewController: UITextFieldDelegate, UITextViewDelegate
+{
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        challengeTitle.resignFirstResponder()
+        
+        return true
     }
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }

@@ -13,24 +13,37 @@ class MainPageViewController: UIPageViewController
     override func viewDidLoad()
     {
         dataSource = self
-        setViewControllers([getChallengesView()], direction: .Forward, animated: false, completion: nil)
+        setViewControllers([challengesView], direction: .Forward, animated: false, completion: nil)
         
         
         let swiftColor = UIColor(red: 62/255, green: 53/255, blue: 118/255, alpha: 1)
         self.view.backgroundColor = swiftColor
     }
     
-    func getChallengesView() -> MainChallengesViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("MainChallengesViewController") as! MainChallengesViewController
-    }
     
-    func getCompletedChallengesView() -> MainCompletedChallengesViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("MainCompletedChallengesViewController") as! MainCompletedChallengesViewController
-    }
+    private lazy var challengesView: MainChallengesViewController = {
+        return self.storyboard!.instantiateViewControllerWithIdentifier("MainChallengesViewController") as! MainChallengesViewController
+    }()
     
-    func getFriendChallengesView() -> MainFriendChallengesViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("MainFriendChallengesViewController") as! MainFriendChallengesViewController
-    }
+    private lazy var completedChallengesView: MainCompletedChallengesViewController = {
+        return self.storyboard!.instantiateViewControllerWithIdentifier("MainCompletedChallengesViewController") as! MainCompletedChallengesViewController
+    }()
+    
+    private lazy var friendChallengesView: MainFriendChallengesViewController = {
+        return self.storyboard!.instantiateViewControllerWithIdentifier("MainFriendChallengesViewController") as! MainFriendChallengesViewController
+    }()
+    
+//    func getChallengesView() -> MainChallengesViewController {
+//        return storyboard!.instantiateViewControllerWithIdentifier("MainChallengesViewController") as! MainChallengesViewController
+//    }
+//    
+//    func getCompletedChallengesView() -> MainCompletedChallengesViewController {
+//        return storyboard!.instantiateViewControllerWithIdentifier("MainCompletedChallengesViewController") as! MainCompletedChallengesViewController
+//    }
+    
+//    func getFriendChallengesView() -> MainFriendChallengesViewController {
+//        return storyboard!.instantiateViewControllerWithIdentifier("MainFriendChallengesViewController") as! MainFriendChallengesViewController
+//    }
 }
 
 extension MainPageViewController: UIPageViewControllerDataSource
@@ -39,12 +52,11 @@ extension MainPageViewController: UIPageViewControllerDataSource
     {
         if(viewController.isKindOfClass(MainFriendChallengesViewController))
         {
-            return getCompletedChallengesView()
-            
+            return completedChallengesView
         }
         else if(viewController.isKindOfClass(MainCompletedChallengesViewController))
         {
-            return getChallengesView()
+            return challengesView
         }
         else
         {
@@ -56,12 +68,11 @@ extension MainPageViewController: UIPageViewControllerDataSource
     {
         if(viewController.isKindOfClass(MainChallengesViewController))
         {
-            return getCompletedChallengesView()
-            
+            return completedChallengesView
         }
         else if(viewController.isKindOfClass(MainCompletedChallengesViewController))
         {
-            return getFriendChallengesView()
+            return friendChallengesView
         }
         else
         {
