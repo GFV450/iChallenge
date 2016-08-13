@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class CompletedChallengeViewController: UIViewController
 {
@@ -38,15 +39,14 @@ class CompletedChallengeViewController: UIViewController
         {
             challengeLabel.text = "You were challenged to"
             
-            profileImage.af_setImageWithURL(challengerProfileImageURL!)
-            profileImage.image = profileImage.image?.af_imageRoundedIntoCircle()
+            profileImage.sd_setImageWithURL(challengerProfileImageURL)
             
         }
         else
         {
             challengeLabel.text = "You challenged your friend to"
             
-            profileImage.af_setImageWithURL(foeProfileImageURL!)
+            profileImage.sd_setImageWithURL(foeProfileImageURL)
             profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         }
     }

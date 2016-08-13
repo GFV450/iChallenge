@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Material
 
-class SignupViewController : UIViewController, UITextFieldDelegate {
+class SignupViewController : UIViewController {
     
     // MARK: - Properties
     
@@ -127,5 +127,16 @@ class SignupViewController : UIViewController, UITextFieldDelegate {
         view.endEditing(true)
 
     }
-    
+}
+
+extension SignupViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        nameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        return true
+    }
 }

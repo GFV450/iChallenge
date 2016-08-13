@@ -21,9 +21,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login" translatesAutoresizingMaskIntoConstraints="NO" id="RZf-GT-3AW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="GcH-ic-vEz" appends="YES" id="u2z-uc-tlg"/>
-                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y53-1X-oIO" customClass="MaterialButton">
                                 <rect key="frame" x="150" y="381" width="75" height="75"/>
@@ -126,7 +123,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="delegate" destination="eBe-qc-EpY" id="eQI-mE-H3b"/>
+                                    <outlet property="delegate" destination="H6i-ae-aJi" id="lvc-xH-iI0"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Qs-If-nBs" customClass="TextField" customModule="Material">
@@ -153,7 +150,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="delegate" destination="eBe-qc-EpY" id="BSr-2g-MqU"/>
+                                    <outlet property="delegate" destination="H6i-ae-aJi" id="RSU-LQ-9aX"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-FF-Syc" customClass="MaterialButton">
@@ -221,6 +218,9 @@
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GcH-ic-vEz" appends="YES" id="ouY-3v-fPm"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="2po-O9-sO7"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -336,6 +336,9 @@
                             <constraint firstItem="ROL-5X-gJc" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leading" id="pLX-zr-WPb"/>
                             <constraint firstItem="uDM-bK-9iQ" firstAttribute="leading" secondItem="cVa-WU-UPR" secondAttribute="leading" id="rJD-Ww-qfg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="q7E-WV-njk" appends="YES" id="fOK-Zr-2oL"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="iChallenge" id="RUd-Vl-aeS">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IvC-Cf-QVB">
@@ -516,6 +519,9 @@
                             <constraint firstAttribute="trailing" secondItem="B26-57-KYh" secondAttribute="trailing" id="wX7-g3-sjk"/>
                             <constraint firstItem="bwY-3s-jYB" firstAttribute="top" secondItem="TF4-v5-HP3" secondAttribute="bottom" constant="30" id="xMO-A1-tbD"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="48V-1B-GyJ" appends="YES" id="Ueh-n9-Rzu"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="iChallenge" id="CGt-rH-Oxx">
                         <barButtonItem key="backBarButtonItem" enabled="NO" id="1iO-wr-VU5">

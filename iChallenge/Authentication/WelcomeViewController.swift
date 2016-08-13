@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import Material
 
-class WelcomeViewController : UIViewController {
+class WelcomeViewController : UIViewController
+{
     
     // MARK:- Properties
     let titleLabel: UILabel = UILabel()
@@ -59,10 +60,19 @@ class WelcomeViewController : UIViewController {
 
     }
     
-    
     @IBAction func dismissKeyboard(sender: AnyObject)
     {
-        view.endEditing(true)
+        self.view.endEditing(true)
+    }
+}
+
+extension WelcomeViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
     }
 }
 

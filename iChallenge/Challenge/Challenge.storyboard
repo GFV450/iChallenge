@@ -178,7 +178,6 @@
                             <constraint firstItem="Qmw-2V-po1" firstAttribute="top" secondItem="fGd-C5-TbH" secondAttribute="topMargin" constant="20" id="0RA-zn-sp6"/>
                             <constraint firstItem="WHk-gK-ebc" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="3W4-7e-fyk"/>
                             <constraint firstItem="msI-dc-4O0" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="89s-xp-hie"/>
-                            <constraint firstItem="Icm-Zd-Che" firstAttribute="top" secondItem="WHk-gK-ebc" secondAttribute="bottom" constant="20" id="A9x-D6-6f5"/>
                             <constraint firstItem="Qmw-2V-po1" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leading" id="Apx-Px-pCQ"/>
                             <constraint firstItem="AGL-LN-iny" firstAttribute="centerX" secondItem="fGd-C5-TbH" secondAttribute="centerX" id="C1D-Vt-6XA"/>
                             <constraint firstItem="wwT-wt-k7L" firstAttribute="top" secondItem="WHk-gK-ebc" secondAttribute="bottom" constant="15" id="DaD-LA-s9w"/>
@@ -199,10 +198,16 @@
                             <constraint firstItem="5wk-AT-csC" firstAttribute="top" secondItem="eU6-2W-Lop" secondAttribute="bottom" constant="8" id="mMV-3c-dOS"/>
                             <constraint firstItem="WHk-gK-ebc" firstAttribute="top" secondItem="fGd-C5-TbH" secondAttribute="top" constant="20" id="nte-lB-Go3"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="leading" secondItem="fGd-C5-TbH" secondAttribute="leadingMargin" id="tKI-6L-Xe7"/>
-                            <constraint firstItem="msI-dc-4O0" firstAttribute="top" secondItem="bHR-QA-ZBt" secondAttribute="bottom" priority="750" constant="20" id="veL-wI-1JS"/>
+                            <constraint firstItem="msI-dc-4O0" firstAttribute="top" secondItem="bHR-QA-ZBt" secondAttribute="bottom" constant="20" id="veL-wI-1JS"/>
                             <constraint firstAttribute="bottom" secondItem="Qmw-2V-po1" secondAttribute="bottom" id="y8Q-pT-mdo"/>
+                            <constraint firstItem="Icm-Zd-Che" firstAttribute="top" secondItem="iAK-Us-0dr" secondAttribute="bottom" constant="20" id="yTP-Fc-DRG"/>
                             <constraint firstItem="bHR-QA-ZBt" firstAttribute="top" secondItem="AGL-LN-iny" secondAttribute="bottom" constant="20" id="zHe-I8-snp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wwT-wt-k7L"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

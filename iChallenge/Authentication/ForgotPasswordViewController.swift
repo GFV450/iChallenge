@@ -41,6 +41,16 @@ class ForgotPasswordViewController : UIViewController
     
     @IBAction func dismissKeyboard(sender: AnyObject)
     {
+        view.endEditing(true)
     }
-    
+}
+
+extension ForgotPasswordViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        emailTextField.resignFirstResponder()
+        
+        return true
+    }
 }

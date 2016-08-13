@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import SDWebImage
 
 class ChallengeViewController: UIViewController
 {
@@ -29,7 +29,7 @@ class ChallengeViewController: UIViewController
     {
         let profileImageURL = NSURL(string: (challenge?.challengerProfileImage)!)
         
-        challengerProfileImage.af_setImageWithURL(profileImageURL!)
+        challengerProfileImage.sd_setImageWithURL(profileImageURL)
         challengerProfileImage.layer.cornerRadius = challengerProfileImage.frame.size.width/2
         
         challengeTitle.text = challenge?.challengeTitle

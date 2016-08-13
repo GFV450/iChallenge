@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class MainCompletedChallengesViewController: UIViewController
 {
@@ -20,11 +21,7 @@ class MainCompletedChallengesViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool)
-    {
-        completedChallengeArray.removeAll()
+        
         self.retrieveCompletedChallenges()
     }
 }
@@ -57,7 +54,7 @@ extension MainCompletedChallengesViewController: UICollectionViewDataSource, UIC
         let challenge = completedChallengeArray[indexPath.row]
         
         let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
-        cell.challengerImage.af_setImageWithURL(profileImageNSURL!)
+        cell.challengerImage.sd_setImageWithURL(profileImageNSURL)
         cell.challengerImage.layer.cornerRadius = cell.challengerImage.frame.size.width/2
         
         cell.challengerName.text = challenge.challengerName
