@@ -38,23 +38,23 @@ extension MainCompletedChallengesViewController: UICollectionViewDataSource, UIC
         })
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return completedChallengeArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = mainCompletedChallengesCollectionView.dequeueReusableCellWithReuseIdentifier("MainCompletedChallengesViewCell", forIndexPath: indexPath) as! MainCompletedChallengesViewCell
+        let cell = mainCompletedChallengesCollectionView.dequeueReusableCell(withReuseIdentifier: "MainCompletedChallengesViewCell", for: indexPath) as! MainCompletedChallengesViewCell
         
-        let challenge = completedChallengeArray[indexPath.row]
+        let challenge = completedChallengeArray[(indexPath as NSIndexPath).row]
         
-        let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
-        cell.challengerImage.sd_setImageWithURL(profileImageNSURL)
+        let profileImageNSURL = URL(string: challenge.challengerProfileImage)
+        cell.challengerImage.sd_setImage(with: profileImageNSURL)
         cell.challengerImage.layer.cornerRadius = cell.challengerImage.frame.size.width/2
         
         cell.challengerName.text = challenge.challengerName
@@ -65,18 +65,18 @@ extension MainCompletedChallengesViewController: UICollectionViewDataSource, UIC
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "CompletedChallengeSegue"
         {
             let cell = sender as! MainCompletedChallengesViewCell
-            let challengeController = segue.destinationViewController as! CompletedChallengeViewController
+            let challengeController = segue.destination as! CompletedChallengeViewController
             
             challengeController.challenge = cell.challenge
         }
     }
 
-    @IBAction func logoutButtonPressed(sender: AnyObject)
+    @IBAction func logoutButtonPressed(_ sender: AnyObject)
     {
         try! FIRAuth.auth()!.signOut()
     }

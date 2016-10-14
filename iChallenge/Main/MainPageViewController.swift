@@ -13,7 +13,7 @@ class MainPageViewController: UIPageViewController
     override func viewDidLoad()
     {
         dataSource = self
-        setViewControllers([challengesView], direction: .Forward, animated: false, completion: nil)
+        setViewControllers([challengesView], direction: .forward, animated: false, completion: nil)
         
         
         let swiftColor = UIColor(red: 62/255, green: 53/255, blue: 118/255, alpha: 1)
@@ -21,16 +21,16 @@ class MainPageViewController: UIPageViewController
     }
     
     
-    private lazy var challengesView: MainChallengesViewController = {
-        return self.storyboard!.instantiateViewControllerWithIdentifier("MainChallengesViewController") as! MainChallengesViewController
+    fileprivate lazy var challengesView: MainChallengesViewController = {
+        return self.storyboard!.instantiateViewController(withIdentifier: "MainChallengesViewController") as! MainChallengesViewController
     }()
     
-    private lazy var completedChallengesView: MainCompletedChallengesViewController = {
-        return self.storyboard!.instantiateViewControllerWithIdentifier("MainCompletedChallengesViewController") as! MainCompletedChallengesViewController
+    fileprivate lazy var completedChallengesView: MainCompletedChallengesViewController = {
+        return self.storyboard!.instantiateViewController(withIdentifier: "MainCompletedChallengesViewController") as! MainCompletedChallengesViewController
     }()
     
-    private lazy var friendChallengesView: MainFriendChallengesViewController = {
-        return self.storyboard!.instantiateViewControllerWithIdentifier("MainFriendChallengesViewController") as! MainFriendChallengesViewController
+    fileprivate lazy var friendChallengesView: MainFriendChallengesViewController = {
+        return self.storyboard!.instantiateViewController(withIdentifier: "MainFriendChallengesViewController") as! MainFriendChallengesViewController
     }()
     
 //    func getChallengesView() -> MainChallengesViewController {
@@ -48,13 +48,13 @@ class MainPageViewController: UIPageViewController
 
 extension MainPageViewController: UIPageViewControllerDataSource
 {
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
-        if(viewController.isKindOfClass(MainFriendChallengesViewController))
+        if(viewController.isKind(of: MainFriendChallengesViewController.self))
         {
             return completedChallengesView
         }
-        else if(viewController.isKindOfClass(MainCompletedChallengesViewController))
+        else if(viewController.isKind(of: MainCompletedChallengesViewController.self))
         {
             return challengesView
         }
@@ -64,13 +64,13 @@ extension MainPageViewController: UIPageViewControllerDataSource
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
-        if(viewController.isKindOfClass(MainChallengesViewController))
+        if(viewController.isKind(of: MainChallengesViewController.self))
         {
             return completedChallengesView
         }
-        else if(viewController.isKindOfClass(MainCompletedChallengesViewController))
+        else if(viewController.isKind(of: MainCompletedChallengesViewController.self))
         {
             return friendChallengesView
         }
@@ -82,11 +82,11 @@ extension MainPageViewController: UIPageViewControllerDataSource
     
     
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 3
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
 

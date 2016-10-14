@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Use Firebase library to configure APIs
         FIRApp.configure()
@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = FIRAuth.auth()?.currentUser
         {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController")
+            let controller = mainStoryboard.instantiateViewController(withIdentifier: "MainPageViewController")
             self.window?.rootViewController = controller
             self.window?.makeKeyAndVisible()
         }
         else
         {
             let loginStoryboard = UIStoryboard(name: "SignupLogin", bundle: nil)
-            let controller = loginStoryboard.instantiateViewControllerWithIdentifier("WelcomeNavigationController")
+            let controller = loginStoryboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
             self.window?.rootViewController = controller
             self.window?.makeKeyAndVisible()
         }

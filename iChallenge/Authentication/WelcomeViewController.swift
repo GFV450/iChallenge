@@ -30,27 +30,27 @@ class WelcomeViewController : UIViewController
         super.viewDidLoad()
         
         
-        emailTextField.textColor = MaterialColor.white
-        passwordTextField.textColor = MaterialColor.white
+        emailTextField.textColor = .white
+        passwordTextField.textColor = .white
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     // MARK:- Actions
-    @IBAction func loginButtonPressed(sender: AnyObject)
+    @IBAction func loginButtonPressed(_ sender: AnyObject)
     {
         //Authenticates user
-        FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             if error == nil
             {
                 print("login successful!")
                 
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageViewController")
-                self.showViewController(controller, sender: nil)
+                let controller = mainStoryboard.instantiateViewController(withIdentifier: "MainPageViewController")
+                self.show(controller, sender: nil)
             }
             else
             {
@@ -60,7 +60,7 @@ class WelcomeViewController : UIViewController
 
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject)
+    @IBAction func dismissKeyboard(_ sender: AnyObject)
     {
         self.view.endEditing(true)
     }
@@ -68,7 +68,7 @@ class WelcomeViewController : UIViewController
 
 extension WelcomeViewController: UITextFieldDelegate
 {
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()

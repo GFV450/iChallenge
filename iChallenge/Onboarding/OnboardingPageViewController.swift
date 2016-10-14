@@ -13,32 +13,32 @@ class OnboardingPageViewController: UIPageViewController
     override func viewDidLoad()
     {
         dataSource = self
-        setViewControllers([getPageOne()], direction: .Forward, animated: false, completion: nil)
+        setViewControllers([getPageOne()], direction: .forward, animated: false, completion: nil)
     }
     
     func getPageOne() -> PageOneViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("PageOneViewController") as! PageOneViewController
+        return storyboard!.instantiateViewController(withIdentifier: "PageOneViewController") as! PageOneViewController
     }
     
     func getPageTwo() -> PageTwoViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("PageTwoViewController") as! PageTwoViewController
+        return storyboard!.instantiateViewController(withIdentifier: "PageTwoViewController") as! PageTwoViewController
     }
     
     func getPageThree() -> PageThreeViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("PageThreeViewController") as! PageThreeViewController
+        return storyboard!.instantiateViewController(withIdentifier: "PageThreeViewController") as! PageThreeViewController
     }
 }
 
 extension OnboardingPageViewController: UIPageViewControllerDataSource
 {
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
-        if(viewController.isKindOfClass(PageThreeViewController))
+        if(viewController.isKind(of: PageThreeViewController.self))
         {
             return getPageTwo()
             
         }
-        else if(viewController.isKindOfClass(PageTwoViewController))
+        else if(viewController.isKind(of: PageTwoViewController.self))
         {
             return getPageOne()
         }
@@ -48,14 +48,14 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
-        if(viewController.isKindOfClass(PageOneViewController))
+        if(viewController.isKind(of: PageOneViewController.self))
         {
             return getPageTwo()
             
         }
-        else if(viewController.isKindOfClass(PageTwoViewController))
+        else if(viewController.isKind(of: PageTwoViewController.self))
         {
             return getPageThree()
         }
@@ -65,11 +65,11 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource
         }
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 3
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
 }

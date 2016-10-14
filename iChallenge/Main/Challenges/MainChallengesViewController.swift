@@ -27,7 +27,7 @@ class MainChallengesViewController: UIViewController
         self.retrieveChallenges()
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
     }
@@ -45,23 +45,23 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
         })
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return challengeArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = mainChallengesCollectionView.dequeueReusableCellWithReuseIdentifier("MainChallengesCollectionViewCell", forIndexPath: indexPath) as! MainChallengesCollectionViewCell
+        let cell = mainChallengesCollectionView.dequeueReusableCell(withReuseIdentifier: "MainChallengesCollectionViewCell", for: indexPath) as! MainChallengesCollectionViewCell
         
-        let challenge = challengeArray[indexPath.row]
+        let challenge = challengeArray[(indexPath as NSIndexPath).row]
         
-        let profileImageNSURL = NSURL(string: challenge.challengerProfileImage)
-        cell.challengerImage.sd_setImageWithURL(profileImageNSURL)
+        let profileImageNSURL = URL(string: challenge.challengerProfileImage)
+        cell.challengerImage.sd_setImage(with: profileImageNSURL)
         cell.challengerImage.layer.cornerRadius = cell.challengerImage.frame.size.width/2
         
         
@@ -73,18 +73,18 @@ extension MainChallengesViewController: UICollectionViewDataSource, UICollection
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "ChallengeSegue"
         {
             let cell = sender as! MainChallengesCollectionViewCell
-            let challengeController = segue.destinationViewController as! ChallengeViewController
+            let challengeController = segue.destination as! ChallengeViewController
             
             challengeController.challenge = cell.challenge
         }
     }
     
-    @IBAction func logoutButtonPressed(sender: AnyObject)
+    @IBAction func logoutButtonPressed(_ sender: AnyObject)
     {
         try! FIRAuth.auth()!.signOut()
     }

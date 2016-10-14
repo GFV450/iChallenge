@@ -33,9 +33,9 @@ class SignupViewController : UIViewController {
     {
         super.viewDidLoad()
         
-        emailTextField.textColor = MaterialColor.white
-        passwordTextField.textColor = MaterialColor.white
-        nameTextField.textColor = MaterialColor.white
+        emailTextField.textColor = .white
+        passwordTextField.textColor = .white
+        nameTextField.textColor = .white
         
         //Method initializers
         prepareTapGestureRecognizer()
@@ -44,9 +44,9 @@ class SignupViewController : UIViewController {
         preparePasswordShake()
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
     }
     
@@ -56,26 +56,26 @@ class SignupViewController : UIViewController {
         profileImageView.addGestureRecognizer(tap)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     func prepareFirstNameSShake() {
-        firstNameShake = CustomAnimation(view: nameTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
+        firstNameShake = CustomAnimation(view: nameTextField, delay: 0, direction: .left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
     }
     
     func preparePasswordShake() {
-        passwordShake = CustomAnimation(view: passwordTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
+        passwordShake = CustomAnimation(view: passwordTextField, delay: 0, direction: .left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
     }
     
     func prepareEmailShake() {
-        emailShake = CustomAnimation(view: emailTextField, delay: 0, direction: .Left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
+        emailShake = CustomAnimation(view: emailTextField, delay: 0, direction: .left, repetitions: 4, maxRotation: 0, maxPosition: 10, duration: 0.1)
     }
     
-    @IBAction func signUpButtonPressed(sender: AnyObject)
+    @IBAction func signUpButtonPressed(_ sender: AnyObject)
     {
         // Condition required to create a new user
-        if nameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.containsString("@")
+        if nameTextField.text!.characters.count > 3 && passwordTextField.text!.characters.count > 3 && emailTextField.text!.contains("@")
         {
             createUser()
         }
@@ -96,7 +96,7 @@ class SignupViewController : UIViewController {
         let password = passwordTextField.text!
         
         //Creates a user in the app
-        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if error == nil
             {
                 let userID = (user?.uid)!
@@ -122,7 +122,7 @@ class SignupViewController : UIViewController {
         }
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject)
+    @IBAction func dismissKeyboard(_ sender: AnyObject)
     {
         view.endEditing(true)
 
@@ -131,7 +131,7 @@ class SignupViewController : UIViewController {
 
 extension SignupViewController: UITextFieldDelegate
 {
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         nameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()

@@ -21,25 +21,25 @@ class ForgotPasswordViewController : UIViewController
     {
         super.viewDidLoad()
         
-        emailTextField.textColor = MaterialColor.white
+        emailTextField.textColor = .white
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Preparations
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     // MARK: - IBActions
-    @IBAction func sendEmailButtonPressed(sender: AnyObject) {
+    @IBAction func sendEmailButtonPressed(_ sender: AnyObject) {
         
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject)
+    @IBAction func dismissKeyboard(_ sender: AnyObject)
     {
         view.endEditing(true)
     }
@@ -47,7 +47,7 @@ class ForgotPasswordViewController : UIViewController
 
 extension ForgotPasswordViewController: UITextFieldDelegate
 {
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         emailTextField.resignFirstResponder()
         

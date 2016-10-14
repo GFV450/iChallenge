@@ -10,7 +10,7 @@ import Firebase
 
 class FirebaseHelper
 {
-    static func queryUserData(callback: (User) -> Void)
+    static func queryUserData(_ callback: @escaping (User) -> Void)
     {
         let loggedUser = (FIRAuth.auth()?.currentUser)!
         
@@ -18,9 +18,11 @@ class FirebaseHelper
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
         //Queries the information needed from the Database
-        dataRef.queryOrderedByChild("name").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let name = snapshot.value!["name"] as! String
-            let profileImage = snapshot.value!["profileImage"] as! String
+        dataRef.queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            let name = snapshotValue["name"] as! String
+            let profileImage = snapshotValue["profileImage"] as! String
             let userID = snapshot.key
             
             let user = User(userID: userID, name: name, email: "", profileImage: profileImage)
@@ -33,7 +35,7 @@ class FirebaseHelper
         })
     }
     
-    static func queryFriendID(callback: (String) -> Void)
+    static func queryFriendID(_ callback: @escaping (String) -> Void)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -41,7 +43,7 @@ class FirebaseHelper
         let friendsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Friends")
         
         //Queries the friends userID from the Database
-        friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        friendsRef.queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
             let userID = snapshot.key
             
             callback(userID)
@@ -49,7 +51,7 @@ class FirebaseHelper
 
     }
     
-    static func queryFriendObject(callback: (User) -> Void)
+    static func queryFriendObject(_ callback: @escaping (User) -> Void)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -57,22 +59,24 @@ class FirebaseHelper
         let friendsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Friends")
         
         //Queries the friends userID from the Database
-        friendsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        friendsRef.observe(.childAdded, with: { (snapshot) in
             let userID = snapshot.key
             
             queryFriendData(userID, callback: callback)
         })
     }
     
-    static func queryFriendData(userID: String, callback: (User) -> Void)
+    static func queryFriendData(_ userID: String, callback: @escaping (User) -> Void)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users")
         
-        dataRef.queryOrderedByChild("name").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        dataRef.queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! NSDictionary
+            
             if(userID == snapshot.key)
             {
-                let name = snapshot.value!["name"] as! String
-                let profileImage = snapshot.value!["profileImage"] as! String
+                let name = snapshotValue["name"] as! String
+                let profileImage = snapshotValue["profileImage"] as! String
                 let userID = snapshot.key
                 
                 let user = User(userID: userID, name: name, email: "", profileImage: profileImage)
@@ -82,7 +86,7 @@ class FirebaseHelper
         })
     }
     
-    static func queryChallenges(callback: (Challenge) -> Void)
+    static func queryChallenges(_ callback: @escaping (Challenge) -> Void)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -90,14 +94,16 @@ class FirebaseHelper
         let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("Challenges")
         
         //Queries the challenges from the Database
-        challengeRef.queryOrderedByChild("challengeTitle").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let challengerName = snapshot.value!["challengerName"] as! String
-            let challengerID = snapshot.value!["challengerID"] as! String
+        challengeRef.queryOrdered(byChild: "challengeTitle").observe(.childAdded, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            let challengerName = snapshotValue["challengerName"] as! String
+            let challengerID = snapshotValue["challengerID"] as! String
             let challengeTitle = snapshot.key
-            let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
-            let challengeDescription = snapshot.value!["challengeDescription"] as! String
-            let foeID = snapshot.value!["foeID"] as! String
-            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
+            let challengerProfileImage = snapshotValue["challengerProfileImage"] as! String
+            let challengeDescription = snapshotValue["challengeDescription"] as! String
+            let foeID = snapshotValue["foeID"] as! String
+            let foeProfileImage = snapshotValue["foeProfileImage"] as! String
             
             let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
@@ -105,7 +111,7 @@ class FirebaseHelper
         })
     }
     
-    static func queryCompletedChallenges(callback: (Challenge) -> Void)
+    static func queryCompletedChallenges(_ callback: @escaping (Challenge) -> Void)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -113,14 +119,16 @@ class FirebaseHelper
         let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("completedChallenges")
         
         //Queries the completed challenges from the Database
-        challengeRef.queryOrderedByChild("challengeTitle").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let challengerName = snapshot.value!["challengerName"] as! String
-            let challengerID = snapshot.value!["challengerID"] as! String
+        challengeRef.queryOrdered(byChild: "challengeTitle").observe(.childAdded, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            let challengerName = snapshotValue["challengerName"] as! String
+            let challengerID = snapshotValue["challengerID"] as! String
             let challengeTitle = snapshot.key
-            let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
-            let challengeDescription = snapshot.value!["challengeDescription"] as! String
-            let foeID = snapshot.value!["foeID"] as! String
-            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
+            let challengerProfileImage = snapshotValue["challengerProfileImage"] as! String
+            let challengeDescription = snapshotValue["challengeDescription"] as! String
+            let foeID = snapshotValue["foeID"] as! String
+            let foeProfileImage = snapshotValue["foeProfileImage"] as! String
             
             let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
@@ -128,7 +136,7 @@ class FirebaseHelper
         })
     }
     
-    static func queryFriendChallenges(callback: (Challenge) -> Void)
+    static func queryFriendChallenges(_ callback: @escaping (Challenge) -> Void)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -136,14 +144,16 @@ class FirebaseHelper
         let challengeRef: FIRDatabaseReference = FIRDatabase.database().reference().child("Users").child(user.uid).child("friendChallenges")
         
         //Queries the completed challenges from the Database
-        challengeRef.queryOrderedByChild("challengeTitle").observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let challengerName = snapshot.value!["challengerName"] as! String
-            let challengerID = snapshot.value!["challengerID"] as! String
+        challengeRef.queryOrdered(byChild: "challengeTitle").observe(.childAdded, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            let challengerName = snapshotValue["challengerName"] as! String
+            let challengerID = snapshotValue["challengerID"] as! String
             let challengeTitle = snapshot.key
-            let challengerProfileImage = snapshot.value!["challengerProfileImage"] as! String
-            let challengeDescription = snapshot.value!["challengeDescription"] as! String
-            let foeID = snapshot.value!["foeID"] as! String
-            let foeProfileImage = snapshot.value!["foeProfileImage"] as! String
+            let challengerProfileImage = snapshotValue["challengerProfileImage"] as! String
+            let challengeDescription = snapshotValue["challengeDescription"] as! String
+            let foeID = snapshotValue["foeID"] as! String
+            let foeProfileImage = snapshotValue["foeProfileImage"] as! String
             
             let challenge = Challenge(challengerName: challengerName, challengerID: challengerID, challengerProfileImage: challengerProfileImage, foeID: foeID, foeProfileImage: foeProfileImage, challengeTitle: challengeTitle, challengeDescription: challengeDescription)
             
@@ -151,15 +161,13 @@ class FirebaseHelper
         })
     }
 
-
-    
-    static func addFriend(userID: String, friendID: String, friendName: String)
+    static func addFriend(_ userID: String, friendID: String, friendName: String)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
         dataRef.child("Users").child(userID).child("Friends").updateChildValues([friendID: friendName])
     }
     
-    static func removeFriend(userID: String, friendID: String)
+    static func removeFriend(_ userID: String, friendID: String)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
         dataRef.child("Users").child(userID).child("Friends").child(friendID).removeValue()
