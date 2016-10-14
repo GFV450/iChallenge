@@ -31,7 +31,7 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            controller.searchBar.barTintColor = UIColor .whiteColor()
+            controller.searchBar.barTintColor = UIColor.white
             friendSearchTableView.tableHeaderView = controller.searchBar
             
             return controller
@@ -64,15 +64,15 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
     
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //Returns the number of rows depending if you're filtering users with the resultSearchController
-        if (self.resultSearchController.active)
+        if (self.resultSearchController.isActive)
         {
             return self.filteredTableData.count
         }
@@ -83,29 +83,29 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! FriendSearchViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendSearchViewCell
         
-        if (self.resultSearchController.active)
+        if (self.resultSearchController.isActive)
         {
             //Returns the relevant cell in the search bar controller
-            let filteredUser = filteredTableData[indexPath.row]
-            let profileImageNSURL = NSURL(string: filteredUser.profileImage)
+            let filteredUser = filteredTableData[(indexPath as NSIndexPath).row]
+            let profileImageNSURL = URL(string: filteredUser.profileImage)
             
             cell.nameLabel?.text = filteredUser.name
-            cell.profileImageView.sd_setImageWithURL(profileImageNSURL)
+            cell.profileImageView.sd_setImage(with: profileImageNSURL)
             
             return cell
         }
         else
         {
             //Fills the search TableView with the users on the app
-            let user = userArray[indexPath.row]
-            let profileImageURL = NSURL(string: user.profileImage)
+            let user = userArray[(indexPath as NSIndexPath).row]
+            let profileImageURL = URL(string: user.profileImage)
             
             //Sets the information relevant to the cell on the TableView
-            cell.profileImageView!.sd_setImageWithURL(profileImageURL)
+            cell.profileImageView!.sd_setImage(with: profileImageURL)
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
             cell.userID = user.userID
             cell.nameLabel?.text = user.name
@@ -114,14 +114,14 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
             
             if(friend == true)
             {
-                cell.addFriendButton.selected = true
+                cell.addFriendButton.isSelected = true
             }
             
             return cell
         }
     }
     
-    func searchFriends(user: User) -> Bool
+    func searchFriends(_ user: User) -> Bool
     {
         for friend in friendArray 
         {
@@ -134,18 +134,18 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
         return false
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController)
+    func updateSearchResults(for searchController: UISearchController)
     {
-        filteredTableData.removeAll(keepCapacity: false)
+        filteredTableData.removeAll(keepingCapacity: false)
         
         filteredTableData = userArray.filter { (user) -> Bool in
-            user.name.containsString(searchController.searchBar.text!)
+            user.name.contains(searchController.searchBar.text!)
         }
         
         self.friendSearchTableView.reloadData()
     }
     
-    @IBAction func addFriendButtonPressed(sender: AnyObject)
+    @IBAction func addFriendButtonPressed(_ sender: AnyObject)
     {
         //Retrieved logged-in user
         let user = (FIRAuth.auth()?.currentUser)!
@@ -160,20 +160,20 @@ class FriendSearchViewController: UIViewController, UISearchResultsUpdating, UIT
         let friendName = cell.nameLabel.text!
         let friendID = cell.userID
         
-        if(button.selected == false)
+        if(button.isSelected == false)
         {
-            button.selected = true
+            button.isSelected = true
             FirebaseHelper.addFriend(currentUserID, friendID: friendID, friendName: friendName)
         }
         else
         {
-            button.selected = false
+            button.isSelected = false
             FirebaseHelper.removeFriend(currentUserID, friendID: friendID)
         }
     }
     
-    @IBAction func dismissButtonPressed(sender: AnyObject)
+    @IBAction func dismissButtonPressed(_ sender: AnyObject)
     {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

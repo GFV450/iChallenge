@@ -347,6 +347,7 @@
 					E7E785FC1D2845CE005FB7B3 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = HK78M4RSH4;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -591,6 +592,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -609,6 +611,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

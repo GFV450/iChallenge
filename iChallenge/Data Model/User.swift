@@ -26,17 +26,17 @@ class User
         self.profileImage = profileImage
     }
     
-    func uploadUserData(user: FIRUser, profileImage: UIImageView)
+    func uploadUserData(_ user: FIRUser, profileImage: UIImageView)
     {
         // Create a reference to the path where you want to upload the file
         let storageRef: FIRStorageReference = FIRStorage.storage().reference().child("ProfileImages/\(name).jpg")
         
         //Resizes and compresses the image to be uploaded
-        let resizedImage = imageConversionHelper.ResizeImage(profileImage.image!, targetSize: CGSizeMake(300.0, 300.0))
+        let resizedImage = imageConversionHelper.ResizeImage(profileImage.image!, targetSize: CGSize(width: 300.0, height: 300.0))
         let profileImageData = UIImageJPEGRepresentation(resizedImage, 1)
         
         // Upload the file to the path defined above
-        storageRef.putData(profileImageData!, metadata: nil) { metadata, error in
+        storageRef.put(profileImageData!, metadata: nil) { metadata, error in
             if (error != nil)
             {
                 print("Image not stored: ", error?.localizedDescription)
@@ -51,7 +51,7 @@ class User
         }
     }
     
-    func uploadProfileData(user: FIRUser, profileImageURL: NSURL)
+    func uploadProfileData(_ user: FIRUser, profileImageURL: URL)
     {
         let dataRef: FIRDatabaseReference = FIRDatabase.database().reference()
         self.profileImage = profileImageURL.absoluteString
@@ -62,7 +62,7 @@ class User
         let changeRequest = user.profileChangeRequest()
         changeRequest.displayName = self.name
         changeRequest.photoURL = profileImageURL
-        changeRequest.commitChangesWithCompletion { error in
+        changeRequest.commitChanges { error in
             if let error = error
             {
                 print("an error happened: \(error.localizedDescription)")

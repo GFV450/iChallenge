@@ -27,31 +27,31 @@ class ChallengeViewController: UIViewController
     
     func setChallengeInfo()
     {
-        let profileImageURL = NSURL(string: (challenge?.challengerProfileImage)!)
+        let profileImageURL = URL(string: (challenge?.challengerProfileImage)!)
         
-        challengerProfileImage.sd_setImageWithURL(profileImageURL)
+        challengerProfileImage.sd_setImage(with: profileImageURL)
         challengerProfileImage.layer.cornerRadius = challengerProfileImage.frame.size.width/2
         
         challengeTitle.text = challenge?.challengeTitle
         challengeDescription.text = challenge?.challengeDescription
     }
     
-    @IBAction func completeChallengeButtonPressed(sender: AnyObject)
+    @IBAction func completeChallengeButtonPressed(_ sender: AnyObject)
     {
         challenge?.challengeCompleted()
         
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func reportButtonPressed(sender: AnyObject)
+    @IBAction func reportButtonPressed(_ sender: AnyObject)
     {
         challenge?.challengeReported()
         
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func dismissButtonPressed(sender: AnyObject)
+    @IBAction func dismissButtonPressed(_ sender: AnyObject)
     {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

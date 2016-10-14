@@ -28,10 +28,10 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         setImageView()
         
-        challengeTitle.textAlignment = .Center
-        challengeTitle.font = UIFont.systemFontOfSize(25)
-        challengeTitle.textColor = MaterialColor.white
-        challengeDescription.textColor = MaterialColor.white
+        challengeTitle.textAlignment = .center
+        challengeTitle.font = UIFont.systemFont(ofSize: 25)
+        challengeTitle.textColor = .white
+        challengeDescription.textColor = .white
 
         self.retrieveFriends()
         
@@ -49,7 +49,7 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         let profileImageURL = user!.photoURL
         
-        userImage.sd_setImageWithURL(profileImageURL)
+        userImage.sd_setImage(with: profileImageURL)
         userImage.layer.cornerRadius = userImage.frame.size.width/2
     }
     
@@ -65,15 +65,15 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         })
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = createChallengeCollectionView.dequeueReusableCellWithReuseIdentifier("CreateChallengeCell", forIndexPath: indexPath) as! CreateChallengeViewCell
+        let cell = createChallengeCollectionView.dequeueReusableCell(withReuseIdentifier: "CreateChallengeCell", for: indexPath) as! CreateChallengeViewCell
         
-        let friend = friendArray[indexPath.row]
-        let profileImageURL = NSURL(string: friend.profileImage)
+        let friend = friendArray[(indexPath as NSIndexPath).row]
+        let profileImageURL = URL(string: friend.profileImage)
         
         //Sets the information relevant to the cell on CollectionView
-        cell.profileImageView!.sd_setImageWithURL(profileImageURL!)
+        cell.profileImageView!.sd_setImage(with: profileImageURL!)
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2
         
         cell.nameLabel?.text = friend.name
@@ -81,27 +81,29 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
         
         if(cell.user?.userID == selectedFriend?.userID)
         {
-            cell.nameLabel.textColor = .blueColor()
+//            cell.nameLabel.textColor = .blueColor()
+            cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 10)
         }
         else
         {
-            cell.nameLabel.textColor = .whiteColor()
+//            cell.nameLabel.textColor = .whiteColor()
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 10)
         }
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return friendArray.count
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
         return 1
     }
 
     //MUST MAKE CONDITION WHEN NO FRIEND IS SELECTED
-    @IBAction func doneButtonPressed(sender: AnyObject)
+    @IBAction func doneButtonPressed(_ sender: AnyObject)
     {
         let user = (FIRAuth.auth()?.currentUser)!
         
@@ -127,34 +129,36 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
             print("Challenge not created: Friend not selected")
         }
         
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject)
+    @IBAction func cancelButtonPressed(_ sender: AnyObject)
     {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CreateChallengeViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! CreateChallengeViewCell
         
         selectedFriend = cell.user
-        cell.nameLabel.textColor = .blueColor()
+        cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 10)
+//        cell.nameLabel.textColor = .blueColor()
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
     {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CreateChallengeViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as? CreateChallengeViewCell
         
         if let cell = cell
         {
-            cell.nameLabel.textColor = .whiteColor()
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 10)
+//            cell.nameLabel.textColor = .whiteColor()
         }
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject)
+    @IBAction func dismissKeyboard(_ sender: AnyObject)
     {
         view.endEditing(true)
     }
@@ -162,14 +166,14 @@ class CreateChallengeViewController: UIViewController, UICollectionViewDelegate
 
 extension CreateChallengeViewController: UITextFieldDelegate, UITextViewDelegate
 {
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         challengeTitle.resignFirstResponder()
         
         return true
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             textView.resignFirstResponder()
             return false

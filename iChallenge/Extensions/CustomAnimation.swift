@@ -10,14 +10,14 @@ import UIKit
 
 // MARK: - Enumerations
 enum Direction: Int {
-    case Left
-    case Right
+    case left
+    case right
 }
 
 enum State {
-    case First
-    case Middle
-    case Final
+    case first
+    case middle
+    case final
 }
 
 class CustomAnimation {
@@ -32,9 +32,9 @@ class CustomAnimation {
     
     var running = false
     
-    var direction: Direction = .Left
+    var direction: Direction = .left
     
-    var state: State = .First
+    var state: State = .first
     
     var counter = 0
     
@@ -63,26 +63,26 @@ class CustomAnimation {
         //        rotateAnimation.toValue = CGFloat(M_PI * 4.0 * Double(factor))
         
         rotateAnimation.duration = self.duration
-        self.view.layer.addAnimation(rotateAnimation, forKey: nil)
+        self.view.layer.add(rotateAnimation, forKey: nil)
         
         self.maxRotation = self.maxRotation * factor
     }
     
     func bubble() {
-        view.transform = CGAffineTransformMakeScale(0.1, 0.1)
+        view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
-        UIView.animateWithDuration(2.0,
+        UIView.animate(withDuration: 2.0,
                                    delay: 0,
                                    usingSpringWithDamping: 0.20,
                                    initialSpringVelocity: 6.00,
-                                   options: .AllowUserInteraction,
+                                   options: .allowUserInteraction,
                                    animations: {
-                                    self.view.transform = CGAffineTransformIdentity
+                                    self.view.transform = CGAffineTransform.identity
             }, completion: nil)
     }
     
     func spring() {
-        UIView.animateWithDuration(2.0, delay: 0.0,
+        UIView.animate(withDuration: 2.0, delay: 0.0,
                                    usingSpringWithDamping: 0.25,
                                    initialSpringVelocity: 0.0,
                                    options: [],
@@ -108,28 +108,28 @@ class CustomAnimation {
         var rotation = maxRotation
         
         switch self.state {
-        case .First:
+        case .first:
             position = maxPosition / 2
             break
-        case .Middle:
+        case .middle:
             break
-        case .Final:
+        case .final:
             rotation = 0
             position = maxPosition / 2
             break
         }
         
-        UIView.animateWithDuration(self.duration,
+        UIView.animate(withDuration: self.duration,
                                    delay: self.delay,
-                                   options: .TransitionNone,
+                                   options: UIViewAnimationOptions(),
                                    animations: {
                                     
                                     // Position
-                                    let x = self.view.center.x + position * factor
+                                    let x = self.view.center.x + position! * factor
                                     self.view.center.x = x
                                     
                                     // Rotation
-                                    self.view.transform = CGAffineTransformMakeRotation(rotation * factor)
+                                    self.view.transform = CGAffineTransform(rotationAngle: rotation! * factor)
                                     
         }) { (completed: Bool) in
             self.running = false
@@ -163,17 +163,17 @@ private extension CustomAnimation {
         direction = Direction(rawValue: abs(self.direction.rawValue - 1))!
         
         if counter < self.repetitions {
-            state = .Middle
+            state = .middle
             shakeAnimation()
             counter += 1
             
         } else if counter == repetitions {
-            state = .Final
+            state = .final
             shakeAnimation()
             counter += 1
             
         } else {
-            state = .First
+            state = .first
             counter = 0
             
             if repetitions % 2 == 0 {

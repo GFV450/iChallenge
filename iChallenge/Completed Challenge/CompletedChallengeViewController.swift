@@ -27,8 +27,8 @@ class CompletedChallengeViewController: UIViewController
     
     func setChallengeInfo()
     {
-        let challengerProfileImageURL = NSURL(string: (challenge?.challengerProfileImage)!)
-        let foeProfileImageURL = NSURL(string: (challenge?.foeProfileImage)!)
+        let challengerProfileImageURL = URL(string: (challenge?.challengerProfileImage)!)
+        let foeProfileImageURL = URL(string: (challenge?.foeProfileImage)!)
         
         challengeTitle.text = challenge?.challengeTitle
         challengeDescription.text = challenge?.challengeDescription
@@ -39,21 +39,21 @@ class CompletedChallengeViewController: UIViewController
         {
             challengeLabel.text = "You were challenged to"
             
-            profileImage.sd_setImageWithURL(challengerProfileImageURL)
+            profileImage.sd_setImage(with: challengerProfileImageURL)
             
         }
         else
         {
             challengeLabel.text = "You challenged your friend to"
             
-            profileImage.sd_setImageWithURL(foeProfileImageURL)
+            profileImage.sd_setImage(with: foeProfileImageURL)
             profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         }
     }
     
-    @IBAction func dismissButtonPressed(sender: AnyObject)
+    @IBAction func dismissButtonPressed(_ sender: AnyObject)
     {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
 }
